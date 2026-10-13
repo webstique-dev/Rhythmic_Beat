@@ -1,0 +1,87 @@
+import bollywoodImg from '../assets/style_bollywood.jpg';
+import hiphopImg from '../assets/style_hiphop.jpg';
+import contemporaryImg from '../assets/style_contemporary.jpg';
+import classicalImg from '../assets/style_classical.jpg';
+import zumbaImg from '../assets/style_zumba.jpg';
+import kidsImg from '../assets/style_kids.jpg';
+
+export const stylesSectionData = {
+  label: "MOVEMENT DISCIPLINES",
+  headline: "Crafted for passion, stage, and stamina.",
+  lede: "Whether mastering dynamic street isolations or exploring classical grace, each program is developed under master syllabus structures with personalized trainer feedback.",
+  dragHint: "Drag or use the arrow keys to cycle cards",
+  cards: [
+    {
+      id: "bollywood",
+      name: "Bollywood",
+      tag: "FREESTYLE & COMMERCIAL",
+      summary: "Signature high-energy choreography merging Indian cinema expressions, folk vitality, and contemporary beats.",
+      image: bollywoodImg,
+      details: {
+        intensity: "High Energy",
+        focus: "Rhythm & Expression",
+        mentor: "Yuvraaj Master & Core Faculty",
+      },
+    },
+    {
+      id: "hip-hop",
+      name: "Hip-Hop",
+      tag: "URBAN & STREET FOUNDATIONS",
+      summary: "Popping, locking, tutting, and breaking with an authentic street groove and crisp musical isolation training.",
+      image: hiphopImg,
+      details: {
+        intensity: "Dynamic Cardio",
+        focus: "Grooves & Isolations",
+        mentor: "Urban Crew Instructors",
+      },
+    },
+    {
+      id: "contemporary",
+      name: "Contemporary",
+      tag: "LYRICAL & MODERN FLOORWORK",
+      summary: "Emotional floor transitions, suspended leaps, breath synchronization, and expansive storytelling choreography.",
+      image: contemporaryImg,
+      details: {
+        intensity: "Technical & Fluid",
+        focus: "Balance & Extension",
+        mentor: "Contemporary Guild",
+      },
+    },
+    {
+      id: "classical",
+      name: "Classical & Folk",
+      tag: "BHARATANATYAM & TRADITIONAL",
+      summary: "Adavus, mudras, Aramandi postures, and rhythmic jathis rooted in centuries of classical temple discipline.",
+      image: classicalImg,
+      details: {
+        intensity: "Technical Rigor",
+        focus: "Posture & Mudras",
+        mentor: "National Awardee Mentors",
+      },
+    },
+    {
+      id: "zumba",
+      name: "Zumba & Fitness",
+      tag: "CARDIO & 'ONLY DIVAS' BATCH",
+      summary: "High-octane Latin and global dance cardio, including our exclusive morning women's fitness batches.",
+      image: zumbaImg,
+      details: {
+        intensity: "Maximum Cardio",
+        focus: "Stamina & Tone",
+        mentor: "Certified Zumba Trainers",
+      },
+    },
+    {
+      id: "kids",
+      name: "Kids Batch",
+      tag: "FOUNDATIONS & GYMNASTICS",
+      summary: "Playful coordination, fundamental musicality, agility, and motor control for our youngest future performers.",
+      image: kidsImg,
+      details: {
+        intensity: "Joyful & Structured",
+        focus: "Agility & Confidence",
+        mentor: "Junior Creative Faculty",
+      },
+    },
+  ],
+};

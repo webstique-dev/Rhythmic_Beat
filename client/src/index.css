@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ground: #F8FAFD;
+  --color-ground-secondary: #EAF1FB;
+  --color-ink: #10203A;
+  --color-ink-secondary: #4A5B78;
+  --color-muted: #7B8AA3;
+  --color-accent-orange: #F28C1E;
+  --color-accent-blue: #1E5BB8;
+  --color-hairline: rgba(16, 32, 58, 0.14);
+
+  --font-display: 'Syne', sans-serif;
+  --font-sans: 'Sora', sans-serif;
+}
+
+:root {
+  --ground: #F8FAFD;
+  --secondary-ground: #EAF1FB;
+  --ink: #10203A;
+  --secondary-ink: #4A5B78;
+  --muted: #7B8AA3;
+  --orange: #F28C1E;
+  --blue: #1E5BB8;
+  --hairline: rgba(16, 32, 58, 0.14);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--ground);
+  color: var(--ink);
+  font-family: 'Sora', sans-serif;
+  overflow-x: clip; /* clips horizontal overflow without breaking position: sticky */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Headings use Syne with tight letter spacing */
+h1, h2, h3, h4, h5, h6, .font-display {
+  font-family: 'Syne', sans-serif;
+  letter-spacing: -0.025em;
+}
+
+/* Labels uppercase at wide tracking */
+.label-tracking {
+  letter-spacing: 0.14em;
+}
+
+/* Outlined stroke numeral */
+.stroke-numeral {
+  -webkit-text-stroke: 1.5px #10203A;
+  color: transparent;
+  font-family: 'Syne', sans-serif;
+}
+
+/* Hairline border utility */
+.border-hairline {
+  border-color: rgba(16, 32, 58, 0.14);
+}
+
+.border-hairline-t {
+  border-top-color: rgba(16, 32, 58, 0.14);
+}
+
+.border-hairline-b {
+  border-bottom-color: rgba(16, 32, 58, 0.14);
+}
+
+/* Deck card drop shadow - ONLY allowed shadow in the spec */
+.card-deck-shadow {
+  box-shadow: 0 16px 36px -8px rgba(16, 32, 58, 0.12), 0 4px 12px -2px rgba(16, 32, 58, 0.06);
+}
+
+/* Motion reveal */
+@media (prefers-reduced-motion: reduce) {
+  .motion-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
