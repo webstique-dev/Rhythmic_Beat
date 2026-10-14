@@ -2,7 +2,7 @@ import { useState, useRef, useEffect, useMemo } from 'react';
 import CircularCarousel from './CircularCarousel';
 
 import videoPesama from '../assets/Dancing with him is always a pleasure!! The way he compliments , keep me comfortable ❤️❤️ Pesama.mp4';
-import videoSemiclassical from '../assets/Glimpse of @yuvi_smart master’s Semiclassical workshop at Rhythmic beat dance court Valasaravakk.mp4';
+import videoSemiclassical from '../assets/Glimpse of @yuvi_smart master’s Semiclassical workshop at Rhythmic beat dance court Valasaravakk (online-video-cutter.com).mp4';
 import videoNallaru from '../assets/nallaru-poo-junior-batch.mp4';
 import videoFamilyDance from '../assets/Romba excited-ah and happy-ah irukku! ❤️🥹 En paiyan Tarun-oda and en husband-oda serndhu dance .mp4';
 import videoVaadaVaada from '../assets/Vaada Vaada paiya oru reel panla💃🕺Choreo @surendren_joe Edit @kalies_chittiboy Studio @rhythmi.mp4';
@@ -122,7 +122,7 @@ export const DanceReelsSection = () => {
       className="relative w-full py-14 sm:py-20 border-b border-[rgba(16,32,58,0.14)] bg-[#F8FAFD] overflow-hidden scroll-mt-20"
       aria-label="Dance Reels Showcase"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-16 mb-6 sm:mb-10">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 mb-6 sm:mb-10">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 sm:gap-6">
           <div>
             <div className="flex items-center gap-2 mb-2">

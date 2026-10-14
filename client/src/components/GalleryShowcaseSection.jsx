@@ -9,12 +9,12 @@ import imgStageEmbrace from '../assets/imgi_34_image.webp';
 import imgStudioMentors from '../assets/imgi_40_image.webp';
 import imgKalyanMaster from '../assets/imgi_49_image.webp';
 import imgCertificate from '../assets/imgi_66_image.webp';
-import imgFamilyDance from '../assets/poster-family-dance.webp';
-import imgFriendship from '../assets/poster-friendship.webp';
-import imgNallaruPoo from '../assets/poster-nallaru-poo.webp';
-import imgPesama from '../assets/poster-pesama.webp';
-import imgVaadaVaada from '../assets/poster-vaada-vaada.webp';
-import imgAerial from '../assets/aerial-workshop-poster.webp';
+// import imgFamilyDance from '../assets/poster-family-dance.webp';
+// import imgFriendship from '../assets/poster-friendship.webp';
+// import imgNallaruPoo from '../assets/poster-nallaru-poo.webp';
+// import imgPesama from '../assets/poster-pesama.webp';
+// import imgVaadaVaada from '../assets/poster-vaada-vaada.webp';
+// import imgAerial from '../assets/aerial-workshop-poster.webp';
 import imgSummerFest from '../assets/Hero-image.png';
 
 const GALLERY_ITEMS = [
@@ -90,54 +90,54 @@ const GALLERY_ITEMS = [
     title: 'Junior Achievement',
     subtitle: 'Academy Graduation'
   },
-  {
-    src: imgFamilyDance,
-    width: 720,
-    height: 1280,
-    alt: 'High energy commercial studio routine',
-    title: 'Bollywood Commercial',
-    subtitle: 'High Octane Beats'
-  },
-  {
-    src: imgFriendship,
-    width: 720,
-    height: 1280,
-    alt: 'Friendship duet routine in dance court studio',
-    title: 'Friendship Routine',
-    subtitle: 'Duet Expressions'
-  },
-  {
-    src: imgNallaruPoo,
-    width: 720,
-    height: 1280,
-    alt: 'Junior batch Nallaru Poo routine performers',
-    title: 'Junior Batch',
-    subtitle: 'Musicality & Rhythm'
-  },
-  {
-    src: imgPesama,
-    width: 720,
-    height: 1280,
-    alt: 'Pesama duet routine rehearsal in studio',
-    title: 'Pesama Duet',
-    subtitle: 'Lyrical Partnering'
-  },
-  {
-    src: imgVaadaVaada,
-    width: 720,
-    height: 1280,
-    alt: 'Street style commercial routine',
-    title: 'Urban Street',
-    subtitle: 'Cyphers & Grooves'
-  },
-  {
-    src: imgAerial,
-    width: 720,
-    height: 1280,
-    alt: 'Aerial dance silk workshop rehearsal at dance court',
-    title: 'Aerial Workshop',
-    subtitle: 'Silks & Acrobatic Flow'
-  },
+  // {
+  //   src: imgFamilyDance,
+  //   width: 720,
+  //   height: 1280,
+  //   alt: 'High energy commercial studio routine',
+  //   title: 'Bollywood Commercial',
+  //   subtitle: 'High Octane Beats'
+  // },
+  // {
+  //   src: imgFriendship,
+  //   width: 720,
+  //   height: 1280,
+  //   alt: 'Friendship duet routine in dance court studio',
+  //   title: 'Friendship Routine',
+  //   subtitle: 'Duet Expressions'
+  // },
+  // {
+  //   src: imgNallaruPoo,
+  //   width: 720,
+  //   height: 1280,
+  //   alt: 'Junior batch Nallaru Poo routine performers',
+  //   title: 'Junior Batch',
+  //   subtitle: 'Musicality & Rhythm'
+  // },
+  // {
+  //   src: imgPesama,
+  //   width: 720,
+  //   height: 1280,
+  //   alt: 'Pesama duet routine rehearsal in studio',
+  //   title: 'Pesama Duet',
+  //   subtitle: 'Lyrical Partnering'
+  // },
+  // {
+  //   src: imgVaadaVaada,
+  //   width: 720,
+  //   height: 1280,
+  //   alt: 'Street style commercial routine',
+  //   title: 'Urban Street',
+  //   subtitle: 'Cyphers & Grooves'
+  // },
+  // {
+  //   src: imgAerial,
+  //   width: 720,
+  //   height: 1280,
+  //   alt: 'Aerial dance silk workshop rehearsal at dance court',
+  //   title: 'Aerial Workshop',
+  //   subtitle: 'Silks & Acrobatic Flow'
+  // },
   {
     src: imgSummerFest,
     width: 1920,
@@ -316,7 +316,7 @@ export const GalleryShowcaseSection = () => {
         {/* Header container aligned to site grid */}
         <div
           ref={headerInnerRef}
-          className="w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-16 mb-5 sm:mb-8 flex-shrink-0"
+          className="w-full max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 mb-5 sm:mb-8 flex-shrink-0"
         >
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 sm:gap-6">
             <div>

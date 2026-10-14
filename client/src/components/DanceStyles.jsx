@@ -9,7 +9,7 @@ export const DanceStyles = ({ data = stylesSectionData }) => {
       style={{ backgroundColor: '#F8FAFD' }}
       aria-label="Dance Styles Section"
     >
-      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-12 items-center">
           {/* Left Column: Headline, Lede, Action Links */}
           <div className="lg:col-span-6 flex flex-col items-start">

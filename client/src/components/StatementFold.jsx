@@ -35,7 +35,7 @@ export const StatementFold = ({ data = statementData }) => {
       style={{ backgroundColor: '#F8FAFD' }}
       aria-label="Philosophy and Creed"
     >
-      <div className="max-w-7xl mx-auto w-full px-6 sm:px-10 lg:px-16 relative z-10">
+      <div className="max-w-[1400px] mx-auto w-full px-4 sm:px-8 lg:px-12 xl:px-16 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* Left Column: Index numeral and Statement content */}
           <div className="lg:col-span-8 flex flex-col items-start">

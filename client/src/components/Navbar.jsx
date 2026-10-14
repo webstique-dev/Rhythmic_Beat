@@ -23,7 +23,7 @@ export const Navbar = ({ data = navigationData }) => {
         paddingTop: 'env(safe-area-inset-top, 0px)',
       }}
     >
-      <div className="max-w-7xl mx-auto h-full px-4 sm:px-6 md:px-8 flex items-center justify-between">
+      <div className="max-w-[1400px] mx-auto h-full px-4 sm:px-8 lg:px-12 xl:px-16 flex items-center justify-between">
         {/* Left: Academy Logo */}
         <a
           href="#"

@@ -1,10 +1,41 @@
 import { useEffect, useRef, useState } from 'react';
-import heroImg from '../assets/Hero-image.png';
+import desktopHeroVideo from '../assets/Glimpse of @yuvi_smart master’s Semiclassical workshop at Rhythmic beat dance court Valasaravakk (online-video-cutter.com).mp4';
+import mobileHeroVideo from '../assets/Romba excited-ah and happy-ah irukku! ❤️🥹 En paiyan Tarun-oda and en husband-oda serndhu dance .mp4';
+import desktopPoster from '../assets/poster-semiclassical.webp';
+import mobilePoster from '../assets/poster-family-dance.webp';
 import { heroData } from '../data/hero';
 
 export const PortalHero = ({ data = heroData }) => {
   const containerRef = useRef(null);
+  const videoRef = useRef(null);
   const [scrollProgress, setScrollProgress] = useState(0);
+
+  const [isMobile, setIsMobile] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return window.innerWidth < 768;
+    }
+    return false;
+  });
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const mql = window.matchMedia('(max-width: 767px)');
+    const onChange = (e) => setIsMobile(e.matches);
+    setIsMobile(mql.matches);
+    mql.addEventListener('change', onChange);
+    return () => mql.removeEventListener('change', onChange);
+  }, []);
+
+  const currentVideoSrc = isMobile ? mobileHeroVideo : desktopHeroVideo;
+  const currentPoster = isMobile ? mobilePoster : desktopPoster;
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.defaultMuted = true;
+      videoRef.current.muted = true;
+      videoRef.current.play().catch(() => {});
+    }
+  }, [currentVideoSrc]);
 
   useEffect(() => {
     let rafId;
@@ -43,7 +74,7 @@ export const PortalHero = ({ data = heroData }) => {
   const leftPanelX = -p * 105; // 0% to -105%
   const rightPanelX = p * 105; // 0% to +105%
 
-  // 2. Full-bleed photograph settles from 1.15 overscale down to 1.00
+  // 2. Full-bleed video settles from 1.15 overscale down to 1.00
   const imageScale = 1.15 - p * 0.15;
 
   // 3. Duotone wash blending blue (#1E5BB8) and orange (#F28C1E) raises from 0 to 0.32
@@ -75,7 +106,7 @@ export const PortalHero = ({ data = heroData }) => {
         className="sticky top-0 w-full h-screen overflow-hidden select-none"
         style={{ isolation: 'isolate' }}
       >
-        {/* Layer 1: Full-Bleed Dance Photograph (settling from overscale) */}
+        {/* Layer 1: Full-Bleed Dance Video (settling from overscale) */}
         <div
           className="absolute inset-0 w-full h-full will-change-transform"
           style={{
@@ -83,12 +114,18 @@ export const PortalHero = ({ data = heroData }) => {
             transition: 'transform 0.05s linear',
           }}
         >
-          <img
-            src={heroImg}
-            alt="Rhythmic Beat Dance Court Summer Fest celebration and student awards presentation"
-            className="w-full h-full object-cover object-[center_35%]"
-            loading="eager"
-            fetchPriority="high"
+          <video
+            ref={videoRef}
+            key={currentVideoSrc}
+            src={currentVideoSrc}
+            poster={currentPoster}
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            className="w-full h-full object-cover object-center"
+            aria-label="Rhythmic Beat Dance Court academy hero performance video"
           />
         </div>
 

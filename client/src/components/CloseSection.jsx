@@ -9,7 +9,7 @@ export const CloseSection = ({ data = closeSectionData }) => {
       style={{ backgroundColor: '#F8FAFD' }}
       aria-label="Contact and Academy Details"
     >
-      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 pt-24 sm:pt-32 pb-12">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 pt-24 sm:pt-32 pb-12">
         {/* Top Split: Headline & Action Buttons */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-10 pb-16 border-b border-[rgba(16,32,58,0.14)]">
           <div>

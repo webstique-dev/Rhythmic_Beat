@@ -12,7 +12,7 @@ export const StageArenaSection = () => {
       aria-label="Studio Immersion & Stage Experience"
     >
       {/* Intro Header strip above the scroll expander */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-16 pt-12 sm:pt-16 pb-5 sm:pb-8 flex flex-col md:flex-row md:items-end justify-between gap-3 sm:gap-6">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 pt-12 sm:pt-16 pb-5 sm:pb-8 flex flex-col md:flex-row md:items-end justify-between gap-3 sm:gap-6">
         <div>
           <div className="flex items-center gap-2 mb-2 sm:mb-2.5">
             <span className="w-1.5 h-1.5 rounded-full bg-[#1E5BB8]" />

@@ -8,6 +8,7 @@ export const scheduleSectionData = {
     time: "HOURS",
     level: "LEVEL",
     branch: "PRIMARY STUDIO",
+    enquiry: "ENQUIRY",
   },
   rows: [
     {

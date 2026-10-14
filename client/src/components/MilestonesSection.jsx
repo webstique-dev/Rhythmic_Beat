@@ -91,7 +91,7 @@ export const MilestonesSection = () => {
       aria-label="Academy Milestones and Legacy"
       className="relative w-full bg-[#FFFFFF] border-y border-[rgba(16,32,58,0.12)] overflow-hidden py-12 sm:py-16 md:py-20 lg:py-24"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16">
         <div className="grid grid-cols-2 md:grid-cols-4">
           {MILESTONES.map((item, idx) => {
             const currentVal = isInView ? counts[idx] : item.value;
