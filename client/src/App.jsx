@@ -6,6 +6,7 @@ import { DanceStyles } from './components/DanceStyles';
 import { StageArenaSection } from './components/StageArenaSection';
 import { GalleryShowcaseSection } from './components/GalleryShowcaseSection';
 import { DanceReelsSection } from './components/DanceReelsSection';
+import { TestimonialsSection } from './components/TestimonialsSection';
 import { RosterSection } from './components/RosterSection';
 import { ScheduleSection } from './components/ScheduleSection';
 import { CloseSection } from './components/CloseSection';
@@ -41,6 +42,9 @@ export default function App() {
 
         {/* 8. Academy Roster (Hairline-ruled rows, display names, metadata details) */}
         {/* <RosterSection /> */}
+
+        {/* 8. Voices of the Court (Student & Parent Testimonials) */}
+        <TestimonialsSection />
 
         {/* 9. Weekly Schedule (Table with uppercase headers, responsive narrow 2-col collapsing) */}
         <ScheduleSection />
