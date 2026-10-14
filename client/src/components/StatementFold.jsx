@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import statementImg from '../assets/statement_dance.jpg';
+import statementImg from '../assets/dance-court-footer-group.webp';
 import { statementData } from '../data/statement';
 
 export const StatementFold = ({ data = statementData }) => {
@@ -101,6 +101,9 @@ export const StatementFold = ({ data = statementData }) => {
         <img
           src={statementImg}
           alt=""
+          width="540"
+          height="540"
+          decoding="async"
           className="w-full h-full object-cover scale-110"
           loading="lazy"
         />

@@ -197,6 +197,9 @@ export const CardDeck = ({
                 <img
                   src={card.image}
                   alt={card.name}
+                  width="360"
+                  height="260"
+                  decoding="async"
                   className="w-full h-full object-cover pointer-events-none"
                   loading="lazy"
                 />

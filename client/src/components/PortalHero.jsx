@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import heroImg from '../assets/hero_dance.jpg';
+import heroImg from '../assets/Hero-image.png';
 import { heroData } from '../data/hero';
 
 export const PortalHero = ({ data = heroData }) => {
@@ -85,8 +85,8 @@ export const PortalHero = ({ data = heroData }) => {
         >
           <img
             src={heroImg}
-            alt="Dynamic dancers in mid-air leaps at Rhythmic Beat Dance Court"
-            className="w-full h-full object-cover object-[center_32%]"
+            alt="Rhythmic Beat Dance Court Summer Fest celebration and student awards presentation"
+            className="w-full h-full object-cover object-[center_35%]"
             loading="eager"
             fetchPriority="high"
           />

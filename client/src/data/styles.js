@@ -1,9 +1,9 @@
-import bollywoodImg from '../assets/style_bollywood.jpg';
-import hiphopImg from '../assets/style_hiphop.jpg';
-import contemporaryImg from '../assets/style_contemporary.jpg';
-import classicalImg from '../assets/style_classical.jpg';
-import zumbaImg from '../assets/style_zumba.jpg';
-import kidsImg from '../assets/style_kids.jpg';
+import bollywoodImg from '../assets/imgi_9_image.webp';
+import hiphopImg from '../assets/imgi_28_image.webp';
+import contemporaryImg from '../assets/imgi_34_image.webp';
+import classicalImg from '../assets/imgi_40_image.webp';
+import zumbaImg from '../assets/imgi_49_image.webp';
+import kidsImg from '../assets/imgi_66_image.webp';
 
 export const stylesSectionData = {
   label: "MOVEMENT DISCIPLINES",

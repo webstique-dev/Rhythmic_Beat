@@ -4,7 +4,9 @@ export const navigationData = {
   links: [
     { label: "PHILOSOPHY", href: "#philosophy" },
     { label: "STYLES", href: "#styles" },
-    { label: "ROSTER", href: "#roster" },
+    { label: "ARENA", href: "#arena" },
+    { label: "GALLERY", href: "#gallery" },
+    { label: "REELS", href: "#reels" },
     { label: "SCHEDULE", href: "#schedule" },
     { label: "BRANCHES", href: "#branches" },
   ],

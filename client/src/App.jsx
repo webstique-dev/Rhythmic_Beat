@@ -1,7 +1,11 @@
 import { Navbar } from './components/Navbar';
 import { PortalHero } from './components/PortalHero';
 import { StatementFold } from './components/StatementFold';
+import { MilestonesSection } from './components/MilestonesSection';
 import { DanceStyles } from './components/DanceStyles';
+import { StageArenaSection } from './components/StageArenaSection';
+import { GalleryShowcaseSection } from './components/GalleryShowcaseSection';
+import { DanceReelsSection } from './components/DanceReelsSection';
 import { RosterSection } from './components/RosterSection';
 import { ScheduleSection } from './components/ScheduleSection';
 import { CloseSection } from './components/CloseSection';
@@ -20,13 +24,25 @@ export default function App() {
         {/* 3. Statement Fold (Philosophy, clamp typography, outlined stroke numeral, drifting circular photo) */}
         <StatementFold />
 
-        {/* 4. Dance Styles (Two columns with Throwable physical card deck) */}
+        {/* 4. Academy Milestones (2,004 Founded in Trichy • 7,000+ Students • 1,000+ Shows • 1 Shared Passion) */}
+        <MilestonesSection />
+
+        {/* 5. Dance Styles (Two columns with Throwable physical card deck) */}
         <DanceStyles />
 
-        {/* 5. Academy Roster (Hairline-ruled rows, display names, metadata details) */}
-        <RosterSection />
+        {/* 5. Stage Arena Experience (ScrollExpand component from React Bits) */}
+        <StageArenaSection />
 
-        {/* 6. Weekly Schedule (Table with uppercase headers, responsive narrow 2-col collapsing) */}
+        {/* 6. Motion Archive (FlexCarousel component from React Bits) */}
+        <GalleryShowcaseSection />
+
+        {/* 7. Dance Reels in Motion (Live video reels from assets) */}
+        <DanceReelsSection />
+
+        {/* 8. Academy Roster (Hairline-ruled rows, display names, metadata details) */}
+        {/* <RosterSection /> */}
+
+        {/* 9. Weekly Schedule (Table with uppercase headers, responsive narrow 2-col collapsing) */}
         <ScheduleSection />
       </main>
 

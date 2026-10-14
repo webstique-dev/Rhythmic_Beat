@@ -34,6 +34,7 @@ export const Navbar = ({ data = navigationData }) => {
             src={logoImg}
             alt={data.logoAlt}
             className="h-[34px] w-auto object-contain"
+            decoding="async"
             width={120}
             height={34}
           />

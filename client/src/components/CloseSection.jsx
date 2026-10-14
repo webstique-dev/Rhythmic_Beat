@@ -1,4 +1,5 @@
 import { closeSectionData } from '../data/close';
+import footerGroupImg from '../assets/dance-court-footer-group.webp';
 
 export const CloseSection = ({ data = closeSectionData }) => {
   return (
@@ -23,9 +24,8 @@ export const CloseSection = ({ data = closeSectionData }) => {
             </h2>
           </div>
 
-          {/* Action Buttons: Outlined with hairlines, no filled background (spec rule) */}
+          {/* Action Buttons */}
           <div className="flex items-center gap-4 flex-wrap">
-            {/* WhatsApp Us */}
             <a
               href={`https://wa.me/${data.whatsappNumber}?text=Hi%20RBDC%20Team,%20I%20would%20like%20to%20inquire%20about%20dance%20batches`}
               target="_blank"
@@ -36,7 +36,6 @@ export const CloseSection = ({ data = closeSectionData }) => {
               <span className="w-1.5 h-1.5 rounded-full bg-[#F28C1E] group-hover:scale-125 transition-transform" />
             </a>
 
-            {/* Call */}
             <a
               href={`tel:${data.phone}`}
               className="group inline-flex items-center gap-2.5 px-6 py-3.5 rounded-full border border-[rgba(16,32,58,0.22)] text-xs font-semibold text-[#10203A] tracking-[0.06em] hover:border-[#10203A] hover:bg-[#EAF1FB]/50 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1E5BB8]"
@@ -44,6 +43,29 @@ export const CloseSection = ({ data = closeSectionData }) => {
               <span>Call: {data.displayPhone}</span>
               <span className="w-1.5 h-1.5 rounded-full bg-[#1E5BB8] group-hover:scale-125 transition-transform" />
             </a>
+          </div>
+        </div>
+
+        {/* Academy Ensemble Community Banner */}
+        <div className="my-10 sm:my-14 rounded-3xl overflow-hidden border border-[rgba(16,32,58,0.12)] relative shadow-sm">
+          <img
+            src={footerGroupImg}
+            alt="Rhythmic Beat Dance Court academy ensemble crew"
+            width="1200"
+            height="400"
+            decoding="async"
+            className="w-full h-[220px] xs:h-[260px] sm:h-[320px] md:h-[400px] object-cover object-center"
+            loading="lazy"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#10203A]/90 via-[#10203A]/30 to-transparent flex items-end p-5 sm:p-8">
+            <div>
+              <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.16em] font-semibold text-[#F28C1E] block mb-1">
+                One Family • Infinite Movement
+              </span>
+              <p className="font-display font-bold text-lg sm:text-2xl text-white">
+                RBDC Ensemble Community
+              </p>
+            </div>
           </div>
         </div>
 
