@@ -12,8 +12,12 @@ const smoothstep = (edge0, edge1, x) => {
 
 const ScrollExpand = ({
   src = '',
+  desktopSrc = '',
+  mobileSrc = '',
+  breakpoint = 1024,
   mediaType = 'image',
   poster = '',
+  mobilePoster = '',
   alt = '',
   title = '',
   scrollHint = '',
@@ -42,6 +46,25 @@ const ScrollExpand = ({
   const overlayRef = useRef(null);
   const scrimRef = useRef(null);
   const hintRef = useRef(null);
+
+  const [isMobile, setIsMobile] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return window.innerWidth < breakpoint;
+    }
+    return false;
+  });
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const mql = window.matchMedia(`(max-width: ${breakpoint - 0.02}px)`);
+    const onChange = e => setIsMobile(e.matches);
+    setIsMobile(mql.matches);
+    mql.addEventListener('change', onChange);
+    return () => mql.removeEventListener('change', onChange);
+  }, [breakpoint]);
+
+  const currentSrc = isMobile && mobileSrc ? mobileSrc : (desktopSrc || src);
+  const currentPoster = isMobile && mobilePoster ? mobilePoster : poster;
 
   const propsRef = useRef({});
   propsRef.current = {
@@ -233,22 +256,23 @@ const ScrollExpand = ({
         v.pause();
       }
     }
-  }, [mediaType, src, isInView]);
+  }, [mediaType, currentSrc, isInView]);
 
   const media =
     mediaType === 'video' ? (
       <video
         ref={mediaRef}
+        key={currentSrc}
         className="scroll-expand__media"
-        src={src}
-        poster={poster}
+        src={currentSrc}
+        poster={currentPoster}
         preload={isInView ? 'metadata' : 'none'}
         loop
         playsInline
         muted
       />
     ) : (
-      <img ref={mediaRef} className="scroll-expand__media" src={src} alt={alt} draggable={false} loading="lazy" decoding="async" />
+      <img ref={mediaRef} className="scroll-expand__media" src={currentSrc} alt={alt} draggable={false} loading="lazy" decoding="async" />
     );
 
   return (

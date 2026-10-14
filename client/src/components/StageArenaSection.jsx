@@ -1,6 +1,8 @@
 import ScrollExpand from './ScrollExpand';
-import danceReelVideo from '../assets/Dancing with him is always a pleasure!! The way he compliments , keep me comfortable ❤️❤️ Pesama.mp4';
-import dancePoster from '../assets/poster-pesama.webp';
+import desktopVideo from '../assets/Glimpse of @yuvi_smart master’s Semiclassical workshop at Rhythmic beat dance court Valasaravakk (online-video-cutter.com).mp4';
+import pesamaVideo from '../assets/Dancing with him is always a pleasure!! The way he compliments , keep me comfortable ❤️❤️ Pesama.mp4';
+import semiclassicalPoster from '../assets/poster-semiclassical.webp';
+import pesamaPoster from '../assets/poster-pesama.webp';
 
 export const StageArenaSection = () => {
   return (
@@ -30,10 +32,14 @@ export const StageArenaSection = () => {
       {/* The ScrollExpand Interactive Showcase with live video reel from assets */}
       <div className="w-full relative">
         <ScrollExpand
-          src={danceReelVideo}
-          poster={dancePoster}
+          desktopSrc={desktopVideo}
+          mobileSrc={pesamaVideo}
+          src={desktopVideo}
+          poster={semiclassicalPoster}
+          mobilePoster={pesamaPoster}
+          breakpoint={1024}
           mediaType="video"
-          alt="Rhythmic Beat Dance Court live performance reel"
+          alt="Rhythmic Beat Dance Court stage performance reel"
           title="RHYTHMIC BEAT"
           scrollHint="Scroll to Expand the Stage ↓"
           useWindowScroll={true}
