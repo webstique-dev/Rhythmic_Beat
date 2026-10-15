@@ -9,28 +9,28 @@ export const CloseSection = ({ data = closeSectionData }) => {
       style={{ backgroundColor: '#F8FAFD' }}
       aria-label="Contact and Academy Details"
     >
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 pt-24 sm:pt-32 pb-12">
+      <div className="max-w-[1400px] mx-auto px-3 xs:px-4 sm:px-8 lg:px-12 xl:px-16 pt-16 sm:pt-32 pb-12">
         {/* Top Split: Headline & Action Buttons */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-10 pb-16 border-b border-[rgba(16,32,58,0.14)]">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 sm:gap-10 pb-12 sm:pb-16 border-b border-[rgba(16,32,58,0.14)]">
           <div>
             <div className="flex items-center gap-2 mb-3">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#1E5BB8]" />
-              <span className="text-[11px] font-semibold text-[#10203A] uppercase tracking-[0.15em]">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#1E5BB8] shrink-0" />
+              <span className="text-[10px] sm:text-[11px] font-semibold text-[#10203A] uppercase tracking-[0.12em] sm:tracking-[0.15em] break-words">
                 {data.tagline}
               </span>
             </div>
-            <h2 className="font-display font-bold text-4xl sm:text-5xl md:text-6xl text-[#10203A] tracking-[-0.03em]">
+            <h2 className="font-display font-bold text-3xl xs:text-4xl sm:text-5xl md:text-6xl text-[#10203A] tracking-[-0.03em] break-words">
               {data.headline}
             </h2>
           </div>
 
           {/* Action Buttons */}
-          <div className="flex items-center gap-4 flex-wrap">
+          <div className="flex items-center gap-3 sm:gap-4 flex-wrap w-full sm:w-auto">
             <a
               href={`https://wa.me/${data.whatsappNumber}?text=Hi%20RBDC%20Team,%20I%20would%20like%20to%20inquire%20about%20dance%20batches`}
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center gap-2.5 px-6 py-3.5 rounded-full border border-[rgba(16,32,58,0.22)] text-xs font-semibold text-[#10203A] tracking-[0.06em] hover:border-[#10203A] hover:bg-[#EAF1FB]/50 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1E5BB8]"
+              className="w-full sm:w-auto justify-center group inline-flex items-center gap-2.5 px-5 sm:px-6 py-3 sm:py-3.5 rounded-full border border-[rgba(16,32,58,0.22)] text-xs font-semibold text-[#10203A] tracking-[0.04em] sm:tracking-[0.06em] hover:border-[#10203A] hover:bg-[#EAF1FB]/50 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1E5BB8]"
             >
               <span>WhatsApp Us</span>
               <span className="w-1.5 h-1.5 rounded-full bg-[#F28C1E] group-hover:scale-125 transition-transform" />
@@ -38,7 +38,7 @@ export const CloseSection = ({ data = closeSectionData }) => {
 
             <a
               href={`tel:${data.phone}`}
-              className="group inline-flex items-center gap-2.5 px-6 py-3.5 rounded-full border border-[rgba(16,32,58,0.22)] text-xs font-semibold text-[#10203A] tracking-[0.06em] hover:border-[#10203A] hover:bg-[#EAF1FB]/50 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1E5BB8]"
+              className="w-full sm:w-auto justify-center group inline-flex items-center gap-2.5 px-5 sm:px-6 py-3 sm:py-3.5 rounded-full border border-[rgba(16,32,58,0.22)] text-xs font-semibold text-[#10203A] tracking-[0.04em] sm:tracking-[0.06em] hover:border-[#10203A] hover:bg-[#EAF1FB]/50 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1E5BB8]"
             >
               <span>Call: {data.displayPhone}</span>
               <span className="w-1.5 h-1.5 rounded-full bg-[#1E5BB8] group-hover:scale-125 transition-transform" />

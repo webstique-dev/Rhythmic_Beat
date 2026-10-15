@@ -133,9 +133,9 @@ export const Navbar = ({
         paddingTop: 'env(safe-area-inset-top, 0px)',
       }}
     >
-      <div className="max-w-[1440px] mx-auto h-full px-4 sm:px-8 lg:px-12 flex items-center justify-between">
+      <div className="max-w-[1440px] mx-auto h-full px-3 xs:px-4 sm:px-8 lg:px-12 flex items-center justify-between">
         {/* Left Column: Logo (transparent background) */}
-        <div className="flex-1 flex items-center justify-start pointer-events-auto">
+        <div className="flex-1 flex items-center justify-start pointer-events-auto min-w-0">
           <a
             href="/"
             onClick={handleLogoClick}
@@ -145,7 +145,7 @@ export const Navbar = ({
             <img
               src={logoImg}
               alt={data.logoAlt || 'Rhythmic Beat Dance Court Logo'}
-              className="h-[36px] sm:h-[42px] md:h-[46px] w-auto object-contain transition-transform duration-200 group-hover:scale-[1.02]"
+              className="h-[30px] xs:h-[36px] sm:h-[42px] md:h-[46px] w-auto max-w-[125px] xs:max-w-none object-contain transition-transform duration-200 group-hover:scale-[1.02]"
               decoding="async"
               width={150}
               height={46}
@@ -198,11 +198,11 @@ export const Navbar = ({
         </div>
 
         {/* Mobile / Tablet Controls (< 1040px) */}
-        <div className="flex min-[1040px]:hidden items-center gap-2.5 pointer-events-auto">
+        <div className="flex min-[1040px]:hidden items-center gap-1.5 xs:gap-2.5 pointer-events-auto shrink-0">
           <a
             href="/contact"
             onClick={handleContactClick}
-            className="inline-flex items-center justify-center px-4 py-2 rounded-full text-[12px] font-medium bg-[#18181B] text-white hover:bg-black active:scale-[0.98] transition-all shadow-[0_2px_6px_rgba(24,24,27,0.2)]"
+            className="inline-flex items-center justify-center px-3 py-1.5 xs:px-4 xs:py-2 rounded-full text-[11px] xs:text-[12px] font-medium bg-[#18181B] text-white hover:bg-black active:scale-[0.98] transition-all shadow-[0_2px_6px_rgba(24,24,27,0.2)] whitespace-nowrap"
           >
             Contact Us
           </a>
@@ -211,7 +211,7 @@ export const Navbar = ({
             onClick={toggleMobileMenu}
             aria-expanded={isMobileMenuOpen}
             aria-label="Toggle Navigation Menu"
-            className="p-2.5 rounded-full text-[#18181B] bg-white border border-[#ECE7DC] hover:bg-white active:bg-white/80 transition-colors shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20 cursor-pointer"
+            className="p-2 xs:p-2.5 rounded-full text-[#18181B] bg-white border border-[#ECE7DC] hover:bg-white active:bg-white/80 transition-colors shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20 cursor-pointer shrink-0"
           >
             <svg
               className="w-5 h-5"

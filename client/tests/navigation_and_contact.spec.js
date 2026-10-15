@@ -328,8 +328,72 @@ async function runNavigationAndContactTests() {
       console.log(`  ✓ Mobile return to Home verified: ${mobilePage.url()}`);
     }
 
+    // -------------------------------------------------------------
+    // Test 8: Strict 320px Viewport Responsiveness & Overflow Audit
+    // -------------------------------------------------------------
+    console.log('\n--- TEST 8: Strict 320px Viewport Responsiveness & Overflow Audit ---');
+    const ultraMobileContext = await browser.newContext({ viewport: { width: 320, height: 750 } });
+    const ultraMobilePage = await ultraMobileContext.newPage();
+    await ultraMobilePage.goto('http://localhost:5173/contact', { waitUntil: 'domcontentloaded' });
+    await ultraMobilePage.waitForTimeout(400);
+
+    // 8.1 Check for Horizontal Page Scroll/Overflow at 320px
+    const contactOverflowInfo = await ultraMobilePage.evaluate(() => {
+      const scrollW = document.documentElement.scrollWidth;
+      const bodyScrollW = document.body.scrollWidth;
+      const clientW = document.documentElement.clientWidth;
+      const overflows = [];
+      document.querySelectorAll('#contact-hero, #contact-form, #our-locations, #visual-banner, footer, header').forEach(parent => {
+        parent.querySelectorAll('*').forEach(el => {
+          const rect = el.getBoundingClientRect();
+          if (rect.right > 320.5) {
+            overflows.push({
+              tag: el.tagName,
+              className: el.className ? String(el.className).slice(0, 50) : '',
+              text: (el.textContent || '').trim().slice(0, 30),
+              right: Math.round(rect.right),
+            });
+          }
+        });
+      });
+      return { scrollW, bodyScrollW, clientW, overflows };
+    });
+
+    if (contactOverflowInfo.scrollW <= 320 && contactOverflowInfo.bodyScrollW <= 320) {
+      console.log(`  ✓ Contact Page has zero horizontal overflow at 320px (scrollWidth: ${contactOverflowInfo.scrollW}px)`);
+    } else {
+      console.error(`  ✗ Contact Page has horizontal overflow at 320px (scrollWidth: ${contactOverflowInfo.scrollW}px)`);
+      console.error('    Overflowing elements:', contactOverflowInfo.overflows.slice(0, 5));
+      allPassed = false;
+    }
+
+    // 8.2 Verify Branch 01 Card and Verified Studio Badge at 320px
+    const branch1Badge = ultraMobilePage.locator('#our-locations span:has-text("Verified Studio")').first();
+    const badgeBox = await branch1Badge.boundingBox();
+    if (badgeBox && badgeBox.x + badgeBox.width <= 320) {
+      console.log(`  ✓ Branch 01 "Verified Studio" badge fits cleanly at 320px (right edge: ${Math.round(badgeBox.x + badgeBox.width)}px <= 320px)`);
+    } else {
+      console.error(`  ✗ Branch 01 badge overflows at 320px:`, badgeBox);
+      allPassed = false;
+    }
+
+    // 8.3 Verify Hero "Contact Us" Title at 320px
+    const heroH1 = ultraMobilePage.locator('#contact-hero h1');
+    const heroBox = await heroH1.boundingBox();
+    if (heroBox && heroBox.x + heroBox.width <= 320) {
+      console.log(`  ✓ Hero "Contact Us" heading fits cleanly at 320px (right edge: ${Math.round(heroBox.x + heroBox.width)}px <= 320px)`);
+    } else {
+      console.error(`  ✗ Hero heading overflows at 320px:`, heroBox);
+      allPassed = false;
+    }
+
+    // Save 320px screenshot for visual confirmation
+    await ultraMobilePage.screenshot({ path: 'tests/contact_320px_verified.png', fullPage: true });
+    console.log('  ✓ Saved 320px full-page screenshot: tests/contact_320px_verified.png');
+
     await context.close();
     await mobileContext.close();
+    await ultraMobileContext.close();
   } catch (err) {
     console.error('❌ Test failed with error:', err);
     allPassed = false;

@@ -165,22 +165,22 @@ export const ContactPage = ({ onNavigateHome }) => {
   );
 
   return (
-    <div className="min-h-screen w-full bg-[#FAF9F5] text-[#10203A] selection:bg-[#EAF1FB] selection:text-[#10203A]">
+    <div className="min-h-screen w-full overflow-x-hidden min-w-0 bg-[#FAF9F5] text-[#10203A] selection:bg-[#EAF1FB] selection:text-[#10203A]">
       {/* ========================================================
           SECTION 1 – CONTACT HERO
       ======================================================== */}
       <section
         id="contact-hero"
-        className="relative w-full pt-28 sm:pt-36 pb-16 lg:pb-24 overflow-hidden border-b border-[rgba(16,32,58,0.08)]"
+        className="relative w-full pt-24 xs:pt-28 sm:pt-36 pb-12 sm:pb-16 lg:pb-24 overflow-hidden border-b border-[rgba(16,32,58,0.08)]"
         aria-label="Contact Us Introduction"
       >
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16">
+        <div className="max-w-[1400px] mx-auto px-3 xs:px-4 sm:px-8 lg:px-12 xl:px-16">
           {/* Back Button */}
-          <div className="mb-8">
+          <div className="mb-6 sm:mb-8">
             <button
               type="button"
               onClick={onNavigateHome}
-              className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.15em] text-[#4A5B78] hover:text-[#10203A] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1E5BB8] rounded-full px-3 py-1 bg-white/80 border border-[#ECE7DC] shadow-xs cursor-pointer"
+              className="inline-flex items-center gap-1.5 sm:gap-2 text-[11px] sm:text-xs font-semibold uppercase tracking-[0.12em] sm:tracking-[0.15em] text-[#4A5B78] hover:text-[#10203A] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1E5BB8] rounded-full px-2.5 sm:px-3 py-1 bg-white/80 border border-[#ECE7DC] shadow-xs cursor-pointer"
             >
               <ArrowLeft className="w-3.5 h-3.5" />
               <span>Back to Main Stage</span>
@@ -188,44 +188,44 @@ export const ContactPage = ({ onNavigateHome }) => {
           </div>
 
           {/* Grid Layout: Bold Headline & Intro on Left, High-Quality Visual on Right */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-14 items-center">
             <div className="lg:col-span-7">
-              <div className="flex items-center gap-2.5 mb-4">
-                <span className="w-2 h-2 rounded-full bg-[#F28C1E]" />
-                <span className="text-[11px] font-semibold text-[#10203A] uppercase tracking-[0.16em]">
+              <div className="flex items-center gap-2 mb-3 sm:mb-4">
+                <span className="w-2 h-2 rounded-full bg-[#F28C1E] shrink-0" />
+                <span className="text-[10px] xs:text-[11px] font-semibold text-[#10203A] uppercase tracking-[0.1em] sm:tracking-[0.16em] leading-relaxed break-words">
                   {closeSectionData.tagline || "Let ur body speak — A Yuvraaj's Dance School"}
                 </span>
               </div>
-              <h1 className="font-display font-extrabold text-5xl sm:text-6xl md:text-7xl text-[#10203A] tracking-[-0.035em] leading-[1.02]">
+              <h1 className="font-display font-extrabold text-3xl xs:text-4xl sm:text-6xl md:text-7xl text-[#10203A] tracking-[-0.03em] leading-[1.08] break-words">
                 Contact Us
               </h1>
-              <p className="mt-6 text-base sm:text-lg text-[#4A5B78] max-w-xl leading-relaxed font-sans">
+              <p className="mt-4 sm:mt-6 text-sm sm:text-base lg:text-lg text-[#4A5B78] max-w-xl leading-relaxed font-sans">
                 Whether you are taking your very first step or refining classical mastery, our court doors are wide open. Connect with Guru Yuvraaj Jayakumar’s faculty across Chennai and Pondicherry studios.
               </p>
 
               {/* Direct Contact Badges */}
-              <div className="mt-8 flex flex-wrap items-center gap-3">
+              <div className="mt-6 sm:mt-8 flex flex-wrap items-center gap-2 sm:gap-3">
                 <a
                   href={`tel:${closeSectionData.phone || '+919655551055'}`}
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-[#ECE7DC] text-xs font-semibold text-[#10203A] hover:border-[#1E5BB8] transition-colors shadow-xs"
+                  className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white border border-[#ECE7DC] text-[11px] sm:text-xs font-semibold text-[#10203A] hover:border-[#1E5BB8] transition-colors shadow-xs"
                 >
-                  <Phone className="w-3.5 h-3.5 text-[#1E5BB8]" />
+                  <Phone className="w-3.5 h-3.5 text-[#1E5BB8] shrink-0" />
                   <span>{closeSectionData.displayPhone || '+91 96555 51055'}</span>
                 </a>
                 <a
                   href={`mailto:${closeSectionData.email || 'rbdancecourt@gmail.com'}`}
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-[#ECE7DC] text-xs font-semibold text-[#10203A] hover:border-[#F28C1E] transition-colors shadow-xs"
+                  className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white border border-[#ECE7DC] text-[11px] sm:text-xs font-semibold text-[#10203A] hover:border-[#F28C1E] transition-colors shadow-xs max-w-full truncate"
                 >
-                  <Mail className="w-3.5 h-3.5 text-[#F28C1E]" />
-                  <span>{closeSectionData.email || 'rbdancecourt@gmail.com'}</span>
+                  <Mail className="w-3.5 h-3.5 text-[#F28C1E] shrink-0" />
+                  <span className="truncate">{closeSectionData.email || 'rbdancecourt@gmail.com'}</span>
                 </a>
                 <a
                   href={`https://wa.me/${closeSectionData.whatsappNumber || '919655551055'}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#E8F8EE] border border-[#25D366]/30 text-xs font-semibold text-[#188C43] hover:bg-[#d6f5df] transition-colors shadow-xs"
+                  className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#E8F8EE] border border-[#25D366]/30 text-[11px] sm:text-xs font-semibold text-[#188C43] hover:bg-[#d6f5df] transition-colors shadow-xs"
                 >
-                  <MessageSquare className="w-3.5 h-3.5 text-[#25D366]" />
+                  <MessageSquare className="w-3.5 h-3.5 text-[#25D366] shrink-0" />
                   <span>WhatsApp Desk</span>
                 </a>
               </div>
@@ -265,18 +265,18 @@ export const ContactPage = ({ onNavigateHome }) => {
         className="w-full py-16 sm:py-24 bg-white border-b border-[rgba(16,32,58,0.08)]"
         aria-label="Contact Enquiry Form"
       >
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16">
+        <div className="max-w-[1400px] mx-auto px-3 xs:px-4 sm:px-8 lg:px-12 xl:px-16">
           {/* Header Row: Big Headline on Left, Subtitle on Right (Reference Image Pattern) */}
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-10 border-b border-[rgba(16,32,58,0.08)]">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-6 pb-8 sm:pb-10 border-b border-[rgba(16,32,58,0.08)]">
             <div>
-              <span className="text-[11px] font-semibold uppercase tracking-[0.15em] text-[#1E5BB8]">
+              <span className="text-[10px] xs:text-[11px] font-semibold uppercase tracking-[0.12em] sm:tracking-[0.15em] text-[#1E5BB8]">
                 Get in Touch
               </span>
-              <h2 className="font-display font-extrabold text-3xl sm:text-4xl md:text-5xl text-[#10203A] tracking-[-0.03em] mt-1">
+              <h2 className="font-display font-extrabold text-2xl xs:text-3xl sm:text-4xl md:text-5xl text-[#10203A] tracking-[-0.03em] mt-1 break-words">
                 Send Us a Message
               </h2>
             </div>
-            <p className="text-sm sm:text-base text-[#4A5B78] max-w-sm font-sans md:text-right">
+            <p className="text-xs sm:text-sm md:text-base text-[#4A5B78] max-w-sm font-sans md:text-right">
               Tell us what dance style you love and which studio you'd like to visit. We’ll confirm batch availability within 24 hours.
             </p>
           </div>
@@ -516,7 +516,7 @@ export const ContactPage = ({ onNavigateHome }) => {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="inline-flex items-center justify-center px-7 py-3.5 rounded-full text-sm font-semibold tracking-wide bg-[#10203A] text-white hover:bg-[#1A3158] active:scale-[0.99] transition-all duration-150 shadow-sm cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
+                      className="inline-flex items-center justify-center px-5 sm:px-7 py-3 sm:py-3.5 rounded-full text-xs sm:text-sm font-semibold tracking-wide bg-[#10203A] text-white hover:bg-[#1A3158] active:scale-[0.99] transition-all duration-150 shadow-sm cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
                     >
                       {isSubmitting ? 'Submitting...' : 'Send Message'}
                     </button>
@@ -524,12 +524,12 @@ export const ContactPage = ({ onNavigateHome }) => {
                       type="submit"
                       disabled={isSubmitting}
                       aria-label="Submit Form with Arrow"
-                      className="w-12 h-12 rounded-full bg-[#10203A] text-white flex items-center justify-center hover:bg-[#1A3158] active:scale-[0.98] transition-all duration-150 shadow-sm cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
+                      className="w-10 h-10 sm:w-12 sm:h-12 shrink-0 rounded-full bg-[#10203A] text-white flex items-center justify-center hover:bg-[#1A3158] active:scale-[0.98] transition-all duration-150 shadow-sm cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
                     >
                       {isSubmitting ? (
                         <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
                       ) : (
-                        <ArrowUpRight className="w-5 h-5" />
+                        <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5" />
                       )}
                     </button>
                   </div>
@@ -587,46 +587,46 @@ export const ContactPage = ({ onNavigateHome }) => {
         className="w-full py-16 sm:py-24 bg-[#FAF9F5] border-b border-[rgba(16,32,58,0.08)]"
         aria-label="Our Studio Locations"
       >
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16">
+        <div className="max-w-[1400px] mx-auto px-3 xs:px-4 sm:px-8 lg:px-12 xl:px-16">
           {/* Section Header */}
-          <div className="text-center max-w-2xl mx-auto mb-14">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-[#ECE7DC] text-[11px] font-semibold uppercase tracking-[0.16em] text-[#1E5BB8] mb-3">
+          <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-[#ECE7DC] text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.14em] sm:tracking-[0.16em] text-[#1E5BB8] mb-3">
               <MapPin className="w-3.5 h-3.5 text-[#F28C1E]" />
               <span>Studio Campuses</span>
             </div>
-            <h2 className="font-display font-extrabold text-3xl sm:text-4xl md:text-5xl text-[#10203A] tracking-[-0.03em]">
+            <h2 className="font-display font-extrabold text-2xl xs:text-3xl sm:text-4xl md:text-5xl text-[#10203A] tracking-[-0.03em] break-words">
               Our Studio Locations
             </h2>
-            <p className="mt-3 text-sm sm:text-base text-[#4A5B78] font-sans">
+            <p className="mt-3 text-xs sm:text-sm md:text-base text-[#4A5B78] font-sans">
               Visit any of our active dance studios. All branches are equipped with sprung professional dance flooring, acoustic sound, and dedicated training arenas.
             </p>
           </div>
 
           {/* 4 Location Cards with Working Google Maps Iframes */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
             {branches.map((branch, index) => (
               <div
                 key={branch.name}
-                className="bg-white rounded-3xl p-6 sm:p-7 border border-[#ECE7DC] shadow-[0_4px_24px_-4px_rgba(16,32,58,0.06)] hover:shadow-[0_8px_32px_-4px_rgba(16,32,58,0.1)] transition-all duration-200 flex flex-col justify-between"
+                className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-7 border border-[#ECE7DC] shadow-[0_4px_24px_-4px_rgba(16,32,58,0.06)] hover:shadow-[0_8px_32px_-4px_rgba(16,32,58,0.1)] transition-all duration-200 flex flex-col justify-between overflow-hidden"
               >
                 <div>
                   {/* Top: Branch Name & Badge */}
-                  <div className="flex items-start justify-between gap-3 mb-3">
-                    <div>
-                      <span className="text-[10px] font-bold uppercase tracking-wider text-[#F28C1E] block mb-1">
+                  <div className="flex flex-col xs:flex-row xs:items-start xs:justify-between gap-1.5 sm:gap-3 mb-3">
+                    <div className="min-w-0 flex-1">
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-[#F28C1E] block mb-0.5 sm:mb-1">
                         Branch 0{index + 1}
                       </span>
-                      <h3 className="font-display font-bold text-xl sm:text-2xl text-[#10203A]">
+                      <h3 className="font-display font-bold text-lg sm:text-xl lg:text-2xl text-[#10203A] break-words">
                         {branch.name}
                       </h3>
                     </div>
-                    <span className="px-3 py-1 rounded-full text-[11px] font-semibold bg-[#EAF1FB] text-[#1E5BB8] whitespace-nowrap">
+                    <span className="self-start shrink-0 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full text-[10px] sm:text-[11px] font-semibold bg-[#EAF1FB] text-[#1E5BB8]">
                       Verified Studio
                     </span>
                   </div>
 
                   {/* Complete Address */}
-                  <div className="flex items-start gap-2.5 mt-3 text-xs sm:text-sm text-[#4A5B78] leading-relaxed">
+                  <div className="flex items-start gap-2.5 mt-3 text-xs sm:text-sm text-[#4A5B78] leading-relaxed break-words">
                     <MapPin className="w-4 h-4 text-[#7B8AA3] shrink-0 mt-0.5" />
                     <p>{branch.address}</p>
                   </div>
@@ -710,25 +710,25 @@ export const ContactPage = ({ onNavigateHome }) => {
           aria-hidden="true"
         />
 
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-8 lg:px-12 text-center relative z-10">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs font-semibold uppercase tracking-[0.16em] text-[#F28C1E] mb-4">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>Admissions Open Across All Branches</span>
+        <div className="max-w-[1200px] mx-auto px-3 xs:px-4 sm:px-8 lg:px-12 text-center relative z-10">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-[10px] sm:text-xs font-semibold uppercase tracking-[0.08em] sm:tracking-[0.16em] text-[#F28C1E] mb-4 max-w-full">
+            <Sparkles className="w-3.5 h-3.5 shrink-0" />
+            <span className="truncate">Admissions Open Across All Branches</span>
           </div>
 
-          <h2 className="font-display font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white tracking-[-0.03em] max-w-3xl mx-auto leading-[1.08]">
+          <h2 className="font-display font-extrabold text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white tracking-[-0.03em] max-w-3xl mx-auto leading-[1.12] break-words">
             Ready to find your rhythm on our stage?
           </h2>
 
-          <p className="mt-5 text-sm sm:text-base md:text-lg text-white/70 max-w-2xl mx-auto leading-relaxed font-sans">
+          <p className="mt-4 sm:mt-5 text-xs sm:text-base md:text-lg text-white/70 max-w-2xl mx-auto leading-relaxed font-sans">
             Join thousands of passionate dancers trained under Guru Yuvraaj Jayakumar. Book a trial session or schedule a studio visit today.
           </p>
 
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+          <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full">
             <button
               type="button"
               onClick={scrollToContactForm}
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-sm font-semibold bg-[#F28C1E] text-white hover:bg-[#d97b15] active:scale-[0.98] transition-all shadow-lg cursor-pointer"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full text-xs sm:text-sm font-semibold bg-[#F28C1E] text-white hover:bg-[#d97b15] active:scale-[0.98] transition-all shadow-lg cursor-pointer"
             >
               <span>Fill Out the Enquiry Form</span>
               <ArrowUpRight className="w-4 h-4" />
@@ -737,7 +737,7 @@ export const ContactPage = ({ onNavigateHome }) => {
               href={`https://wa.me/${closeSectionData.whatsappNumber || '919655551055'}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-sm font-semibold bg-white/10 text-white hover:bg-white/20 border border-white/20 active:scale-[0.98] transition-all backdrop-blur-sm"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full text-xs sm:text-sm font-semibold bg-white/10 text-white hover:bg-white/20 border border-white/20 active:scale-[0.98] transition-all backdrop-blur-sm"
             >
               <MessageSquare className="w-4 h-4 text-[#25D366]" />
               <span>Chat with Coordinator</span>
