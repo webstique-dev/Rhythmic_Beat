@@ -1,34 +1,65 @@
 import { useState, useEffect } from 'react';
 import { Navbar } from './components/Navbar';
 import { PortalHero } from './components/PortalHero';
-import { StatementFold } from './components/StatementFold';
 import { OurStorySection } from './components/OurStorySection';
-import { DanceStyles } from './components/DanceStyles';
-import { StageArenaSection } from './components/StageArenaSection';
 import { GalleryShowcaseSection } from './components/GalleryShowcaseSection';
 import { DanceReelsSection } from './components/DanceReelsSection';
+import { StageArenaSection } from './components/StageArenaSection';
 import { TestimonialsSection } from './components/TestimonialsSection';
 import { ScheduleSection } from './components/ScheduleSection';
 import { CloseSection } from './components/CloseSection';
 import { ContactPage } from './components/ContactPage';
+import { AboutUsPage } from './components/AboutUsPage';
+import { CoursesPage } from './components/CoursesPage';
+import { WorkshopsPage } from './components/WorkshopsPage';
+import { WorkshopDetailsPage } from './components/WorkshopDetailsPage';
+import { OurFacilitiesPage } from './components/OurFacilitiesPage';
+import { FranchisePage } from './components/FranchisePage';
+import { GalleryPage } from './components/GalleryPage';
+import { UpcomingWorkshopModal } from './components/UpcomingWorkshopModal';
+import { WorkshopFloatingButton } from './components/WorkshopFloatingButton';
+import { getNextUpcomingWorkshop } from './data/workshops';
 
 export default function App() {
   const [currentPath, setCurrentPath] = useState(() => {
     if (typeof window !== 'undefined') {
-      return window.location.pathname;
+      return window.location.pathname || '/';
     }
     return '/';
   });
 
+  const [isWorkshopModalOpen, setIsWorkshopModalOpen] = useState(false);
+  const [selectedWorkshopId, setSelectedWorkshopId] = useState(null);
+  const [bookingWorkshop, setBookingWorkshop] = useState(null);
+
+  // 3-second automatic popup for next upcoming workshop (once per session)
+  useEffect(() => {
+    try {
+      const dismissed = sessionStorage.getItem('rbdc_workshop_popup_dismissed');
+      if (!dismissed) {
+        const timer = setTimeout(() => {
+          setIsWorkshopModalOpen(true);
+        }, 3000);
+        return () => clearTimeout(timer);
+      }
+    } catch {
+      // Ignore storage restrictions if cookies/storage disabled
+    }
+  }, []);
+
   useEffect(() => {
     const handleLocationChange = () => {
-      setCurrentPath(window.location.pathname);
-      if (window.location.pathname === '/' && window.location.hash) {
+      const path = window.location.pathname || '/';
+      setCurrentPath(path);
+
+      if (path === '/' && window.location.hash) {
         setTimeout(() => {
           const id = window.location.hash.slice(1);
           const el = document.getElementById(id);
           if (el) el.scrollIntoView({ behavior: 'smooth' });
         }, 120);
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       }
     };
 
@@ -53,51 +84,139 @@ export default function App() {
     }
   };
 
-  const isContactPage = currentPath === '/contact';
+  const handleCloseWorkshopModal = () => {
+    setIsWorkshopModalOpen(false);
+    try {
+      sessionStorage.setItem('rbdc_workshop_popup_dismissed', 'true');
+    } catch {
+      // storage unavailable
+    }
+  };
+
+  const handleBookSlot = (workshop) => {
+    const target = workshop || getNextUpcomingWorkshop();
+    setBookingWorkshop(target);
+    setIsWorkshopModalOpen(false);
+    try {
+      sessionStorage.setItem('rbdc_workshop_popup_dismissed', 'true');
+    } catch {
+      // storage unavailable
+    }
+    navigate('/contact-us');
+  };
+
+  const handleViewWorkshopDetails = (workshopId) => {
+    setIsWorkshopModalOpen(false);
+    try {
+      sessionStorage.setItem('rbdc_workshop_popup_dismissed', 'true');
+    } catch {
+      // storage unavailable
+    }
+    navigate(`/workshops/${workshopId}`);
+  };
+
+  const renderCurrentView = () => {
+    // Dynamic Workshop Details Page Route: /workshops/:id
+    if (currentPath.startsWith('/workshops/')) {
+      const workshopId = currentPath.replace('/workshops/', '').split('/')[0];
+      if (workshopId) {
+        return (
+          <WorkshopDetailsPage
+            workshopId={workshopId}
+            onNavigate={navigate}
+            onBookSlot={handleBookSlot}
+          />
+        );
+      }
+    }
+
+    switch (currentPath) {
+      case '/about-us':
+      case '/about':
+        return <AboutUsPage onNavigate={navigate} />;
+      case '/courses':
+        return <CoursesPage onNavigate={navigate} />;
+      case '/workshops':
+        return (
+          <WorkshopsPage
+            onNavigate={navigate}
+            onBookSlot={handleBookSlot}
+          />
+        );
+      case '/our-facilities':
+      case '/facilities':
+        return <OurFacilitiesPage onNavigate={navigate} />;
+      case '/franchise':
+        return <FranchisePage onNavigate={navigate} />;
+      case '/gallery':
+        return <GalleryPage onNavigate={navigate} />;
+      case '/contact-us':
+      case '/contact':
+        return (
+          <ContactPage
+            onNavigateHome={() => navigate('/')}
+            bookingWorkshop={bookingWorkshop}
+            onClearBookingWorkshop={() => setBookingWorkshop(null)}
+          />
+        );
+      case '/':
+      default:
+        return (
+          <>
+            {/* 1. Portal Hero */}
+            <PortalHero />
+
+            {/* 2. Our Story & Heritage */}
+            <OurStorySection />
+
+            {/* 3. Motion Archive (Gallery) */}
+            <GalleryShowcaseSection />
+
+            {/* 4. Dance Reels in Motion */}
+            <DanceReelsSection />
+
+            {/* 5. Stage Arena Experience */}
+            <StageArenaSection />
+
+            {/* 6. Voices of the Court */}
+            <TestimonialsSection />
+
+            {/* 7. Weekly Schedule */}
+            {/* <ScheduleSection /> */}
+          </>
+        );
+    }
+  };
 
   return (
     <div className="min-h-screen w-full bg-[#F8FAFD] text-[#10203A] flex flex-col overflow-x-clip selection:bg-[#EAF1FB] selection:text-[#10203A]">
-      {/* 1. Fixed Navigation Bar */}
+      {/* Fixed Navigation Bar */}
       <Navbar currentPath={currentPath} onNavigate={navigate} />
 
       {/* Main Content Area */}
-      {isContactPage ? (
-        <main className="flex-1 w-full overflow-x-clip">
-          <ContactPage onNavigateHome={() => navigate('/')} />
-        </main>
-      ) : (
-        <main className="flex-1 w-full overflow-x-clip">
-          {/* 2. Portal Hero */}
-          <PortalHero />
+      <main className="flex-1 w-full overflow-x-clip">
+        {renderCurrentView()}
+      </main>
 
-          {/* 3. Statement Fold (Philosophy: id="philosophy") */}
-          {/* <StatementFold /> */}
-
-          {/* 4. Our Story & Heritage */}
-          <OurStorySection />
-
-          {/* 5. Motion Archive (Gallery: id="gallery") */}
-          <GalleryShowcaseSection />
-
-          {/* 6. Dance Reels in Motion (Reels: id="reels") */}
-          <DanceReelsSection />
-
-          {/* 7. Dance Styles (Styles: id="styles") */}
-          {/* <DanceStyles /> */}
-
-          {/* 8. Stage Arena Experience (Arena: id="arena") */}
-          <StageArenaSection />
-
-          {/* 9. Voices of the Court */}
-          <TestimonialsSection />
-
-          {/* 10. Weekly Schedule (Schedule: id="schedule") */}
-          <ScheduleSection />
-        </main>
-      )}
-
-      {/* Close & Footer (Branches: id="branches", Contact: id="contact") */}
+      {/* Close & Footer */}
       <CloseSection />
+
+      {/* Fixed Animated Floating Circle Button for Upcoming Workshop */}
+      <WorkshopFloatingButton
+        onSelectWorkshop={(workshopId) => {
+          setSelectedWorkshopId(workshopId);
+          setIsWorkshopModalOpen(true);
+        }}
+      />
+
+      {/* Upcoming Workshop Modal Dialog */}
+      <UpcomingWorkshopModal
+        isOpen={isWorkshopModalOpen}
+        selectedWorkshopId={selectedWorkshopId}
+        onClose={handleCloseWorkshopModal}
+        onBookSlot={handleBookSlot}
+        onViewDetails={handleViewWorkshopDetails}
+      />
     </div>
   );
 }

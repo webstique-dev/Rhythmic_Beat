@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState } from 'react';
-import desktopHeroVideo from '../assets/Glimpse of @yuvi_smart master’s Semiclassical workshop at Rhythmic beat dance court Valasaravakk (online-video-cutter.com).mp4';
-import mobileHeroVideo from '../assets/Romba excited-ah and happy-ah irukku! ❤️🥹 En paiyan Tarun-oda and en husband-oda serndhu dance .mp4';
+import { useEffect, useRef, useState, useCallback } from 'react';
+import desktopHeroVideo from '../assets/hero-semiclassical-optimized.mp4';
+import mobileHeroVideo from '../assets/hero-mobile-optimized.mp4';
 import desktopPoster from '../assets/poster-semiclassical.webp';
 import mobilePoster from '../assets/poster-family-dance.webp';
 import rightHeroImg from '../assets/Right-side-hero.jpg';
@@ -10,6 +10,7 @@ import { heroData } from '../data/hero';
 export const PortalHero = ({ data = heroData }) => {
   const containerRef = useRef(null);
   const videoRef = useRef(null);
+  const isPlayingRef = useRef(false);
   const [scrollProgress, setScrollProgress] = useState(0);
 
   const [isMobile, setIsMobile] = useState(() => {
@@ -31,14 +32,89 @@ export const PortalHero = ({ data = heroData }) => {
   const currentVideoSrc = isMobile ? mobileHeroVideo : desktopHeroVideo;
   const currentPoster = isMobile ? mobilePoster : desktopPoster;
 
-  useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.defaultMuted = true;
-      videoRef.current.muted = true;
-      videoRef.current.play().catch(() => { });
-    }
-  }, [currentVideoSrc]);
+  // Safe robust play function with multiple recovery strategies
+  const attemptPlay = useCallback(() => {
+    const video = videoRef.current;
+    if (!video) return;
 
+    // Enforce muted and inline playback strictly on DOM node
+    video.muted = true;
+    video.defaultMuted = true;
+    video.playsInline = true;
+    video.setAttribute('muted', '');
+    video.setAttribute('playsinline', '');
+    video.setAttribute('webkit-playsinline', '');
+
+    const playPromise = video.play();
+    if (playPromise !== undefined) {
+      playPromise
+        .then(() => {
+          isPlayingRef.current = true;
+        })
+        .catch(() => {
+          isPlayingRef.current = false;
+          // Autoplay was restricted by browser: resume automatically on first user touch/click/scroll
+          const resumeOnInteraction = () => {
+            if (videoRef.current) {
+              videoRef.current.muted = true;
+              videoRef.current.play().then(() => {
+                isPlayingRef.current = true;
+              }).catch(() => {});
+            }
+            window.removeEventListener('click', resumeOnInteraction);
+            window.removeEventListener('scroll', resumeOnInteraction);
+            window.removeEventListener('touchstart', resumeOnInteraction);
+            window.removeEventListener('pointerdown', resumeOnInteraction);
+          };
+
+          window.addEventListener('click', resumeOnInteraction, { once: true, passive: true });
+          window.addEventListener('scroll', resumeOnInteraction, { once: true, passive: true });
+          window.addEventListener('touchstart', resumeOnInteraction, { once: true, passive: true });
+          window.addEventListener('pointerdown', resumeOnInteraction, { once: true, passive: true });
+        });
+    }
+  }, []);
+
+  // Initialize playback on source change & component mount
+  useEffect(() => {
+    attemptPlay();
+  }, [currentVideoSrc, attemptPlay]);
+
+  // Tab visibility change listener: resume playback when user switches back to the tab
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === 'visible' && videoRef.current) {
+        if (videoRef.current.paused) {
+          attemptPlay();
+        }
+      }
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    return () => document.removeEventListener('visibilitychange', handleVisibilityChange);
+  }, [attemptPlay]);
+
+  // Viewport IntersectionObserver: resume playback whenever hero is visible
+  useEffect(() => {
+    if (!containerRef.current) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && videoRef.current) {
+            if (videoRef.current.paused) {
+              attemptPlay();
+            }
+          }
+        });
+      },
+      { threshold: 0.05 }
+    );
+
+    observer.observe(containerRef.current);
+    return () => observer.disconnect();
+  }, [attemptPlay]);
+
+  // Scroll Progress calculations for sticky portal animation
   useEffect(() => {
     let rafId;
 
@@ -51,6 +127,13 @@ export const PortalHero = ({ data = heroData }) => {
       const scrolled = -rect.top;
       const progress = Math.min(1, Math.max(0, scrolled / scrollableDistance));
       setScrollProgress(progress);
+
+      // If user scrolls back into hero section and video is paused, wake it up
+      if (rect.bottom > 0 && rect.top < window.innerHeight && videoRef.current) {
+        if (videoRef.current.paused) {
+          attemptPlay();
+        }
+      }
     };
 
     const onScroll = () => {
@@ -67,7 +150,43 @@ export const PortalHero = ({ data = heroData }) => {
       window.removeEventListener('scroll', onScroll);
       window.removeEventListener('resize', onScroll);
     };
-  }, []);
+  }, [attemptPlay]);
+
+  // Video event handlers to prevent getting stuck
+  const handleWaitingOrStalled = () => {
+    if (videoRef.current && videoRef.current.paused) {
+      setTimeout(() => {
+        if (videoRef.current && videoRef.current.paused) {
+          attemptPlay();
+        }
+      }, 150);
+    }
+  };
+
+  const handleEnded = () => {
+    if (videoRef.current) {
+      videoRef.current.currentTime = 0;
+      attemptPlay();
+    }
+  };
+
+  const handleTimeUpdate = () => {
+    const v = videoRef.current;
+    if (v && v.duration > 0 && v.currentTime >= v.duration - 0.25) {
+      v.currentTime = 0;
+      attemptPlay();
+    }
+  };
+
+  const handlePause = () => {
+    // If paused unexpectedly while hero is in view, wake up
+    if (containerRef.current) {
+      const rect = containerRef.current.getBoundingClientRect();
+      if (rect.bottom > 0 && rect.top < window.innerHeight) {
+        attemptPlay();
+      }
+    }
+  };
 
   const p = scrollProgress;
 
@@ -126,6 +245,14 @@ export const PortalHero = ({ data = heroData }) => {
             muted
             playsInline
             preload="auto"
+            onCanPlay={attemptPlay}
+            onLoadedData={attemptPlay}
+            onLoadedMetadata={attemptPlay}
+            onWaiting={handleWaitingOrStalled}
+            onStalled={handleWaitingOrStalled}
+            onEnded={handleEnded}
+            onTimeUpdate={handleTimeUpdate}
+            onPause={handlePause}
             className="w-full h-full object-cover object-center"
             aria-label="Rhythmic Beat Dance Court academy hero performance video"
           />
@@ -215,7 +342,7 @@ export const PortalHero = ({ data = heroData }) => {
               className="absolute inset-0 pointer-events-none"
               style={{
                 backgroundImage:
-                  'radial-gradient(ellipse at 60% 50%, transparent 30%, rgba(6, 10, 18, 0.25) 65%, rgba(6, 10, 18, 0.75) 100%), radial-gradient(circle at 50% 65%, rgba(242, 140, 30, 0.18) 0%, transparent 60%)',
+                  'radial-gradient(ellipse at 60% 50%, transparent 30%, rgba(6, 10, 18, 0.25) 65%, rgba(6, 10, 18, 0.75) 100%), radial-gradient(circle at 50% 65%, rgba(242, 140, 30, 0.22) 0%, transparent 60%)',
               }}
               aria-hidden="true"
             />
@@ -236,37 +363,36 @@ export const PortalHero = ({ data = heroData }) => {
           </div>
         </div>
 
-        {/* Layer 5: Accent Dots travelling out toward opposite corners */}
-        <div className="absolute inset-0 z-20 pointer-events-none flex items-center justify-center">
-          {/* Orange Dot */}
-          <div
-            className="w-2.5 h-2.5 rounded-full bg-[#F28C1E] absolute will-change-transform shadow-[0_0_12px_rgba(242,140,30,0.8)]"
-            style={{
-              transform: `translate(${dotOrangeX}vw, ${dotOrangeY}vh)`,
-              transition: 'transform 0.05s linear',
-            }}
-          />
-          {/* Blue Dot */}
-          <div
-            className="w-2.5 h-2.5 rounded-full bg-[#1E5BB8] absolute will-change-transform shadow-[0_0_12px_rgba(30,91,184,0.8)]"
-            style={{
-              transform: `translate(${dotBlueX}vw, ${dotBlueY}vh)`,
-              transition: 'transform 0.05s linear',
-            }}
-          />
-        </div>
+        {/* Layer 5: Two Traveling Accent Dots */}
+        {/* Orange Accent Dot (travels top-left) */}
+        <div
+          className="absolute top-1/2 left-1/2 w-2.5 h-2.5 rounded-full bg-[#F28C1E] z-20 pointer-events-none shadow-[0_0_14px_rgba(242,140,30,0.9)] will-change-transform -translate-x-1/2 -translate-y-1/2"
+          style={{
+            transform: `translate(calc(-50% + ${dotOrangeX}vw), calc(-50% + ${dotOrangeY}vh))`,
+            transition: 'transform 0.05s linear',
+          }}
+        />
 
-        {/* Layer 6: Signature Wordmark (Grows, Tightens, and Halves Part) */}
-        <div className="absolute inset-0 z-30 pointer-events-none flex flex-col items-center justify-center px-4 sm:px-8">
-          <div
-            className="text-center will-change-transform max-w-full"
-            style={{
-              transform: `scale(${titleScale})`,
-              letterSpacing: `${letterSpacingEm}em`,
-              transition: 'transform 0.05s linear, letter-spacing 0.05s linear',
-            }}
-          >
-            {/* Wordmark Spans: Crisp Luminous White with cinematic drop shadow */}
+        {/* Blue Accent Dot (travels bottom-right) */}
+        <div
+          className="absolute top-1/2 left-1/2 w-2.5 h-2.5 rounded-full bg-[#1E5BB8] z-20 pointer-events-none shadow-[0_0_14px_rgba(30,91,184,0.9)] will-change-transform -translate-x-1/2 -translate-y-1/2"
+          style={{
+            transform: `translate(calc(-50% + ${dotBlueX}vw), calc(-50% + ${dotBlueY}vh))`,
+            transition: 'transform 0.05s linear',
+          }}
+        />
+
+        {/* Layer 6: Signature Title with Kinematics */}
+        <div
+          className="absolute inset-0 flex flex-col items-center justify-center z-20 pointer-events-none px-4 text-center will-change-transform"
+          style={{
+            transform: `scale(${titleScale})`,
+            letterSpacing: `${letterSpacingEm}em`,
+            transition: 'transform 0.05s linear, letter-spacing 0.05s linear',
+          }}
+        >
+          {/* Main Title Row: RHYTHMIC + BEAT */}
+          <div className="relative flex flex-col items-center">
             <div className="flex items-center justify-center gap-3 sm:gap-6 md:gap-8 font-display font-black text-white text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[84px] leading-none whitespace-nowrap drop-shadow-[0_10px_35px_rgba(0,0,0,0.95)]">
               <span
                 className="inline-block will-change-transform"

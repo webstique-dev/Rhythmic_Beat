@@ -84,3 +84,21 @@ h1, h2, h3, h4, h5, h6, .font-display {
     transition: none !important;
   }
 }
+
+/* Hide scrollbar across all browsers (Chrome, Safari, Edge, Firefox, Opera) */
+.scrollbar-none::-webkit-scrollbar,
+.no-scrollbar::-webkit-scrollbar,
+#upcoming-workshop-scroll-body::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  background: transparent !important;
+}
+
+.scrollbar-none,
+.no-scrollbar,
+#upcoming-workshop-scroll-body {
+  -ms-overflow-style: none !important; /* IE and Edge */
+  scrollbar-width: none !important; /* Firefox */
+}
+

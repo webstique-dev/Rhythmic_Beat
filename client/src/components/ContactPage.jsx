@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {
   Phone,
   Mail,
@@ -11,21 +11,80 @@ import {
   ArrowLeft,
   AlertCircle,
   ExternalLink,
-  ChevronDown
+  ChevronDown,
+  Calendar,
+  X
 } from 'lucide-react';
 import { closeSectionData } from '../data/close';
 import rightHeroImg from '../assets/Right-side-hero.jpg';
 import storyHeroImg from '../assets/Our-Story-1.jpg';
 import danceGroupImg from '../assets/dance-court-footer-group.webp';
 
-export const ContactPage = ({ onNavigateHome }) => {
+export const ContactPage = ({
+  onNavigateHome,
+  bookingWorkshop = null,
+  onClearBookingWorkshop = null,
+}) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
-    subject: '',
-    message: '',
+    subject: bookingWorkshop
+      ? `Workshop Registration — ${bookingWorkshop.title} (${bookingWorkshop.instructor})`
+      : '',
+    venue: bookingWorkshop?.location || 'Valasaravakkam (Main Studio)',
+    message: bookingWorkshop
+      ? `Hello Rhythmic Beat Dance Court, I would like to book a slot for the ${bookingWorkshop.title} by ${bookingWorkshop.instructor} on ${bookingWorkshop.date} (${bookingWorkshop.time}) at ${bookingWorkshop.location}. Early Bird: ${bookingWorkshop.pricing?.earlyBird || 'Applicable'}. Please confirm my registration.`
+      : '',
   });
+
+
+  useEffect(() => {
+    if (bookingWorkshop) {
+      setFormData((prev) => ({
+        ...prev,
+        subject: `Workshop Registration — ${bookingWorkshop.title} (${bookingWorkshop.instructor})`,
+        venue: bookingWorkshop.location || 'Valasaravakkam (Main Studio)',
+        message: `Hello Rhythmic Beat Dance Court, I would like to book a slot for the ${bookingWorkshop.title} by ${bookingWorkshop.instructor} on ${bookingWorkshop.date} (${bookingWorkshop.time}) at ${bookingWorkshop.location}. Early Bird: ${bookingWorkshop.pricing?.earlyBird || 'Applicable'}. Please confirm my registration.`,
+      }));
+
+      setTimeout(() => {
+        const formEl = document.getElementById('contact-form');
+        if (formEl) {
+          formEl.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 150);
+    }
+  }, [bookingWorkshop]);
+
+  const allVenues = [
+    {
+      name: 'Valasaravakkam (Main Studio)',
+      address: '116A, Chowdry Nagar Main Rd / No. 37, Narmatha St, Valasaravakkam, Chennai - 600087',
+      branchIndex: 0,
+    },
+    {
+      name: 'Kolapakkam Branch',
+      address: 'No. 03, Anna Salai, Padmavathi Nagar, Kolapakkam, Chennai - 600128',
+      branchIndex: 1,
+    },
+    {
+      name: 'Ambattur Branch',
+      address: 'Rus Kendra, 73, 18th Avenue, Banu Nagar, Ambattur, Chennai - 600053',
+      branchIndex: 2,
+    },
+    {
+      name: 'Pondicherry Branch',
+      address: 'No. 93-97, 2nd Floor, Kalyan Towers, MG Road, Heritage Town, Pondicherry - 605005',
+      branchIndex: 3,
+    },
+    {
+      name: 'Online / General Inquiry',
+      address: 'Virtual & Multi-Studio Consultation',
+      branchIndex: -1,
+    },
+  ];
+
 
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -342,6 +401,55 @@ export const ContactPage = ({ onNavigateHome }) => {
               ) : (
                 /* Interactive Form matching reference UI */
                 <form id="enquiry-form" onSubmit={handleSubmit} noValidate className="space-y-6">
+                  {/* Prefilled Workshop Alert Banner */}
+                  {bookingWorkshop && (
+                    <div className="p-4 rounded-2xl bg-[#EAF1FB] border border-[#1E5BB8]/30 flex items-start justify-between gap-3 animate-in fade-in">
+                      <div className="flex items-start gap-3">
+                        <div className="w-9 h-9 rounded-xl bg-[#1E5BB8] text-white flex items-center justify-center shrink-0 mt-0.5">
+                          <Calendar className="w-4 h-4" />
+                        </div>
+                        <div>
+                          <div className="flex items-center gap-2">
+                            <span className="text-[10px] font-bold uppercase tracking-wider text-[#1E5BB8] bg-white px-2 py-0.5 rounded-full border border-[#1E5BB8]/20">
+                              Workshop Selected
+                            </span>
+                            {bookingWorkshop.pricing?.earlyBird && (
+                              <span className="text-xs font-bold text-[#F28C1E]">
+                                Early Bird: {bookingWorkshop.pricing.earlyBird}
+                              </span>
+                            )}
+                          </div>
+                          <h4 className="font-bold text-sm text-[#10203A] mt-1">
+                            {bookingWorkshop.title}
+                          </h4>
+                          <p className="text-xs text-[#4A5B78] mt-0.5">
+                            Instructor: <span className="font-medium text-[#10203A]">{bookingWorkshop.instructor}</span> • {bookingWorkshop.date} ({bookingWorkshop.time})
+                          </p>
+                          <p className="text-[11px] text-[#7B8AA3] mt-0.5">
+                            Venue: {bookingWorkshop.location}
+                          </p>
+                        </div>
+                      </div>
+                      {onClearBookingWorkshop && (
+                        <button
+                          type="button"
+                          onClick={() => {
+                            onClearBookingWorkshop();
+                            setFormData((prev) => ({
+                              ...prev,
+                              subject: '',
+                              message: '',
+                            }));
+                          }}
+                          className="text-xs font-medium text-[#7B8AA3] hover:text-[#10203A] p-1.5 rounded-lg hover:bg-black/5 transition-colors cursor-pointer"
+                          title="Clear workshop prefill"
+                        >
+                          <X className="w-4 h-4" />
+                        </button>
+                      )}
+                    </div>
+                  )}
+
                   {/* Row 1: Name and Email */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     {/* Name */}
@@ -401,7 +509,7 @@ export const ContactPage = ({ onNavigateHome }) => {
                     </div>
                   </div>
 
-                  {/* Row 2: Phone Number and Subject */}
+                  {/* Row 2: Phone Number and Searchable Studio Venue Selection */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     {/* Phone Number */}
                     <div>
@@ -431,56 +539,86 @@ export const ContactPage = ({ onNavigateHome }) => {
                       )}
                     </div>
 
-                    {/* Subject (with styled select dropdown matching reference select design) */}
+                    {/* Preferred Studio Venue Selection */}
                     <div>
-                      <label htmlFor="subject" className="block text-xs font-bold text-[#10203A] mb-2">
-                        Subject <span className="text-[#F28C1E]">*</span>
+                      <label htmlFor="venue" className="block text-xs font-bold text-[#10203A] mb-2">
+                        Preferred Studio Venue / Location
                       </label>
                       <div className="relative">
                         <select
-                          id="subject"
-                          name="subject"
-                          value={formData.subject}
+                          id="venue"
+                          name="venue"
+                          value={formData.venue}
                           onChange={handleChange}
-                          aria-invalid={!!errors.subject}
-                          aria-describedby={errors.subject ? 'subject-error' : undefined}
-                          className={`w-full appearance-none px-4 py-3.5 rounded-xl text-sm transition-all bg-[#F3F4F6] border text-[#10203A] focus:outline-none pr-10 ${
-                            errors.subject
-                              ? 'border-red-500 bg-red-50/30 focus:ring-2 focus:ring-red-200'
-                              : 'border-transparent focus:border-[#10203A] focus:bg-white focus:ring-2 focus:ring-[#10203A]/10'
-                          }`}
+                          className="w-full appearance-none px-4 py-3.5 rounded-xl text-sm transition-all bg-[#F3F4F6] hover:bg-[#EBEDF0] border border-transparent focus:border-[#10203A] focus:bg-white focus:ring-2 focus:ring-[#10203A]/10 text-[#10203A] focus:outline-none pr-10 cursor-pointer font-medium"
                         >
-                          <option value="">Select your inquiry subject...</option>
-                          <option value="Admission Inquiry — Classical Bharatanatyam">
-                            Admission — Classical Bharatanatyam
-                          </option>
-                          <option value="Admission Inquiry — Semiclassical Workshop">
-                            Admission — Semiclassical Workshop
-                          </option>
-                          <option value="Admission Inquiry — Contemporary & Aerial">
-                            Admission — Contemporary & Aerial
-                          </option>
-                          <option value="Admission Inquiry — Western / Hip-Hop">
-                            Admission — Western / Hip-Hop
-                          </option>
-                          <option value="Free Trial Session Request">
-                            Free Trial Session Request
-                          </option>
-                          <option value="Studio Rental / Choreography Collaboration">
-                            Studio Rental / Choreography Collaboration
-                          </option>
+                          {allVenues.map((v) => (
+                            <option key={v.name} value={v.name} className="py-2 text-[#10203A] bg-white">
+                              {v.name}
+                            </option>
+                          ))}
                         </select>
                         <div className="absolute inset-y-0 right-0 pr-3.5 flex items-center pointer-events-none text-[#71717A]">
                           <ChevronDown className="w-4 h-4" />
                         </div>
                       </div>
-                      {errors.subject && (
-                        <p id="subject-error" className="mt-1.5 text-xs text-red-600 flex items-center gap-1">
-                          <AlertCircle className="w-3.5 h-3.5" />
-                          <span>{errors.subject}</span>
-                        </p>
-                      )}
                     </div>
+                  </div>
+
+                  {/* Row 3: Subject */}
+                  <div>
+                    <label htmlFor="subject" className="block text-xs font-bold text-[#10203A] mb-2">
+                      Subject <span className="text-[#F28C1E]">*</span>
+                    </label>
+                    <div className="relative">
+                      <select
+                        id="subject"
+                        name="subject"
+                        value={formData.subject}
+                        onChange={handleChange}
+                        aria-invalid={!!errors.subject}
+                        aria-describedby={errors.subject ? 'subject-error' : undefined}
+                        className={`w-full appearance-none px-4 py-3.5 rounded-xl text-sm transition-all bg-[#F3F4F6] hover:bg-[#EBEDF0] border text-[#10203A] focus:outline-none pr-10 cursor-pointer font-medium ${
+                          errors.subject
+                            ? 'border-red-500 bg-red-50/30 focus:ring-2 focus:ring-red-200'
+                            : 'border-transparent focus:border-[#10203A] focus:bg-white focus:ring-2 focus:ring-[#10203A]/10'
+                        }`}
+                      >
+                        <option value="">Select your inquiry subject...</option>
+                        {bookingWorkshop && (
+                          <option value={`Workshop Registration — ${bookingWorkshop.title} (${bookingWorkshop.instructor})`}>
+                            ⭐ Workshop Registration — {bookingWorkshop.title}
+                          </option>
+                        )}
+                        <option value="Admission Inquiry — Classical Bharatanatyam">
+                          Admission — Classical Bharatanatyam
+                        </option>
+                        <option value="Admission Inquiry — Semiclassical Workshop">
+                          Admission — Semiclassical Workshop
+                        </option>
+                        <option value="Admission Inquiry — Contemporary & Aerial">
+                          Admission — Contemporary & Aerial
+                        </option>
+                        <option value="Admission Inquiry — Western / Hip-Hop">
+                          Admission — Western / Hip-Hop
+                        </option>
+                        <option value="Free Trial Session Request">
+                          Free Trial Session Request
+                        </option>
+                        <option value="Studio Rental / Choreography Collaboration">
+                          Studio Rental / Choreography Collaboration
+                        </option>
+                      </select>
+                      <div className="absolute inset-y-0 right-0 pr-3.5 flex items-center pointer-events-none text-[#71717A]">
+                        <ChevronDown className="w-4 h-4" />
+                      </div>
+                    </div>
+                    {errors.subject && (
+                      <p id="subject-error" className="mt-1.5 text-xs text-red-600 flex items-center gap-1">
+                        <AlertCircle className="w-3.5 h-3.5" />
+                        <span>{errors.subject}</span>
+                      </p>
+                    )}
                   </div>
 
                   {/* Message Field */}

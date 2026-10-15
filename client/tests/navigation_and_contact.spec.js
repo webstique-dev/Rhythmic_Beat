@@ -41,15 +41,16 @@ async function runNavigationAndContactTests() {
       allPassed = false;
     }
 
-    // 1.2 Verify all active section links exist and navigate
+    // 1.2 Verify all 8 menu links exist and navigate
     const expectedLinks = [
-      { label: 'Our Story', id: 'our-story' },
-      { label: 'Gallery', id: 'gallery' },
-      { label: 'Reels', id: 'reels' },
-      { label: 'Arena', id: 'arena' },
-      { label: 'Testimonials', id: 'testimonials' },
-      { label: 'Schedule', id: 'schedule' },
-      { label: 'Branches', id: 'branches' },
+      { label: 'Home', path: '/' },
+      { label: 'About Us', path: '/about-us' },
+      { label: 'Courses', path: '/courses' },
+      { label: 'Workshops', path: '/workshops' },
+      { label: 'Our Facilities', path: '/our-facilities' },
+      { label: 'Franchise', path: '/franchise' },
+      { label: 'Gallery', path: '/gallery' },
+      { label: 'Contact Us', path: '/contact-us' },
     ];
 
     for (const item of expectedLinks) {
@@ -58,13 +59,12 @@ async function runNavigationAndContactTests() {
       if (count > 0) {
         console.log(`  ✓ Nav link found: "${item.label}"`);
         await link.click();
-        await page.waitForTimeout(150);
+        await page.waitForTimeout(200);
 
-        const targetEl = page.locator(`#${item.id}`);
-        if ((await targetEl.count()) > 0) {
-          console.log(`    ↳ Target section #${item.id} verified`);
+        if (page.url().includes(item.path === '/' ? 'http://localhost:5173/' : item.path)) {
+          console.log(`    ↳ Target route ${item.path} verified`);
         } else {
-          console.error(`    ✗ Target section #${item.id} not found in DOM`);
+          console.error(`    ✗ Target route ${item.path} not reflected in URL: ${page.url()}`);
           allPassed = false;
         }
       } else {
@@ -72,6 +72,7 @@ async function runNavigationAndContactTests() {
         allPassed = false;
       }
     }
+
 
     // 1.3 Verify "Contact Us" button at far right
     const contactBtn = page.locator('header').getByRole('link', { name: /contact us/i }).first();
