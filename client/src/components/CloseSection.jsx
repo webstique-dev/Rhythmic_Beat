@@ -52,17 +52,17 @@ export const CloseSection = ({ data = closeSectionData }) => {
             src={footerGroupImg}
             alt="Rhythmic Beat Dance Court academy ensemble crew"
             width="1200"
-            height="400"
+            height="600"
             decoding="async"
-            className="w-full h-[220px] xs:h-[260px] sm:h-[320px] md:h-[400px] object-cover object-center"
-            loading="lazy"
+            className="w-full h-[280px] xs:h-[340px] sm:h-[420px] md:h-[500px] lg:h-[560px] object-cover object-[center_16%]"
+            loading="eager"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#10203A]/90 via-[#10203A]/30 to-transparent flex items-end p-5 sm:p-8">
-            <div>
-              <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.16em] font-semibold text-[#F28C1E] block mb-1">
+          <div className="absolute inset-0 bg-gradient-to-t from-[#10203A]/80 via-black/20 to-transparent flex items-end p-4 sm:p-6 md:p-8 pointer-events-none">
+            <div className="bg-[#10203A]/70 backdrop-blur-md px-3.5 sm:px-5 py-2 sm:py-3 rounded-2xl border border-white/15 max-w-fit shadow-lg">
+              <span className="text-[9.5px] sm:text-[11px] uppercase tracking-[0.16em] font-semibold text-[#F28C1E] block mb-0.5 sm:mb-1">
                 One Family • Infinite Movement
               </span>
-              <p className="font-display font-bold text-lg sm:text-2xl text-white">
+              <p className="font-display font-bold text-base sm:text-xl md:text-2xl text-white leading-tight">
                 RBDC Ensemble Community
               </p>
             </div>
@@ -122,14 +122,13 @@ export const CloseSection = ({ data = closeSectionData }) => {
       {/* Hairline Strip */}
       <div className="w-full h-[1px] bg-[rgba(16,32,58,0.14)]" />
 
-      {/* Cropped Full-Width Wordmark: Translated down slightly so page edge crops it */}
-      <div className="w-full overflow-hidden select-none pointer-events-none -mb-3 sm:-mb-6 md:-mb-10 lg:-mb-12">
+      {/* Full-Width Signature Wordmark */}
+      <div className="w-full overflow-hidden select-none pointer-events-none py-6 sm:py-8 md:py-12 px-4">
         <div className="w-full text-center">
           <span
-            className="font-display font-extrabold text-[#10203A] uppercase tracking-[-0.035em] whitespace-nowrap block leading-none opacity-90"
+            className="font-display font-extrabold text-[#10203A] uppercase tracking-[-0.025em] whitespace-nowrap block leading-none opacity-90"
             style={{
-              fontSize: 'clamp(56px, 14vw, 210px)',
-              transform: 'translateY(22%)',
+              fontSize: 'clamp(20px, 6.4vw, 108px)',
             }}
           >
             {data.bottomWordmark}

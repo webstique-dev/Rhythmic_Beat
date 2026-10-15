@@ -2,6 +2,7 @@ import { Navbar } from './components/Navbar';
 import { PortalHero } from './components/PortalHero';
 import { StatementFold } from './components/StatementFold';
 import { MilestonesSection } from './components/MilestonesSection';
+import { OurStorySection } from './components/OurStorySection';
 import { DanceStyles } from './components/DanceStyles';
 import { StageArenaSection } from './components/StageArenaSection';
 import { GalleryShowcaseSection } from './components/GalleryShowcaseSection';
@@ -23,22 +24,27 @@ export default function App() {
         <PortalHero />
 
         {/* 3. Statement Fold (Philosophy, clamp typography, outlined stroke numeral, drifting circular photo) */}
-        <StatementFold />
+        {/* <StatementFold /> */}
 
         {/* 4. Academy Milestones (2,004 Founded in Trichy • 7,000+ Students • 1,000+ Shows • 1 Shared Passion) */}
-        <MilestonesSection />
+        {/* <MilestonesSection /> */}
 
-        {/* 5. Dance Styles (Two columns with Throwable physical card deck) */}
-        <DanceStyles />
-
-        {/* 5. Stage Arena Experience (ScrollExpand component from React Bits) */}
-        <StageArenaSection />
+        {/* 5. Our Story & Heritage (Editorial dark layout, cinematic dance photo, overlapping typography, narrative, and 3-step minimal timeline) */}
+        <OurStorySection />
 
         {/* 6. Motion Archive (FlexCarousel component from React Bits) */}
         <GalleryShowcaseSection />
 
         {/* 7. Dance Reels in Motion (Live video reels from assets) */}
         <DanceReelsSection />
+
+        {/* 6. Dance Styles (Two columns with Throwable physical card deck) */}
+        {/* <DanceStyles /> */}
+
+        {/* 5. Stage Arena Experience (ScrollExpand component from React Bits) */}
+        <StageArenaSection />
+
+
 
         {/* 8. Academy Roster (Hairline-ruled rows, display names, metadata details) */}
         {/* <RosterSection /> */}
