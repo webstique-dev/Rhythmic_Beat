@@ -224,13 +224,13 @@ export const ContactPage = ({
   );
 
   return (
-    <div className="min-h-screen w-full overflow-x-hidden min-w-0 bg-[#FAF9F5] text-[#10203A] selection:bg-[#EAF1FB] selection:text-[#10203A]">
+    <div className="min-h-screen w-full overflow-x-hidden min-w-0 bg-[#F1F3F5] text-[#222222] selection:bg-[#145A96]/20 selection:text-[#222222]">
       {/* ========================================================
           SECTION 1 – CONTACT HERO
       ======================================================== */}
       <section
         id="contact-hero"
-        className="relative w-full pt-24 xs:pt-28 sm:pt-36 pb-12 sm:pb-16 lg:pb-24 overflow-hidden border-b border-[rgba(16,32,58,0.08)]"
+        className="relative w-full pt-24 xs:pt-28 sm:pt-36 pb-12 sm:pb-16 lg:pb-24 overflow-hidden border-b border-[#222222]/10"
         aria-label="Contact Us Introduction"
       >
         <div className="max-w-[1400px] mx-auto px-3 xs:px-4 sm:px-8 lg:px-12 xl:px-16">
@@ -239,7 +239,7 @@ export const ContactPage = ({
             <button
               type="button"
               onClick={onNavigateHome}
-              className="inline-flex items-center gap-1.5 sm:gap-2 text-[11px] sm:text-xs font-semibold uppercase tracking-[0.12em] sm:tracking-[0.15em] text-[#4A5B78] hover:text-[#10203A] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1E5BB8] rounded-full px-2.5 sm:px-3 py-1 bg-white/80 border border-[#ECE7DC] shadow-xs cursor-pointer"
+              className="inline-flex items-center gap-1.5 sm:gap-2 text-[11px] sm:text-xs font-semibold uppercase tracking-[0.12em] sm:tracking-[0.15em] text-[#222222]/80 hover:text-[#145A96] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#145A96] rounded-full px-2.5 sm:px-3 py-1 bg-white/80 border border-[#222222]/15 shadow-xs cursor-pointer"
             >
               <ArrowLeft className="w-3.5 h-3.5" />
               <span>Back to Main Stage</span>
@@ -250,15 +250,15 @@ export const ContactPage = ({
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-14 items-center">
             <div className="lg:col-span-7">
               <div className="flex items-center gap-2 mb-3 sm:mb-4">
-                <span className="w-2 h-2 rounded-full bg-[#F28C1E] shrink-0" />
-                <span className="text-[10px] xs:text-[11px] font-semibold text-[#10203A] uppercase tracking-[0.1em] sm:tracking-[0.16em] leading-relaxed break-words">
+                <span className="w-2 h-2 rounded-full bg-[#F28C28] shrink-0" />
+                <span className="text-[10px] xs:text-[11px] font-semibold text-[#222222] uppercase tracking-[0.1em] sm:tracking-[0.16em] leading-relaxed break-words">
                   {closeSectionData.tagline || "Let ur body speak — A Yuvraaj's Dance School"}
                 </span>
               </div>
-              <h1 className="font-display font-extrabold text-3xl xs:text-4xl sm:text-6xl md:text-7xl text-[#10203A] tracking-[-0.03em] leading-[1.08] break-words">
+              <h1 className="font-display font-extrabold text-3xl xs:text-4xl sm:text-6xl md:text-7xl text-[#145A96] tracking-[-0.03em] leading-[1.08] break-words">
                 Contact Us
               </h1>
-              <p className="mt-4 sm:mt-6 text-sm sm:text-base lg:text-lg text-[#4A5B78] max-w-xl leading-relaxed font-sans">
+              <p className="mt-4 sm:mt-6 text-sm sm:text-base lg:text-lg text-[#222222]/80 max-w-xl leading-relaxed font-sans">
                 Whether you are taking your very first step or refining classical mastery, our court doors are wide open. Connect with Guru Yuvraaj Jayakumar’s faculty across Chennai and Pondicherry studios.
               </p>
 
@@ -266,16 +266,16 @@ export const ContactPage = ({
               <div className="mt-6 sm:mt-8 flex flex-wrap items-center gap-2 sm:gap-3">
                 <a
                   href={`tel:${closeSectionData.phone || '+919655551055'}`}
-                  className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white border border-[#ECE7DC] text-[11px] sm:text-xs font-semibold text-[#10203A] hover:border-[#1E5BB8] transition-colors shadow-xs"
+                  className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white border border-[#222222]/15 text-[11px] sm:text-xs font-semibold text-[#222222] hover:border-[#145A96] transition-colors shadow-xs"
                 >
-                  <Phone className="w-3.5 h-3.5 text-[#1E5BB8] shrink-0" />
+                  <Phone className="w-3.5 h-3.5 text-[#145A96] shrink-0" />
                   <span>{closeSectionData.displayPhone || '+91 96555 51055'}</span>
                 </a>
                 <a
                   href={`mailto:${closeSectionData.email || 'rbdancecourt@gmail.com'}`}
-                  className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white border border-[#ECE7DC] text-[11px] sm:text-xs font-semibold text-[#10203A] hover:border-[#F28C1E] transition-colors shadow-xs max-w-full truncate"
+                  className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white border border-[#222222]/15 text-[11px] sm:text-xs font-semibold text-[#222222] hover:border-[#F28C28] transition-colors shadow-xs max-w-full truncate"
                 >
-                  <Mail className="w-3.5 h-3.5 text-[#F28C1E] shrink-0" />
+                  <Mail className="w-3.5 h-3.5 text-[#F28C28] shrink-0" />
                   <span className="truncate">{closeSectionData.email || 'rbdancecourt@gmail.com'}</span>
                 </a>
                 <a
@@ -301,9 +301,9 @@ export const ContactPage = ({
                   width={600}
                   height={450}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#060A12]/70 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#222222]/80 via-transparent to-transparent pointer-events-none" />
                 <div className="absolute bottom-4 left-4 right-4 text-white">
-                  <div className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[#F28C1E]">
+                  <div className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[#F28C28]">
                     Est. 2004
                   </div>
                   <div className="text-sm font-bold mt-0.5">
@@ -321,21 +321,21 @@ export const ContactPage = ({
       ======================================================== */}
       <section
         id="contact-form"
-        className="w-full py-16 sm:py-24 bg-white border-b border-[rgba(16,32,58,0.08)]"
+        className="w-full py-16 sm:py-24 bg-white border-b border-[#222222]/10"
         aria-label="Contact Enquiry Form"
       >
         <div className="max-w-[1400px] mx-auto px-3 xs:px-4 sm:px-8 lg:px-12 xl:px-16">
           {/* Header Row: Big Headline on Left, Subtitle on Right (Reference Image Pattern) */}
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-6 pb-8 sm:pb-10 border-b border-[rgba(16,32,58,0.08)]">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-6 pb-8 sm:pb-10 border-b border-[#222222]/10">
             <div>
-              <span className="text-[10px] xs:text-[11px] font-semibold uppercase tracking-[0.12em] sm:tracking-[0.15em] text-[#1E5BB8]">
+              <span className="text-[10px] xs:text-[11px] font-semibold uppercase tracking-[0.12em] sm:tracking-[0.15em] text-[#145A96]">
                 Get in Touch
               </span>
-              <h2 className="font-display font-extrabold text-2xl xs:text-3xl sm:text-4xl md:text-5xl text-[#10203A] tracking-[-0.03em] mt-1 break-words">
+              <h2 className="font-display font-extrabold text-2xl xs:text-3xl sm:text-4xl md:text-5xl text-[#145A96] tracking-[-0.03em] mt-1 break-words">
                 Send Us a Message
               </h2>
             </div>
-            <p className="text-xs sm:text-sm md:text-base text-[#4A5B78] max-w-sm font-sans md:text-right">
+            <p className="text-xs sm:text-sm md:text-base text-[#222222]/80 max-w-sm font-sans md:text-right">
               Tell us what dance style you love and which studio you'd like to visit. We’ll confirm batch availability within 24 hours.
             </p>
           </div>
@@ -348,33 +348,33 @@ export const ContactPage = ({
                 /* Success Feedback State */
                 <div
                   id="form-success-card"
-                  className="p-8 sm:p-10 rounded-3xl bg-[#FAF9F5] border border-[#ECE7DC] shadow-sm flex flex-col items-center text-center animate-in fade-in zoom-in-95 duration-200"
+                  className="p-8 sm:p-10 rounded-3xl bg-[#F1F3F5] border border-[#222222]/15 shadow-sm flex flex-col items-center text-center animate-in fade-in zoom-in-95 duration-200"
                 >
                   <div className="w-16 h-16 rounded-full bg-[#E6F8ED] text-[#25D366] flex items-center justify-center mb-5">
                     <CheckCircle2 className="w-9 h-9" />
                   </div>
-                  <h3 className="font-display font-bold text-2xl sm:text-3xl text-[#10203A]">
+                  <h3 className="font-display font-bold text-2xl sm:text-3xl text-[#145A96]">
                     Enquiry Recorded!
                   </h3>
-                  <p className="mt-3 text-sm sm:text-base text-[#4A5B78] max-w-md leading-relaxed">
-                    Thank you, <span className="font-semibold text-[#10203A]">{submittedData?.name}</span>. Your enquiry for{' '}
-                    <span className="font-semibold text-[#10203A]">"{submittedData?.subject}"</span> has been saved. Our admissions coordinator will reach you at{' '}
-                    <span className="font-semibold text-[#10203A]">{submittedData?.phone}</span>.
+                  <p className="mt-3 text-sm sm:text-base text-[#222222]/80 max-w-md leading-relaxed">
+                    Thank you, <span className="font-semibold text-[#222222]">{submittedData?.name}</span>. Your enquiry for{' '}
+                    <span className="font-semibold text-[#222222]">"{submittedData?.subject}"</span> has been saved. Our admissions coordinator will reach you at{' '}
+                    <span className="font-semibold text-[#222222]">{submittedData?.phone}</span>.
                   </p>
 
                   {/* Submission Summary */}
-                  <div className="mt-6 w-full max-w-md p-4 rounded-2xl bg-white border border-[#ECE7DC] text-left text-xs space-y-2 text-[#4A5B78]">
-                    <div className="flex justify-between border-b border-[rgba(16,32,58,0.06)] pb-2">
-                      <span className="text-[#7B8AA3]">Email:</span>
-                      <span className="font-semibold text-[#10203A]">{submittedData?.email}</span>
+                  <div className="mt-6 w-full max-w-md p-4 rounded-2xl bg-white border border-[#222222]/15 text-left text-xs space-y-2 text-[#222222]/80">
+                    <div className="flex justify-between border-b border-[#222222]/10 pb-2">
+                      <span className="text-[#222222]/60">Email:</span>
+                      <span className="font-semibold text-[#222222]">{submittedData?.email}</span>
                     </div>
-                    <div className="flex justify-between border-b border-[rgba(16,32,58,0.06)] pb-2">
-                      <span className="text-[#7B8AA3]">Subject:</span>
-                      <span className="font-semibold text-[#10203A]">{submittedData?.subject}</span>
+                    <div className="flex justify-between border-b border-[#222222]/10 pb-2">
+                      <span className="text-[#222222]/60">Subject:</span>
+                      <span className="font-semibold text-[#222222]">{submittedData?.subject}</span>
                     </div>
                     <div>
-                      <span className="text-[#7B8AA3] block mb-1">Message:</span>
-                      <span className="text-[#10203A] italic">"{submittedData?.message}"</span>
+                      <span className="text-[#222222]/60 block mb-1">Message:</span>
+                      <span className="text-[#222222] italic">"{submittedData?.message}"</span>
                     </div>
                   </div>
 
@@ -392,7 +392,7 @@ export const ContactPage = ({
                     <button
                       type="button"
                       onClick={handleReset}
-                      className="w-full inline-flex items-center justify-center py-3.5 px-6 rounded-full text-sm font-semibold border border-[rgba(16,32,58,0.18)] text-[#10203A] hover:bg-black/5 transition-colors cursor-pointer"
+                      className="w-full inline-flex items-center justify-center py-3.5 px-6 rounded-full text-sm font-semibold border border-[#222222]/20 text-[#222222] hover:bg-black/5 transition-colors cursor-pointer"
                     >
                       Send Another Message
                     </button>
@@ -403,29 +403,29 @@ export const ContactPage = ({
                 <form id="enquiry-form" onSubmit={handleSubmit} noValidate className="space-y-6">
                   {/* Prefilled Workshop Alert Banner */}
                   {bookingWorkshop && (
-                    <div className="p-4 rounded-2xl bg-[#EAF1FB] border border-[#1E5BB8]/30 flex items-start justify-between gap-3 animate-in fade-in">
+                    <div className="p-4 rounded-2xl bg-[#145A96]/10 border border-[#145A96]/30 flex items-start justify-between gap-3 animate-in fade-in">
                       <div className="flex items-start gap-3">
-                        <div className="w-9 h-9 rounded-xl bg-[#1E5BB8] text-white flex items-center justify-center shrink-0 mt-0.5">
+                        <div className="w-9 h-9 rounded-xl bg-[#145A96] text-white flex items-center justify-center shrink-0 mt-0.5">
                           <Calendar className="w-4 h-4" />
                         </div>
                         <div>
                           <div className="flex items-center gap-2">
-                            <span className="text-[10px] font-bold uppercase tracking-wider text-[#1E5BB8] bg-white px-2 py-0.5 rounded-full border border-[#1E5BB8]/20">
+                            <span className="text-[10px] font-bold uppercase tracking-wider text-[#145A96] bg-white px-2 py-0.5 rounded-full border border-[#145A96]/20">
                               Workshop Selected
                             </span>
                             {bookingWorkshop.pricing?.earlyBird && (
-                              <span className="text-xs font-bold text-[#F28C1E]">
+                              <span className="text-xs font-bold text-[#F28C28]">
                                 Early Bird: {bookingWorkshop.pricing.earlyBird}
                               </span>
                             )}
                           </div>
-                          <h4 className="font-bold text-sm text-[#10203A] mt-1">
+                          <h4 className="font-bold text-sm text-[#145A96] mt-1">
                             {bookingWorkshop.title}
                           </h4>
-                          <p className="text-xs text-[#4A5B78] mt-0.5">
-                            Instructor: <span className="font-medium text-[#10203A]">{bookingWorkshop.instructor}</span> • {bookingWorkshop.date} ({bookingWorkshop.time})
+                          <p className="text-xs text-[#222222]/80 mt-0.5">
+                            Instructor: <span className="font-medium text-[#222222]">{bookingWorkshop.instructor}</span> • {bookingWorkshop.date} ({bookingWorkshop.time})
                           </p>
-                          <p className="text-[11px] text-[#7B8AA3] mt-0.5">
+                          <p className="text-[11px] text-[#222222]/60 mt-0.5">
                             Venue: {bookingWorkshop.location}
                           </p>
                         </div>
@@ -441,7 +441,7 @@ export const ContactPage = ({
                               message: '',
                             }));
                           }}
-                          className="text-xs font-medium text-[#7B8AA3] hover:text-[#10203A] p-1.5 rounded-lg hover:bg-black/5 transition-colors cursor-pointer"
+                          className="text-xs font-medium text-[#222222]/60 hover:text-[#145A96] p-1.5 rounded-lg hover:bg-black/5 transition-colors cursor-pointer"
                           title="Clear workshop prefill"
                         >
                           <X className="w-4 h-4" />
@@ -454,8 +454,8 @@ export const ContactPage = ({
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     {/* Name */}
                     <div>
-                      <label htmlFor="name" className="block text-xs font-bold text-[#10203A] mb-2">
-                        Name <span className="text-[#F28C1E]">*</span>
+                      <label htmlFor="name" className="block text-xs font-bold text-[#222222] mb-2">
+                        Name <span className="text-[#F28C28]">*</span>
                       </label>
                       <input
                         type="text"
@@ -466,10 +466,10 @@ export const ContactPage = ({
                         placeholder="Your full name"
                         aria-invalid={!!errors.name}
                         aria-describedby={errors.name ? 'name-error' : undefined}
-                        className={`w-full px-4 py-3.5 rounded-xl text-sm transition-all bg-[#F3F4F6] border placeholder-[#9CA3AF] text-[#10203A] focus:outline-none ${
+                        className={`w-full px-4 py-3.5 rounded-xl text-sm transition-all bg-[#F1F3F5] border placeholder-[#222222]/40 text-[#222222] focus:outline-none ${
                           errors.name
                             ? 'border-red-500 bg-red-50/30 focus:ring-2 focus:ring-red-200'
-                            : 'border-transparent focus:border-[#10203A] focus:bg-white focus:ring-2 focus:ring-[#10203A]/10'
+                            : 'border-transparent focus:border-[#145A96] focus:bg-white focus:ring-2 focus:ring-[#145A96]/20'
                         }`}
                       />
                       {errors.name && (
@@ -482,8 +482,8 @@ export const ContactPage = ({
 
                     {/* Email */}
                     <div>
-                      <label htmlFor="email" className="block text-xs font-bold text-[#10203A] mb-2">
-                        Email <span className="text-[#F28C1E]">*</span>
+                      <label htmlFor="email" className="block text-xs font-bold text-[#222222] mb-2">
+                        Email <span className="text-[#F28C28]">*</span>
                       </label>
                       <input
                         type="email"
@@ -494,10 +494,10 @@ export const ContactPage = ({
                         placeholder="you@example.com"
                         aria-invalid={!!errors.email}
                         aria-describedby={errors.email ? 'email-error' : undefined}
-                        className={`w-full px-4 py-3.5 rounded-xl text-sm transition-all bg-[#F3F4F6] border placeholder-[#9CA3AF] text-[#10203A] focus:outline-none ${
+                        className={`w-full px-4 py-3.5 rounded-xl text-sm transition-all bg-[#F1F3F5] border placeholder-[#222222]/40 text-[#222222] focus:outline-none ${
                           errors.email
                             ? 'border-red-500 bg-red-50/30 focus:ring-2 focus:ring-red-200'
-                            : 'border-transparent focus:border-[#10203A] focus:bg-white focus:ring-2 focus:ring-[#10203A]/10'
+                            : 'border-transparent focus:border-[#145A96] focus:bg-white focus:ring-2 focus:ring-[#145A96]/20'
                         }`}
                       />
                       {errors.email && (
@@ -513,8 +513,8 @@ export const ContactPage = ({
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     {/* Phone Number */}
                     <div>
-                      <label htmlFor="phone" className="block text-xs font-bold text-[#10203A] mb-2">
-                        Phone Number <span className="text-[#F28C1E]">*</span>
+                      <label htmlFor="phone" className="block text-xs font-bold text-[#222222] mb-2">
+                        Phone Number <span className="text-[#F28C28]">*</span>
                       </label>
                       <input
                         type="tel"
@@ -525,10 +525,10 @@ export const ContactPage = ({
                         placeholder="+91 96555 51055"
                         aria-invalid={!!errors.phone}
                         aria-describedby={errors.phone ? 'phone-error' : undefined}
-                        className={`w-full px-4 py-3.5 rounded-xl text-sm transition-all bg-[#F3F4F6] border placeholder-[#9CA3AF] text-[#10203A] focus:outline-none ${
+                        className={`w-full px-4 py-3.5 rounded-xl text-sm transition-all bg-[#F1F3F5] border placeholder-[#222222]/40 text-[#222222] focus:outline-none ${
                           errors.phone
                             ? 'border-red-500 bg-red-50/30 focus:ring-2 focus:ring-red-200'
-                            : 'border-transparent focus:border-[#10203A] focus:bg-white focus:ring-2 focus:ring-[#10203A]/10'
+                            : 'border-transparent focus:border-[#145A96] focus:bg-white focus:ring-2 focus:ring-[#145A96]/20'
                         }`}
                       />
                       {errors.phone && (
@@ -541,7 +541,7 @@ export const ContactPage = ({
 
                     {/* Preferred Studio Venue Selection */}
                     <div>
-                      <label htmlFor="venue" className="block text-xs font-bold text-[#10203A] mb-2">
+                      <label htmlFor="venue" className="block text-xs font-bold text-[#222222] mb-2">
                         Preferred Studio Venue / Location
                       </label>
                       <div className="relative">
@@ -550,15 +550,15 @@ export const ContactPage = ({
                           name="venue"
                           value={formData.venue}
                           onChange={handleChange}
-                          className="w-full appearance-none px-4 py-3.5 rounded-xl text-sm transition-all bg-[#F3F4F6] hover:bg-[#EBEDF0] border border-transparent focus:border-[#10203A] focus:bg-white focus:ring-2 focus:ring-[#10203A]/10 text-[#10203A] focus:outline-none pr-10 cursor-pointer font-medium"
+                          className="w-full appearance-none px-4 py-3.5 rounded-xl text-sm transition-all bg-[#F1F3F5] hover:bg-[#E5E7EB] border border-transparent focus:border-[#145A96] focus:bg-white focus:ring-2 focus:ring-[#145A96]/20 text-[#222222] focus:outline-none pr-10 cursor-pointer font-medium"
                         >
                           {allVenues.map((v) => (
-                            <option key={v.name} value={v.name} className="py-2 text-[#10203A] bg-white">
+                            <option key={v.name} value={v.name} className="py-2 text-[#222222] bg-white">
                               {v.name}
                             </option>
                           ))}
                         </select>
-                        <div className="absolute inset-y-0 right-0 pr-3.5 flex items-center pointer-events-none text-[#71717A]">
+                        <div className="absolute inset-y-0 right-0 pr-3.5 flex items-center pointer-events-none text-[#222222]/60">
                           <ChevronDown className="w-4 h-4" />
                         </div>
                       </div>
@@ -567,8 +567,8 @@ export const ContactPage = ({
 
                   {/* Row 3: Subject */}
                   <div>
-                    <label htmlFor="subject" className="block text-xs font-bold text-[#10203A] mb-2">
-                      Subject <span className="text-[#F28C1E]">*</span>
+                    <label htmlFor="subject" className="block text-xs font-bold text-[#222222] mb-2">
+                      Subject <span className="text-[#F28C28]">*</span>
                     </label>
                     <div className="relative">
                       <select
@@ -578,10 +578,10 @@ export const ContactPage = ({
                         onChange={handleChange}
                         aria-invalid={!!errors.subject}
                         aria-describedby={errors.subject ? 'subject-error' : undefined}
-                        className={`w-full appearance-none px-4 py-3.5 rounded-xl text-sm transition-all bg-[#F3F4F6] hover:bg-[#EBEDF0] border text-[#10203A] focus:outline-none pr-10 cursor-pointer font-medium ${
+                        className={`w-full appearance-none px-4 py-3.5 rounded-xl text-sm transition-all bg-[#F1F3F5] hover:bg-[#E5E7EB] border text-[#222222] focus:outline-none pr-10 cursor-pointer font-medium ${
                           errors.subject
                             ? 'border-red-500 bg-red-50/30 focus:ring-2 focus:ring-red-200'
-                            : 'border-transparent focus:border-[#10203A] focus:bg-white focus:ring-2 focus:ring-[#10203A]/10'
+                            : 'border-transparent focus:border-[#145A96] focus:bg-white focus:ring-2 focus:ring-[#145A96]/20'
                         }`}
                       >
                         <option value="">Select your inquiry subject...</option>
@@ -609,7 +609,7 @@ export const ContactPage = ({
                           Studio Rental / Choreography Collaboration
                         </option>
                       </select>
-                      <div className="absolute inset-y-0 right-0 pr-3.5 flex items-center pointer-events-none text-[#71717A]">
+                      <div className="absolute inset-y-0 right-0 pr-3.5 flex items-center pointer-events-none text-[#222222]/60">
                         <ChevronDown className="w-4 h-4" />
                       </div>
                     </div>
@@ -623,8 +623,8 @@ export const ContactPage = ({
 
                   {/* Message Field */}
                   <div>
-                    <label htmlFor="message" className="block text-xs font-bold text-[#10203A] mb-2">
-                      Message / Special Requests <span className="text-[#F28C1E]">*</span>
+                    <label htmlFor="message" className="block text-xs font-bold text-[#222222] mb-2">
+                      Message / Special Requests <span className="text-[#F28C28]">*</span>
                     </label>
                     <textarea
                       id="message"
@@ -635,10 +635,10 @@ export const ContactPage = ({
                       placeholder="Anything else we should know? (e.g. prior experience, preferred days or branch location)"
                       aria-invalid={!!errors.message}
                       aria-describedby={errors.message ? 'message-error' : undefined}
-                      className={`w-full px-4 py-3.5 rounded-xl text-sm transition-all bg-[#F3F4F6] border placeholder-[#9CA3AF] text-[#10203A] focus:outline-none resize-none ${
+                      className={`w-full px-4 py-3.5 rounded-xl text-sm transition-all bg-[#F1F3F5] border placeholder-[#222222]/40 text-[#222222] focus:outline-none resize-none ${
                         errors.message
                           ? 'border-red-500 bg-red-50/30 focus:ring-2 focus:ring-red-200'
-                          : 'border-transparent focus:border-[#10203A] focus:bg-white focus:ring-2 focus:ring-[#10203A]/10'
+                          : 'border-transparent focus:border-[#145A96] focus:bg-white focus:ring-2 focus:ring-[#145A96]/20'
                       }`}
                     />
                     {errors.message && (
@@ -654,7 +654,7 @@ export const ContactPage = ({
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="inline-flex items-center justify-center px-5 sm:px-7 py-3 sm:py-3.5 rounded-full text-xs sm:text-sm font-semibold tracking-wide bg-[#10203A] text-white hover:bg-[#1A3158] active:scale-[0.99] transition-all duration-150 shadow-sm cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
+                      className="inline-flex items-center justify-center px-5 sm:px-7 py-3 sm:py-3.5 rounded-full text-xs sm:text-sm font-semibold tracking-wide bg-[#145A96] text-white hover:bg-[#145A96]/90 active:scale-[0.99] transition-all duration-150 shadow-sm cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
                     >
                       {isSubmitting ? 'Submitting...' : 'Send Message'}
                     </button>
@@ -662,7 +662,7 @@ export const ContactPage = ({
                       type="submit"
                       disabled={isSubmitting}
                       aria-label="Submit Form with Arrow"
-                      className="w-10 h-10 sm:w-12 sm:h-12 shrink-0 rounded-full bg-[#10203A] text-white flex items-center justify-center hover:bg-[#1A3158] active:scale-[0.98] transition-all duration-150 shadow-sm cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
+                      className="w-10 h-10 sm:w-12 sm:h-12 shrink-0 rounded-full bg-[#145A96] text-white flex items-center justify-center hover:bg-[#145A96]/90 active:scale-[0.98] transition-all duration-150 shadow-sm cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
                     >
                       {isSubmitting ? (
                         <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
@@ -687,7 +687,7 @@ export const ContactPage = ({
                   height={650}
                 />
                 {/* Gradient Wash */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#060A12]/80 via-transparent to-black/20 pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#222222]/80 via-transparent to-black/20 pointer-events-none" />
 
                 {/* Floating Pill Badge on Top Right (Reference UI element) */}
                 <div className="absolute top-5 right-5 z-10">
@@ -699,8 +699,8 @@ export const ContactPage = ({
                 {/* Bottom Card Caption */}
                 <div className="absolute bottom-6 left-6 right-6 text-white z-10">
                   <div className="flex items-center gap-2 mb-1">
-                    <Sparkles className="w-4 h-4 text-[#F28C1E]" />
-                    <span className="text-[11px] font-semibold uppercase tracking-[0.15em] text-[#F28C1E]">
+                    <Sparkles className="w-4 h-4 text-[#F28C28]" />
+                    <span className="text-[11px] font-semibold uppercase tracking-[0.15em] text-[#F28C28]">
                       Masterclass & Workshops
                     </span>
                   </div>
@@ -722,20 +722,20 @@ export const ContactPage = ({
       ======================================================== */}
       <section
         id="our-locations"
-        className="w-full py-16 sm:py-24 bg-[#FAF9F5] border-b border-[rgba(16,32,58,0.08)]"
+        className="w-full py-16 sm:py-24 bg-[#F1F3F5] border-b border-[rgba(34,34,34,0.08)]"
         aria-label="Our Studio Locations"
       >
         <div className="max-w-[1400px] mx-auto px-3 xs:px-4 sm:px-8 lg:px-12 xl:px-16">
           {/* Section Header */}
           <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-[#ECE7DC] text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.14em] sm:tracking-[0.16em] text-[#1E5BB8] mb-3">
-              <MapPin className="w-3.5 h-3.5 text-[#F28C1E]" />
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-[rgba(34,34,34,0.12)] text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.14em] sm:tracking-[0.16em] text-[#145A96] mb-3">
+              <MapPin className="w-3.5 h-3.5 text-[#F28C28]" />
               <span>Studio Campuses</span>
             </div>
-            <h2 className="font-display font-extrabold text-2xl xs:text-3xl sm:text-4xl md:text-5xl text-[#10203A] tracking-[-0.03em] break-words">
+            <h2 className="font-display font-extrabold text-2xl xs:text-3xl sm:text-4xl md:text-5xl text-[#145A96] tracking-[-0.03em] break-words">
               Our Studio Locations
             </h2>
-            <p className="mt-3 text-xs sm:text-sm md:text-base text-[#4A5B78] font-sans">
+            <p className="mt-3 text-xs sm:text-sm md:text-base text-[#222222]/75 font-sans">
               Visit any of our active dance studios. All branches are equipped with sprung professional dance flooring, acoustic sound, and dedicated training arenas.
             </p>
           </div>
@@ -745,36 +745,36 @@ export const ContactPage = ({
             {branches.map((branch, index) => (
               <div
                 key={branch.name}
-                className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-7 border border-[#ECE7DC] shadow-[0_4px_24px_-4px_rgba(16,32,58,0.06)] hover:shadow-[0_8px_32px_-4px_rgba(16,32,58,0.1)] transition-all duration-200 flex flex-col justify-between overflow-hidden"
+                className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-7 border border-[rgba(34,34,34,0.12)] shadow-[0_4px_24px_-4px_rgba(34,34,34,0.06)] hover:shadow-[0_8px_32px_-4px_rgba(34,34,34,0.1)] transition-all duration-200 flex flex-col justify-between overflow-hidden"
               >
                 <div>
                   {/* Top: Branch Name & Badge */}
                   <div className="flex flex-col xs:flex-row xs:items-start xs:justify-between gap-1.5 sm:gap-3 mb-3">
                     <div className="min-w-0 flex-1">
-                      <span className="text-[10px] font-bold uppercase tracking-wider text-[#F28C1E] block mb-0.5 sm:mb-1">
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-[#F28C28] block mb-0.5 sm:mb-1">
                         Branch 0{index + 1}
                       </span>
-                      <h3 className="font-display font-bold text-lg sm:text-xl lg:text-2xl text-[#10203A] break-words">
+                      <h3 className="font-display font-bold text-lg sm:text-xl lg:text-2xl text-[#145A96] break-words">
                         {branch.name}
                       </h3>
                     </div>
-                    <span className="self-start shrink-0 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full text-[10px] sm:text-[11px] font-semibold bg-[#EAF1FB] text-[#1E5BB8]">
+                    <span className="self-start shrink-0 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full text-[10px] sm:text-[11px] font-semibold bg-[#145A96]/10 text-[#145A96]">
                       Verified Studio
                     </span>
                   </div>
 
                   {/* Complete Address */}
-                  <div className="flex items-start gap-2.5 mt-3 text-xs sm:text-sm text-[#4A5B78] leading-relaxed break-words">
-                    <MapPin className="w-4 h-4 text-[#7B8AA3] shrink-0 mt-0.5" />
+                  <div className="flex items-start gap-2.5 mt-3 text-xs sm:text-sm text-[#222222]/75 leading-relaxed break-words">
+                    <MapPin className="w-4 h-4 text-[#222222]/60 shrink-0 mt-0.5" />
                     <p>{branch.address}</p>
                   </div>
 
                   {/* Contact Telephone */}
                   <div className="flex items-center gap-2.5 mt-3 text-xs sm:text-sm">
-                    <Phone className="w-4 h-4 text-[#1E5BB8] shrink-0" />
+                    <Phone className="w-4 h-4 text-[#145A96] shrink-0" />
                     <a
                       href={`tel:${branch.phone.replace(/\s+/g, '')}`}
-                      className="font-semibold text-[#10203A] hover:text-[#1E5BB8] transition-colors"
+                      className="font-semibold text-[#222222] hover:text-[#145A96] transition-colors"
                     >
                       {branch.phone}
                     </a>
@@ -782,7 +782,7 @@ export const ContactPage = ({
                 </div>
 
                 {/* Working Google Maps Embed */}
-                <div className="mt-6 mb-4 rounded-2xl overflow-hidden border border-[#ECE7DC] shadow-inner aspect-[16/9] w-full bg-[#E5E7EB]">
+                <div className="mt-6 mb-4 rounded-2xl overflow-hidden border border-[rgba(34,34,34,0.12)] shadow-inner aspect-[16/9] w-full bg-[#F1F3F5]">
                   <iframe
                     title={`Google Map location for ${branch.name}`}
                     src={branchMapUrls[index]}
@@ -797,10 +797,10 @@ export const ContactPage = ({
                 </div>
 
                 {/* Card Action Buttons */}
-                <div className="pt-2 flex items-center justify-between gap-3 border-t border-[rgba(16,32,58,0.06)]">
+                <div className="pt-2 flex items-center justify-between gap-3 border-t border-[rgba(34,34,34,0.08)]">
                   <a
                     href={`tel:${branch.phone.replace(/\s+/g, '')}`}
-                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#10203A] hover:text-[#1E5BB8] transition-colors"
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#145A96] hover:text-[#F28C28] transition-colors"
                   >
                     <Phone className="w-3.5 h-3.5" />
                     <span>Call Studio</span>
@@ -809,7 +809,7 @@ export const ContactPage = ({
                     href={branchExternalMapUrls[index]}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#1E5BB8] hover:text-[#10203A] transition-colors"
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#145A96] hover:text-[#F28C28] transition-colors"
                   >
                     <span>Get Directions</span>
                     <ExternalLink className="w-3.5 h-3.5" />
@@ -826,11 +826,11 @@ export const ContactPage = ({
       ======================================================== */}
       <section
         id="visual-banner"
-        className="w-full py-16 sm:py-24 bg-[#0B111E] text-white relative overflow-hidden"
+        className="w-full py-16 sm:py-24 bg-[#145A96] text-white relative overflow-hidden"
         aria-label="Dance Visual Banner Call to Action"
       >
         {/* Background Image with Ambient Dark Wash */}
-        <div className="absolute inset-0 pointer-events-none opacity-25">
+        <div className="absolute inset-0 pointer-events-none opacity-20">
           <img
             src={danceGroupImg}
             alt="Rhythmic Beat Dance Court Group Ensemble"
@@ -843,14 +843,14 @@ export const ContactPage = ({
           className="absolute inset-0 pointer-events-none opacity-40 mix-blend-screen"
           style={{
             backgroundImage:
-              'radial-gradient(circle at 30% 50%, rgba(30, 91, 184, 0.35) 0%, transparent 60%), radial-gradient(circle at 75% 60%, rgba(242, 140, 30, 0.25) 0%, transparent 55%)',
+              'radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.25) 0%, transparent 60%), radial-gradient(circle at 75% 60%, rgba(242, 140, 40, 0.3) 0%, transparent 55%)',
           }}
           aria-hidden="true"
         />
 
         <div className="max-w-[1200px] mx-auto px-3 xs:px-4 sm:px-8 lg:px-12 text-center relative z-10">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-[10px] sm:text-xs font-semibold uppercase tracking-[0.08em] sm:tracking-[0.16em] text-[#F28C1E] mb-4 max-w-full">
-            <Sparkles className="w-3.5 h-3.5 shrink-0" />
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/15 backdrop-blur-md border border-white/25 text-[10px] sm:text-xs font-semibold uppercase tracking-[0.08em] sm:tracking-[0.16em] text-white mb-4 max-w-full">
+            <Sparkles className="w-3.5 h-3.5 shrink-0 text-[#F28C28]" />
             <span className="truncate">Admissions Open Across All Branches</span>
           </div>
 
@@ -858,7 +858,7 @@ export const ContactPage = ({
             Ready to find your rhythm on our stage?
           </h2>
 
-          <p className="mt-4 sm:mt-5 text-xs sm:text-base md:text-lg text-white/70 max-w-2xl mx-auto leading-relaxed font-sans">
+          <p className="mt-4 sm:mt-5 text-xs sm:text-base md:text-lg text-white/90 max-w-2xl mx-auto leading-relaxed font-sans">
             Join thousands of passionate dancers trained under Guru Yuvraaj Jayakumar. Book a trial session or schedule a studio visit today.
           </p>
 
@@ -866,7 +866,7 @@ export const ContactPage = ({
             <button
               type="button"
               onClick={scrollToContactForm}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full text-xs sm:text-sm font-semibold bg-[#F28C1E] text-white hover:bg-[#d97b15] active:scale-[0.98] transition-all shadow-lg cursor-pointer"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full text-xs sm:text-sm font-semibold bg-[#F28C28] text-white hover:bg-[#F28C28]/90 active:scale-[0.98] transition-all shadow-lg cursor-pointer"
             >
               <span>Fill Out the Enquiry Form</span>
               <ArrowUpRight className="w-4 h-4" />
@@ -875,7 +875,7 @@ export const ContactPage = ({
               href={`https://wa.me/${closeSectionData.whatsappNumber || '919655551055'}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full text-xs sm:text-sm font-semibold bg-white/10 text-white hover:bg-white/20 border border-white/20 active:scale-[0.98] transition-all backdrop-blur-sm"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full text-xs sm:text-sm font-semibold bg-white/15 text-white hover:bg-white/25 border border-white/25 active:scale-[0.98] transition-all backdrop-blur-sm"
             >
               <MessageSquare className="w-4 h-4 text-[#25D366]" />
               <span>Chat with Coordinator</span>

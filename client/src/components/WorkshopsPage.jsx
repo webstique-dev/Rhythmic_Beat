@@ -97,11 +97,11 @@ export const WorkshopsPage = ({ onNavigate, onBookSlot, onSelectWorkshop }) => {
   };
 
   return (
-    <div id="workshops-page" className="min-h-screen w-full overflow-x-hidden min-w-0 bg-[#FAF9F5] text-[#10203A] selection:bg-[#EAF1FB] selection:text-[#10203A]">
+    <div id="workshops-page" className="min-h-screen w-full overflow-x-hidden min-w-0 bg-[#F1F3F5] text-[#222222] selection:bg-[#145A96]/20 selection:text-[#222222]">
       {/* Hero / Header Section */}
       <section
         id="workshops-hero"
-        className="relative w-full pt-28 xs:pt-32 sm:pt-36 pb-12 sm:pb-16 border-b border-[rgba(16,32,58,0.08)] bg-gradient-to-b from-white to-[#FAF9F5]"
+        className="relative w-full pt-28 xs:pt-32 sm:pt-36 pb-12 sm:pb-16 border-b border-[rgba(34,34,34,0.08)] bg-gradient-to-b from-white to-[#F1F3F5]"
         aria-label="Workshops Introduction"
       >
         <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16">
@@ -110,7 +110,7 @@ export const WorkshopsPage = ({ onNavigate, onBookSlot, onSelectWorkshop }) => {
             <button
               type="button"
               onClick={() => onNavigate('/')}
-              className="inline-flex items-center gap-1.5 sm:gap-2 text-[11px] sm:text-xs font-semibold uppercase tracking-[0.12em] text-[#4A5B78] hover:text-[#10203A] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1E5BB8] rounded-full px-3 py-1 bg-white border border-[#ECE7DC] shadow-xs cursor-pointer"
+              className="inline-flex items-center gap-1.5 sm:gap-2 text-[11px] sm:text-xs font-semibold uppercase tracking-[0.12em] text-[#222222]/75 hover:text-[#145A96] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#145A96] rounded-full px-3 py-1 bg-white border border-[rgba(34,34,34,0.12)] shadow-xs cursor-pointer"
             >
               <ArrowLeft className="w-3.5 h-3.5" />
               <span>Back to Home</span>
@@ -119,15 +119,15 @@ export const WorkshopsPage = ({ onNavigate, onBookSlot, onSelectWorkshop }) => {
 
           <div className="max-w-3xl">
             <div className="flex items-center gap-2 mb-3">
-              <span className="w-2 h-2 rounded-full bg-[#F28C1E] shrink-0" />
-              <span className="text-[10px] xs:text-[11px] font-semibold text-[#10203A] uppercase tracking-[0.14em]">
+              <span className="w-2 h-2 rounded-full bg-[#F28C28] shrink-0" />
+              <span className="text-[10px] xs:text-[11px] font-semibold text-[#222222] uppercase tracking-[0.14em]">
                 Master Intensives • Celebrity Mentors • Certified Syllabi
               </span>
             </div>
-            <h1 className="font-display font-extrabold text-3xl xs:text-4xl sm:text-6xl text-[#10203A] tracking-[-0.03em] leading-[1.1]">
+            <h1 className="font-display font-extrabold text-3xl xs:text-4xl sm:text-6xl text-[#145A96] tracking-[-0.03em] leading-[1.1]">
               Workshops & Masterclasses
             </h1>
-            <p className="mt-4 sm:mt-6 text-sm sm:text-base lg:text-lg text-[#4A5B78] leading-relaxed">
+            <p className="mt-4 sm:mt-6 text-sm sm:text-base lg:text-lg text-[#222222]/75 leading-relaxed">
               Accelerate your dancing with weekend masterclasses led by acclaimed choreographers, aerial specialists, and Guru Yuvraaj Jayakumar. Browse upcoming intensives or revisit past production archives below.
             </p>
           </div>
@@ -135,11 +135,11 @@ export const WorkshopsPage = ({ onNavigate, onBookSlot, onSelectWorkshop }) => {
       </section>
 
       {/* Filter & Search Bar Section */}
-      <section className="sticky top-[80px] z-30 bg-[#FAF9F5]/95 backdrop-blur-md border-b border-[#ECE7DC] py-4 sm:py-5 shadow-xs">
+      <section className="sticky top-[80px] z-30 bg-[#F1F3F5]/95 backdrop-blur-md border-b border-[rgba(34,34,34,0.12)] py-4 sm:py-5 shadow-xs">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16">
           <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4">
             {/* Primary Status Filter Tabs (All / Upcoming / Past) */}
-            <div className="flex items-center gap-1.5 bg-white p-1 rounded-full border border-[#ECE7DC] shadow-xs self-start sm:self-auto overflow-x-auto max-w-full">
+            <div className="flex items-center gap-1.5 bg-white p-1 rounded-full border border-[rgba(34,34,34,0.12)] shadow-xs self-start sm:self-auto overflow-x-auto max-w-full">
               {['All', 'Upcoming', 'Past'].map((tab) => (
                 <button
                   key={tab}
@@ -148,8 +148,8 @@ export const WorkshopsPage = ({ onNavigate, onBookSlot, onSelectWorkshop }) => {
                   onClick={() => setStatusFilter(tab)}
                   className={`px-4 sm:px-5 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer whitespace-nowrap ${
                     statusFilter === tab
-                      ? 'bg-[#18181B] text-white shadow-xs'
-                      : 'text-[#71717A] hover:text-[#10203A]'
+                      ? 'bg-[#145A96] text-white shadow-xs'
+                      : 'text-[#222222]/70 hover:text-[#145A96]'
                   }`}
                 >
                   {tab === 'All' ? 'All Workshops' : `${tab} Workshops`}
@@ -166,7 +166,7 @@ export const WorkshopsPage = ({ onNavigate, onBookSlot, onSelectWorkshop }) => {
                   value={categoryFilter}
                   onChange={(e) => setCategoryFilter(e.target.value)}
                   aria-label="Filter by category"
-                  className="w-full appearance-none px-3.5 py-2 rounded-xl text-xs font-medium bg-white border border-[#ECE7DC] text-[#10203A] focus:outline-none focus:ring-2 focus:ring-[#10203A]/10 pr-8 cursor-pointer"
+                  className="w-full appearance-none px-3.5 py-2 rounded-xl text-xs font-medium bg-white border border-[rgba(34,34,34,0.12)] text-[#222222] focus:outline-none focus:ring-2 focus:ring-[#145A96]/20 pr-8 cursor-pointer"
                 >
                   {categories.map((c) => (
                     <option key={c} value={c}>
@@ -174,7 +174,7 @@ export const WorkshopsPage = ({ onNavigate, onBookSlot, onSelectWorkshop }) => {
                     </option>
                   ))}
                 </select>
-                <div className="absolute inset-y-0 right-0 pr-2.5 flex items-center pointer-events-none text-[#71717A]">
+                <div className="absolute inset-y-0 right-0 pr-2.5 flex items-center pointer-events-none text-[#222222]/60">
                   <SlidersHorizontal className="w-3.5 h-3.5" />
                 </div>
               </div>
@@ -186,7 +186,7 @@ export const WorkshopsPage = ({ onNavigate, onBookSlot, onSelectWorkshop }) => {
                   value={locationFilter}
                   onChange={(e) => setLocationFilter(e.target.value)}
                   aria-label="Filter by location"
-                  className="w-full appearance-none px-3.5 py-2 rounded-xl text-xs font-medium bg-white border border-[#ECE7DC] text-[#10203A] focus:outline-none focus:ring-2 focus:ring-[#10203A]/10 pr-8 cursor-pointer"
+                  className="w-full appearance-none px-3.5 py-2 rounded-xl text-xs font-medium bg-white border border-[rgba(34,34,34,0.12)] text-[#222222] focus:outline-none focus:ring-2 focus:ring-[#145A96]/20 pr-8 cursor-pointer"
                 >
                   {locations.map((loc) => (
                     <option key={loc} value={loc}>
@@ -194,7 +194,7 @@ export const WorkshopsPage = ({ onNavigate, onBookSlot, onSelectWorkshop }) => {
                     </option>
                   ))}
                 </select>
-                <div className="absolute inset-y-0 right-0 pr-2.5 flex items-center pointer-events-none text-[#71717A]">
+                <div className="absolute inset-y-0 right-0 pr-2.5 flex items-center pointer-events-none text-[#222222]/60">
                   <MapPin className="w-3.5 h-3.5" />
                 </div>
               </div>
@@ -208,15 +208,15 @@ export const WorkshopsPage = ({ onNavigate, onBookSlot, onSelectWorkshop }) => {
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Search workshop or mentor..."
                   aria-label="Search workshops"
-                  className="w-full pl-9 pr-3 py-2 rounded-xl text-xs bg-white border border-[#ECE7DC] text-[#10203A] placeholder-[#9CA3AF] focus:outline-none focus:ring-2 focus:ring-[#10203A]/10"
+                  className="w-full pl-9 pr-3 py-2 rounded-xl text-xs bg-white border border-[rgba(34,34,34,0.12)] text-[#222222] placeholder-[#222222]/40 focus:outline-none focus:ring-2 focus:ring-[#145A96]/20"
                 />
-                <Search className="w-3.5 h-3.5 text-[#9CA3AF] absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+                <Search className="w-3.5 h-3.5 text-[#222222]/40 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
                 {searchQuery && (
                   <button
                     type="button"
                     onClick={() => setSearchQuery('')}
                     aria-label="Clear search"
-                    className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[#9CA3AF] hover:text-[#10203A]"
+                    className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[#222222]/50 hover:text-[#145A96]"
                   >
                     <X className="w-3 h-3" />
                   </button>
@@ -226,9 +226,9 @@ export const WorkshopsPage = ({ onNavigate, onBookSlot, onSelectWorkshop }) => {
           </div>
 
           {/* Active Filter Summary Bar */}
-          <div className="mt-3 flex items-center justify-between text-xs text-[#71717A] pt-2 border-t border-[#F2EFE8]">
+          <div className="mt-3 flex items-center justify-between text-xs text-[#222222]/70 pt-2 border-t border-[rgba(34,34,34,0.08)]">
             <p>
-              Showing <strong className="text-[#10203A]">{filteredWorkshops.length}</strong>{' '}
+              Showing <strong className="text-[#145A96]">{filteredWorkshops.length}</strong>{' '}
               {filteredWorkshops.length === 1 ? 'workshop' : 'workshops'}
               {statusFilter !== 'All' && <span> in <strong>{statusFilter}</strong></span>}
             </p>
@@ -238,7 +238,7 @@ export const WorkshopsPage = ({ onNavigate, onBookSlot, onSelectWorkshop }) => {
                 type="button"
                 id="reset-filters-btn"
                 onClick={resetFilters}
-                className="text-[#F28C1E] hover:underline font-semibold inline-flex items-center gap-1 cursor-pointer"
+                className="text-[#F28C28] hover:underline font-semibold inline-flex items-center gap-1 cursor-pointer"
               >
                 <X className="w-3 h-3" />
                 <span>Reset all filters</span>
@@ -251,19 +251,19 @@ export const WorkshopsPage = ({ onNavigate, onBookSlot, onSelectWorkshop }) => {
       {/* Workshop Cards Grid */}
       <section className="py-12 sm:py-16 max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16">
         {filteredWorkshops.length === 0 ? (
-          <div className="p-12 text-center bg-white rounded-3xl border border-[#ECE7DC] shadow-xs">
-            <Calendar className="w-10 h-10 text-[#9CA3AF] mx-auto mb-3" />
-            <h3 className="font-display font-bold text-xl text-[#10203A]">
+          <div className="p-12 text-center bg-white rounded-3xl border border-[rgba(34,34,34,0.12)] shadow-xs">
+            <Calendar className="w-10 h-10 text-[#222222]/40 mx-auto mb-3" />
+            <h3 className="font-display font-bold text-xl text-[#145A96]">
               No workshops match your selected filters
             </h3>
-            <p className="text-sm text-[#71717A] mt-1 max-w-md mx-auto">
+            <p className="text-sm text-[#222222]/70 mt-1 max-w-md mx-auto">
               Try adjusting your category, location, or search term to discover other intensive sessions.
             </p>
             <button
               type="button"
               id="empty-reset-filters-btn"
               onClick={resetFilters}
-              className="mt-5 px-5 py-2 rounded-full text-xs font-semibold bg-[#18181B] text-white hover:bg-black transition-colors cursor-pointer"
+              className="mt-5 px-5 py-2 rounded-full text-xs font-semibold bg-[#145A96] text-white hover:bg-[#145A96]/90 transition-colors cursor-pointer"
             >
               Reset Filters
             </button>
@@ -277,10 +277,10 @@ export const WorkshopsPage = ({ onNavigate, onBookSlot, onSelectWorkshop }) => {
                   key={workshop.id}
                   data-testid={`workshop-card-${workshop.id}`}
                   onClick={() => handleCardClick(workshop.id)}
-                  className="bg-white rounded-3xl overflow-hidden border border-[#ECE7DC] shadow-xs flex flex-col justify-between group hover:shadow-xl hover:border-[#10203A]/20 transition-all duration-300 cursor-pointer"
+                  className="bg-white rounded-3xl overflow-hidden border border-[rgba(34,34,34,0.12)] shadow-xs flex flex-col justify-between group hover:shadow-xl hover:border-[#145A96]/40 transition-all duration-300 cursor-pointer"
                 >
                   {/* Card Image Banner */}
-                  <div className="relative aspect-[16/11] overflow-hidden bg-[#10203A]">
+                  <div className="relative aspect-[16/11] overflow-hidden bg-[#145A96]">
                     <img
                       src={workshop.image}
                       alt={workshop.title}
@@ -295,21 +295,21 @@ export const WorkshopsPage = ({ onNavigate, onBookSlot, onSelectWorkshop }) => {
                       <span
                         className={`px-3 py-1 rounded-full text-[10.5px] font-bold uppercase tracking-wider shadow-sm ${
                           isUpcoming
-                            ? 'bg-[#F28C1E] text-white'
-                            : 'bg-black/60 backdrop-blur-md text-[#CBD5E1] border border-white/10'
+                            ? 'bg-[#F28C28] text-white'
+                            : 'bg-[#222222]/80 backdrop-blur-md text-white border border-white/10'
                         }`}
                       >
                         {workshop.status}
                       </span>
 
-                      <span className="px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-white/90 backdrop-blur-md text-[#10203A] shadow-xs">
+                      <span className="px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-white/95 backdrop-blur-md text-[#145A96] shadow-xs">
                         {workshop.category}
                       </span>
                     </div>
 
                     {/* Pricing Pill at Bottom Right of Image */}
-                    <div className="absolute bottom-3 right-3 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full shadow-sm border border-[#ECE7DC] pointer-events-none">
-                      <span className="text-[11.5px] font-extrabold text-[#10203A]">
+                    <div className="absolute bottom-3 right-3 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full shadow-sm border border-[rgba(34,34,34,0.12)] pointer-events-none">
+                      <span className="text-[11.5px] font-extrabold text-[#145A96]">
                         {workshop.pricing.earlyBird}
                       </span>
                     </div>
@@ -323,50 +323,50 @@ export const WorkshopsPage = ({ onNavigate, onBookSlot, onSelectWorkshop }) => {
                         <img
                           src={workshop.instructorImage}
                           alt={workshop.instructor}
-                          className="w-8 h-8 rounded-full object-cover border border-[#ECE7DC]"
+                          className="w-8 h-8 rounded-full object-cover border border-[rgba(34,34,34,0.12)]"
                         />
                         <div className="min-w-0">
-                          <span className="text-[10px] font-bold uppercase tracking-wider text-[#71717A] block">
+                          <span className="text-[10px] font-bold uppercase tracking-wider text-[#222222]/60 block">
                             Instructor
                           </span>
-                          <span className="text-xs font-bold text-[#10203A] truncate block">
+                          <span className="text-xs font-bold text-[#222222] truncate block">
                             {workshop.instructor}
                           </span>
                         </div>
                       </div>
 
                       {/* Workshop Title */}
-                      <h2 className="font-display font-bold text-lg sm:text-xl text-[#10203A] mb-1.5 group-hover:text-[#F28C1E] transition-colors leading-snug">
+                      <h2 className="font-display font-bold text-lg sm:text-xl text-[#145A96] mb-1.5 group-hover:text-[#F28C28] transition-colors leading-snug">
                         {workshop.title}
                       </h2>
-                      <p className="text-xs text-[#4A5B78] line-clamp-2 leading-relaxed mb-4">
+                      <p className="text-xs text-[#222222]/75 line-clamp-2 leading-relaxed mb-4">
                         {workshop.description}
                       </p>
 
                       {/* Date, Time & Venue Specs */}
-                      <div className="space-y-1.5 text-xs text-[#71717A] mb-5 pt-3 border-t border-[#F2EFE8]">
+                      <div className="space-y-1.5 text-xs text-[#222222]/70 mb-5 pt-3 border-t border-[rgba(34,34,34,0.08)]">
                         <div className="flex items-center gap-2">
-                          <Calendar className="w-3.5 h-3.5 text-[#F28C1E] shrink-0" />
-                          <span className="font-medium text-[#10203A]">{workshop.date}</span>
-                          <span className="text-[#CBD5E1]">•</span>
+                          <Calendar className="w-3.5 h-3.5 text-[#F28C28] shrink-0" />
+                          <span className="font-medium text-[#222222]">{workshop.date}</span>
+                          <span className="text-[#222222]/30">•</span>
                           <span>{workshop.time}</span>
                         </div>
                         <div className="flex items-center gap-2">
-                          <MapPin className="w-3.5 h-3.5 text-[#1E5BB8] shrink-0" />
+                          <MapPin className="w-3.5 h-3.5 text-[#145A96] shrink-0" />
                           <span className="truncate">{workshop.location}</span>
                         </div>
                       </div>
                     </div>
 
                     {/* Action Triggers */}
-                    <div className="pt-3 border-t border-[#F2EFE8] flex items-center justify-between gap-2">
+                    <div className="pt-3 border-t border-[rgba(34,34,34,0.08)] flex items-center justify-between gap-2">
                       <button
                         type="button"
                         onClick={(e) => {
                           e.stopPropagation();
                           handleCardClick(workshop.id);
                         }}
-                        className="text-xs font-semibold text-[#10203A] hover:text-[#F28C1E] inline-flex items-center gap-1 transition-colors cursor-pointer py-1.5"
+                        className="text-xs font-semibold text-[#145A96] hover:text-[#F28C28] inline-flex items-center gap-1 transition-colors cursor-pointer py-1.5"
                       >
                         <span>View Details</span>
                         <ArrowRight className="w-3 h-3" />
@@ -379,12 +379,12 @@ export const WorkshopsPage = ({ onNavigate, onBookSlot, onSelectWorkshop }) => {
                             e.stopPropagation();
                             onBookSlot(workshop);
                           }}
-                          className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-bold bg-[#18181B] text-white hover:bg-black active:scale-[0.98] transition-all shadow-xs cursor-pointer"
+                          className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-bold bg-[#145A96] text-white hover:bg-[#145A96]/90 active:scale-[0.98] transition-all shadow-xs cursor-pointer"
                         >
                           <span>Book Slot</span>
                         </button>
                       ) : (
-                        <span className="text-[11px] font-semibold text-[#71717A] uppercase tracking-wider">
+                        <span className="text-[11px] font-semibold text-[#222222]/60 uppercase tracking-wider">
                           Completed
                         </span>
                       )}
@@ -397,16 +397,16 @@ export const WorkshopsPage = ({ onNavigate, onBookSlot, onSelectWorkshop }) => {
         )}
 
         {/* Bottom Booking Assistance Card */}
-        <div className="mt-14 sm:mt-16 p-6 sm:p-8 rounded-3xl bg-white border border-[#ECE7DC] shadow-xs flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="mt-14 sm:mt-16 p-6 sm:p-8 rounded-3xl bg-white border border-[rgba(34,34,34,0.12)] shadow-xs flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-start gap-4">
-            <div className="w-11 h-11 rounded-2xl bg-[#FFF6EE] border border-[#F28C1E]/20 flex items-center justify-center text-[#F28C1E] shrink-0">
+            <div className="w-11 h-11 rounded-2xl bg-[#F1F3F5] border border-[#F28C28]/30 flex items-center justify-center text-[#F28C28] shrink-0">
               <Phone className="w-5 h-5" />
             </div>
             <div>
-              <h3 className="font-display font-bold text-base sm:text-lg text-[#10203A]">
+              <h3 className="font-display font-bold text-base sm:text-lg text-[#145A96]">
                 Host a Private Masterclass or Inquire for Group Bookings
               </h3>
-              <p className="text-xs sm:text-sm text-[#4A5B78] mt-1 max-w-xl">
+              <p className="text-xs sm:text-sm text-[#222222]/75 mt-1 max-w-xl">
                 Interested in customized choreography workshops for your college troupe, school ensemble, or corporate team? Connect with our master management desk.
               </p>
             </div>
@@ -414,7 +414,7 @@ export const WorkshopsPage = ({ onNavigate, onBookSlot, onSelectWorkshop }) => {
           <button
             type="button"
             onClick={() => onNavigate('/contact-us')}
-            className="px-6 py-2.5 rounded-full text-xs font-semibold bg-[#18181B] text-white hover:bg-black transition-colors shrink-0 shadow-sm cursor-pointer"
+            className="px-6 py-2.5 rounded-full text-xs font-semibold bg-[#145A96] text-white hover:bg-[#145A96]/90 transition-colors shrink-0 shadow-sm cursor-pointer"
           >
             Contact Admissions
           </button>

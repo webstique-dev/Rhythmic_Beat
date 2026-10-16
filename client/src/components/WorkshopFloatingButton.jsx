@@ -211,11 +211,11 @@ export const WorkshopFloatingButton = ({ onSelectWorkshop, onClick }) => {
         {/* Floating Hover Tooltip (Desktop - shown when popup is closed) */}
         {!isCardPopupOpen && (
           <div
-            className={`hidden sm:flex items-center gap-2 bg-[#10203A] text-white px-3.5 py-1.5 rounded-full shadow-lg border border-white/10 opacity-0 group-hover:opacity-100 transition-all duration-200 pointer-events-none absolute whitespace-nowrap ${
+            className={`hidden sm:flex items-center gap-2 bg-[#222222] text-white px-3.5 py-1.5 rounded-full shadow-lg border border-white/10 opacity-0 group-hover:opacity-100 transition-all duration-200 pointer-events-none absolute whitespace-nowrap ${
               showTooltipOnRight ? 'left-[105%] ml-2' : 'right-[105%] mr-2'
             } ${isDragging ? '!opacity-0' : ''}`}
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-[#F28C1E] animate-ping" />
+            <span className="w-1.5 h-1.5 rounded-full bg-[#F28C28] animate-ping" />
             <span className="text-xs font-semibold">
               {upcomingWorkshops.length} Upcoming Workshops • Click to view
             </span>
@@ -225,8 +225,8 @@ export const WorkshopFloatingButton = ({ onSelectWorkshop, onClick }) => {
         {/* Main Draggable Circular Button */}
         <div className="relative group">
           {/* Pulsing Outer Rings */}
-          <span className="absolute -inset-1 rounded-full bg-[#F28C1E]/35 animate-ping opacity-75 pointer-events-none" />
-          <span className="absolute -inset-2 rounded-full bg-[#F28C1E]/15 animate-pulse pointer-events-none" />
+          <span className="absolute -inset-1 rounded-full bg-[#F28C28]/35 animate-ping opacity-75 pointer-events-none" />
+          <span className="absolute -inset-2 rounded-full bg-[#F28C28]/15 animate-pulse pointer-events-none" />
 
           <button
             type="button"
@@ -239,18 +239,18 @@ export const WorkshopFloatingButton = ({ onSelectWorkshop, onClick }) => {
             aria-expanded={isCardPopupOpen}
             title="Drag anywhere or click to view upcoming workshops"
             style={{ touchAction: 'none' }}
-            className={`relative w-12 h-12 xs:w-13 xs:h-13 sm:w-14 sm:h-14 rounded-full bg-gradient-to-tr from-[#18181B] via-[#10203A] to-[#1E5BB8] text-white p-0.5 shadow-xl hover:shadow-2xl border-2 transition-all duration-200 flex items-center justify-center focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#F28C1E]/40 ${
+            className={`relative w-12 h-12 xs:w-13 xs:h-13 sm:w-14 sm:h-14 rounded-full bg-gradient-to-tr from-[#222222] via-[#145A96] to-[#F28C28] text-white p-0.5 shadow-xl hover:shadow-2xl border-2 transition-all duration-200 flex items-center justify-center focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#F28C28]/40 ${
               isCardPopupOpen
-                ? 'border-[#F28C1E] ring-4 ring-[#F28C1E]/40 scale-105'
+                ? 'border-[#F28C28] ring-4 ring-[#F28C28]/40 scale-105'
                 : 'border-white'
             } ${
               isDragging
-                ? 'cursor-grabbing scale-110 shadow-2xl ring-4 ring-[#F28C1E]/50'
+                ? 'cursor-grabbing scale-110 shadow-2xl ring-4 ring-[#F28C28]/50'
                 : 'cursor-grab hover:scale-108 active:scale-95'
             }`}
           >
             {/* Circular Thumbnail Inside Button */}
-            <div className="relative w-full h-full rounded-full overflow-hidden flex items-center justify-center bg-[#10203A] pointer-events-none">
+            <div className="relative w-full h-full rounded-full overflow-hidden flex items-center justify-center bg-[#222222] pointer-events-none">
               <img
                 src={ishwaryaAvatar}
                 alt="Upcoming Workshops"
@@ -259,14 +259,14 @@ export const WorkshopFloatingButton = ({ onSelectWorkshop, onClick }) => {
               />
               {/* Dark wash & Sparkle Badge */}
               <div className="absolute inset-0 bg-black/25 group-hover:bg-transparent transition-colors" />
-              <div className="absolute -top-1 -right-1 bg-[#F28C1E] text-white rounded-full p-1 shadow-xs border border-white">
+              <div className="absolute -top-1 -right-1 bg-[#F28C28] text-white rounded-full p-1 shadow-xs border border-white">
                 <Sparkles className="w-2.5 h-2.5" />
               </div>
             </div>
           </button>
 
           {/* Mobile Mini Badge */}
-          <div className="sm:hidden absolute -bottom-1 left-1/2 -translate-x-1/2 bg-[#18181B] text-white text-[8.5px] font-bold px-1.5 py-0.2 rounded-full shadow-xs border border-white/20 whitespace-nowrap pointer-events-none">
+          <div className="sm:hidden absolute -bottom-1 left-1/2 -translate-x-1/2 bg-[#222222] text-white text-[8.5px] font-bold px-1.5 py-0.2 rounded-full shadow-xs border border-white/20 whitespace-nowrap pointer-events-none">
             {upcomingWorkshops.length} Live
           </div>
         </div>
@@ -283,12 +283,12 @@ export const WorkshopFloatingButton = ({ onSelectWorkshop, onClick }) => {
             width: `${popupWidth}px`,
             maxHeight: `${popupMaxHeight}px`,
           }}
-          className="fixed top-0 left-0 z-50 bg-[#FAF9F5] text-[#10203A] rounded-2xl xs:rounded-3xl border border-[#ECE7DC] shadow-2xl flex flex-col overflow-hidden animate-in fade-in zoom-in-95 duration-200 select-none"
+          className="fixed top-0 left-0 z-50 bg-[#F1F3F5] text-[#222222] rounded-2xl xs:rounded-3xl border border-[rgba(34,34,34,0.12)] shadow-2xl flex flex-col overflow-hidden animate-in fade-in zoom-in-95 duration-200 select-none"
         >
           {/* Card Popup Header */}
-          <div className="bg-[#10203A] text-white px-3 sm:px-4 py-2.5 sm:py-3.5 flex items-center justify-between border-b border-white/10 shrink-0">
+          <div className="bg-[#145A96] text-white px-3 sm:px-4 py-2.5 sm:py-3.5 flex items-center justify-between border-b border-white/10 shrink-0">
             <div className="flex items-center gap-2 min-w-0">
-              <span className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-[#F28C1E]/20 border border-[#F28C1E]/40 flex items-center justify-center text-[#F28C1E] shrink-0">
+              <span className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-white/20 border border-white/40 flex items-center justify-center text-white shrink-0">
                 <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
               </span>
               <div className="min-w-0">
@@ -296,7 +296,7 @@ export const WorkshopFloatingButton = ({ onSelectWorkshop, onClick }) => {
                   <h3 className="font-display font-bold text-xs sm:text-sm tracking-tight text-white leading-tight truncate">
                     Upcoming Workshops
                   </h3>
-                  <span className="text-[9px] sm:text-[10px] font-extrabold uppercase px-1.5 py-0.2 rounded-md bg-[#F28C1E] text-white shrink-0">
+                  <span className="text-[9px] sm:text-[10px] font-extrabold uppercase px-1.5 py-0.2 rounded-md bg-[#F28C28] text-white shrink-0">
                     {upcomingWorkshops.length} Live
                   </span>
                 </div>
@@ -310,7 +310,7 @@ export const WorkshopFloatingButton = ({ onSelectWorkshop, onClick }) => {
               type="button"
               onClick={() => setIsCardPopupOpen(false)}
               aria-label="Close workshops popup"
-              className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors cursor-pointer shrink-0 ml-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F28C1E]"
+              className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors cursor-pointer shrink-0 ml-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F28C28]"
             >
               <X className="w-3.5 h-3.5" />
             </button>
@@ -319,7 +319,7 @@ export const WorkshopFloatingButton = ({ onSelectWorkshop, onClick }) => {
           {/* List of Upcoming Workshop Cards (Scrollbar Hidden cleanly) */}
           <div
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-            className="flex-1 overflow-y-auto overscroll-contain divide-y divide-[#ECE7DC] scrollbar-none no-scrollbar p-2 space-y-1.5"
+            className="flex-1 overflow-y-auto overscroll-contain divide-y divide-[rgba(34,34,34,0.1)] scrollbar-none no-scrollbar p-2 space-y-1.5"
           >
             {upcomingWorkshops.map((item) => (
               <div
@@ -333,12 +333,12 @@ export const WorkshopFloatingButton = ({ onSelectWorkshop, onClick }) => {
                     handleSelect(item.id);
                   }
                 }}
-                className="group w-full p-2.5 rounded-2xl bg-white hover:bg-[#F8FAFD] border border-[#ECE7DC] hover:border-[#F28C1E]/40 hover:shadow-md transition-all duration-200 cursor-pointer flex flex-col gap-2 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F28C1E]"
+                className="group w-full p-2.5 rounded-2xl bg-white hover:bg-[#F1F3F5] border border-[rgba(34,34,34,0.1)] hover:border-[#F28C28]/40 hover:shadow-md transition-all duration-200 cursor-pointer flex flex-col gap-2 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#145A96]"
               >
                 {/* Top Row: Thumbnail + Category & Price + Title */}
                 <div className="flex items-start gap-2.5">
                   {/* Thumbnail */}
-                  <div className="relative w-12 h-12 rounded-xl overflow-hidden shrink-0 border border-[#ECE7DC] group-hover:border-[#F28C1E]/50 transition-colors bg-[#10203A]">
+                  <div className="relative w-12 h-12 rounded-xl overflow-hidden shrink-0 border border-[rgba(34,34,34,0.1)] group-hover:border-[#F28C28]/50 transition-colors bg-[#222222]">
                     <img
                       src={item.image}
                       alt={item.title}
@@ -354,11 +354,11 @@ export const WorkshopFloatingButton = ({ onSelectWorkshop, onClick }) => {
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center justify-between gap-1">
                       <div className="flex items-center gap-1 min-w-0">
-                        <span className="text-[8.5px] font-extrabold uppercase tracking-wider text-[#F28C1E] truncate">
+                        <span className="text-[8.5px] font-extrabold uppercase tracking-wider text-[#F28C28] truncate">
                           {item.category}
                         </span>
                         {item.isFeatured && (
-                          <span className="inline-flex items-center gap-0.5 text-[7.5px] font-bold uppercase px-1 py-0.2 rounded bg-[#FFF6EE] text-[#F28C1E] border border-[#F28C1E]/30 shrink-0">
+                          <span className="inline-flex items-center gap-0.5 text-[7.5px] font-bold uppercase px-1 py-0.2 rounded bg-[#F1F3F5] text-[#F28C28] border border-[#F28C28]/30 shrink-0">
                             <Zap className="w-2 h-2" />
                             Featured
                           </span>
@@ -366,36 +366,36 @@ export const WorkshopFloatingButton = ({ onSelectWorkshop, onClick }) => {
                       </div>
 
                       {/* Early Bird Price Tag */}
-                      <span className="font-display font-extrabold text-[11px] sm:text-xs text-[#10203A] bg-[#FAF9F5] border border-[#ECE7DC] px-1.5 py-0.2 rounded-md shrink-0">
+                      <span className="font-display font-extrabold text-[11px] sm:text-xs text-[#222222] bg-[#F1F3F5] border border-[rgba(34,34,34,0.1)] px-1.5 py-0.2 rounded-md shrink-0">
                         {item.pricing.earlyBird}
                       </span>
                     </div>
 
-                    <h4 className="font-display font-bold text-xs sm:text-[13px] text-[#10203A] group-hover:text-[#1E5BB8] transition-colors leading-tight line-clamp-1 mt-0.5">
+                    <h4 className="font-display font-bold text-xs sm:text-[13px] text-[#145A96] leading-tight line-clamp-1 mt-0.5">
                       {item.title}
                     </h4>
 
-                    <p className="text-[10px] text-[#4A5B78] font-medium truncate mt-0.5">
+                    <p className="text-[10px] text-[#222222]/75 font-medium truncate mt-0.5">
                       with {item.instructor}
                     </p>
                   </div>
                 </div>
 
                 {/* Bottom Row: Time, Location, and Details CTA */}
-                <div className="pt-1.5 border-t border-[#F4F4F5] flex items-center justify-between text-[9.5px] sm:text-[10px] text-[#71717A]">
+                <div className="pt-1.5 border-t border-[rgba(34,34,34,0.1)] flex items-center justify-between text-[9.5px] sm:text-[10px] text-[#222222]/70">
                   <div className="flex items-center gap-2 truncate">
                     <span className="flex items-center gap-1 shrink-0">
-                      <Clock className="w-2.5 h-2.5 text-[#1E5BB8]" />
+                      <Clock className="w-2.5 h-2.5 text-[#145A96]" />
                       <span>{item.time.split('-')[0].trim()}</span>
                     </span>
                     <span>•</span>
                     <span className="flex items-center gap-1 truncate">
-                      <MapPin className="w-2.5 h-2.5 text-[#F28C1E] shrink-0" />
+                      <MapPin className="w-2.5 h-2.5 text-[#F28C28] shrink-0" />
                       <span className="truncate">{item.location.split('(')[0].trim()}</span>
                     </span>
                   </div>
 
-                  <div className="inline-flex items-center gap-1 font-semibold text-[#10203A] group-hover:text-[#F28C1E] transition-colors shrink-0 ml-1.5">
+                  <div className="inline-flex items-center gap-1 font-semibold text-[#222222] group-hover:text-[#F28C28] transition-colors shrink-0 ml-1.5">
                     <span className="text-[9px]">Details</span>
                     <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
                   </div>
@@ -405,16 +405,16 @@ export const WorkshopFloatingButton = ({ onSelectWorkshop, onClick }) => {
           </div>
 
           {/* Footer with Helpline & Quick Action */}
-          <div className="bg-white px-3 py-2 border-t border-[#ECE7DC] flex items-center justify-between text-[10px] shrink-0">
+          <div className="bg-white px-3 py-2 border-t border-[rgba(34,34,34,0.1)] flex items-center justify-between text-[10px] shrink-0">
             <a
               href="tel:+919655551055"
-              className="text-[#71717A] hover:text-[#F28C1E] transition-colors inline-flex items-center gap-1 font-semibold"
+              className="text-[#222222]/70 hover:text-[#F28C28] transition-colors inline-flex items-center gap-1 font-semibold"
             >
-              <Phone className="w-3 h-3 text-[#F28C1E]" />
+              <Phone className="w-3 h-3 text-[#F28C28]" />
               <span>+91 96555 51055</span>
             </a>
 
-            <span className="text-[9.5px] text-[#71717A] font-medium">
+            <span className="text-[9.5px] text-[#222222]/70 font-medium">
               Tap to view details
             </span>
           </div>

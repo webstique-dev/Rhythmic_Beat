@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
+import { DisciplineWatermark } from './DisciplineWatermark';
 
 import imgKrishnaDevotional from '../assets/imgi_72_image.webp';
 import imgPinkDuet from '../assets/imgi_58_image.webp';
@@ -307,12 +308,22 @@ export const GalleryShowcaseSection = () => {
     <section
       id="gallery"
       ref={sectionRef}
-      className="relative w-full bg-[#F8FAFD] border-b border-[rgba(16,32,58,0.14)]"
+      className="relative w-full bg-[#F1F3F5] border-b border-[rgba(34,34,34,0.12)]"
       style={{ height: totalHeight > 0 ? `${totalHeight}px` : '320vh' }}
       aria-label="Dance Motion Archive"
     >
       {/* Pinned Sticky Stage */}
-      <div className="sticky top-0 w-full h-screen overflow-hidden flex flex-col justify-center pt-14 sm:pt-20 pb-6 sm:pb-10">
+      <div className="sticky top-0 w-full h-screen overflow-hidden flex flex-col justify-center pt-14 sm:pt-20 pb-6 sm:pb-10 relative">
+        {/* Background Discipline Element 3: Gymnastics */}
+        <DisciplineWatermark
+          discipline="gymnastics"
+          position="bottom-left"
+          color="blue"
+          opacity={0.055}
+          size="clamp(250px, 30vw, 440px)"
+          rotation={-4}
+          className="mb-6 sm:mb-12 left-4 sm:left-12 z-0"
+        />
         {/* Header container aligned to site grid */}
         <div
           ref={headerInnerRef}
@@ -321,17 +332,17 @@ export const GalleryShowcaseSection = () => {
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 sm:gap-6">
             <div>
               <div className="flex items-center gap-2 mb-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#F28C1E]" />
-                <span className="text-[10px] sm:text-[11px] font-semibold text-[#10203A] uppercase tracking-[0.15em]">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#F28C28]" />
+                <span className="text-[10px] sm:text-[11px] font-semibold text-[#222222] uppercase tracking-[0.15em]">
                   04 / MOTION ARCHIVE
                 </span>
               </div>
-              <h2 className="font-display font-bold text-2xl sm:text-3xl md:text-5xl text-[#10203A] tracking-[-0.025em] leading-tight">
+              <h2 className="font-display font-bold text-2xl sm:text-3xl md:text-5xl text-[#145A96] tracking-[-0.025em] leading-tight">
                 Rhythm In Continuous Motion.
               </h2>
             </div>
 
-            <p className="font-sans text-xs sm:text-sm text-[#7B8AA3] max-w-xs leading-relaxed">
+            <p className="font-sans text-xs sm:text-sm text-[#222222]/60 max-w-xs leading-relaxed">
               Drag to explore disciplines • Click card to center & inspect.
             </p>
           </div>
@@ -358,7 +369,7 @@ export const GalleryShowcaseSection = () => {
                 key={idx}
                 onClick={() => handleCardClick(idx)}
                 style={{ aspectRatio: `${item.width} / ${item.height}` }}
-                className="group relative flex-shrink-0 h-[340px] xs:h-[380px] sm:h-[420px] md:h-[460px] lg:h-[480px] rounded-[22px] sm:rounded-[26px] overflow-hidden bg-[#10203A]/5 border border-[rgba(16,32,58,0.06)] shadow-[0_12px_36px_-12px_rgba(16,32,58,0.12)] cursor-pointer transition-all duration-300 hover:scale-[1.015] hover:shadow-[0_20px_45px_-12px_rgba(16,32,58,0.2)]"
+                className="group relative flex-shrink-0 h-[340px] xs:h-[380px] sm:h-[420px] md:h-[460px] lg:h-[480px] rounded-[22px] sm:rounded-[26px] overflow-hidden bg-[#222222]/5 border border-[rgba(34,34,34,0.06)] shadow-[0_12px_36px_-12px_rgba(34,34,34,0.12)] cursor-pointer transition-all duration-300 hover:scale-[1.015] hover:shadow-[0_20px_45px_-12px_rgba(34,34,34,0.2)]"
               >
                 <img
                   src={item.src}

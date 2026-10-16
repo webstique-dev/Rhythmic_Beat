@@ -85,7 +85,7 @@ export const Navbar = ({
       <div className="w-full max-w-[1360px] pointer-events-auto">
         {/* Single Unified Rounded Navigation Pill Container */}
         <nav
-          className="w-full flex items-center justify-between bg-white rounded-full px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 border border-[#ECE7DC] shadow-[0_4px_20px_-2px_rgba(0,0,0,0.08),0_1px_3px_rgba(0,0,0,0.03)] transition-shadow duration-200 hover:shadow-[0_6px_24px_-2px_rgba(0,0,0,0.12),0_2px_4px_rgba(0,0,0,0.03)]"
+          className="w-full flex items-center justify-between bg-white rounded-full px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 border border-[#F1F3F5] shadow-[0_4px_20px_-2px_rgba(34,34,34,0.08),0_1px_3px_rgba(34,34,34,0.03)] transition-shadow duration-200 hover:shadow-[0_6px_24px_-2px_rgba(34,34,34,0.12),0_2px_4px_rgba(34,34,34,0.03)]"
           aria-label="Main Navigation"
         >
           {/* Left: Logo inside the pill container */}
@@ -93,7 +93,7 @@ export const Navbar = ({
             <a
               href="/"
               onClick={handleLogoClick}
-              className="inline-flex items-center group transition-opacity hover:opacity-85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20 rounded-md py-0.5"
+              className="inline-flex items-center group transition-opacity hover:opacity-85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#145A96]/30 rounded-md py-0.5"
               aria-label="Rhythmic Beat Dance Court Home"
             >
               <img
@@ -116,10 +116,10 @@ export const Navbar = ({
                   key={link.label}
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
-                  className={`text-[12.5px] xl:text-[13.5px] tracking-normal transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20 rounded-full px-2.5 py-1 whitespace-nowrap ${
+                  className={`text-[12.5px] xl:text-[13.5px] tracking-normal transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#145A96]/30 rounded-full px-2.5 py-1 whitespace-nowrap ${
                     isActive
-                      ? 'font-semibold text-[#18181B]'
-                      : 'font-medium text-[#71717A] hover:text-[#18181B]'
+                      ? 'font-semibold text-[#145A96]'
+                      : 'font-medium text-[#222222]/70 hover:text-[#222222]'
                   }`}
                 >
                   {link.label}
@@ -133,10 +133,10 @@ export const Navbar = ({
             <a
               href={contactLink.href}
               onClick={(e) => handleNavClick(e, contactLink.href)}
-              className={`text-[12.5px] xl:text-[13px] px-4 xl:px-5 py-2 rounded-full transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20 cursor-pointer whitespace-nowrap ${
+              className={`text-[12.5px] xl:text-[13px] px-4 xl:px-5 py-2 rounded-full transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#145A96]/30 cursor-pointer whitespace-nowrap ${
                 isContactActive
-                  ? 'bg-[#F28C1E] text-white font-semibold shadow-xs'
-                  : 'bg-[#18181B] text-white hover:bg-black font-medium shadow-xs hover:scale-[1.02] active:scale-[0.98]'
+                  ? 'bg-[#F28C28] text-white font-semibold shadow-xs'
+                  : 'bg-[#145A96] text-white hover:bg-[#145A96]/90 font-medium shadow-xs hover:scale-[1.02] active:scale-[0.98]'
               }`}
             >
               {contactLink.label}
@@ -148,10 +148,10 @@ export const Navbar = ({
             <a
               href={contactLink.href}
               onClick={(e) => handleNavClick(e, contactLink.href)}
-              className={`text-[11px] xs:text-[12px] px-3 xs:px-3.5 py-1.5 rounded-full transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20 cursor-pointer whitespace-nowrap ${
+              className={`text-[11px] xs:text-[12px] px-3 xs:px-3.5 py-1.5 rounded-full transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#145A96]/30 cursor-pointer whitespace-nowrap ${
                 isContactActive
-                  ? 'bg-[#F28C1E] text-white font-semibold'
-                  : 'bg-[#18181B] text-white hover:bg-black font-medium'
+                  ? 'bg-[#F28C28] text-white font-semibold'
+                  : 'bg-[#145A96] text-white hover:bg-[#145A96]/90 font-medium'
               }`}
             >
               Contact Us
@@ -161,7 +161,7 @@ export const Navbar = ({
               onClick={toggleMobileMenu}
               aria-expanded={isMobileMenuOpen}
               aria-label="Toggle Navigation Menu"
-              className="p-1.5 xs:p-2 rounded-full text-[#18181B] hover:bg-black/[0.05] active:bg-black/[0.08] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20 cursor-pointer shrink-0"
+              className="p-1.5 xs:p-2 rounded-full text-[#222222] hover:bg-[#222222]/5 active:bg-[#222222]/10 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#145A96]/30 cursor-pointer shrink-0"
             >
               <svg
                 className="w-5 h-5"
@@ -193,10 +193,10 @@ export const Navbar = ({
         {/* Mobile Dropdown Menu (< 1040px) */}
         {isMobileMenuOpen && (
           <div className="min-[1040px]:hidden max-w-[480px] mx-auto px-2 pt-2 pointer-events-auto">
-            <div className="w-full rounded-3xl border border-[#ECE7DC] bg-[#FAF7EE]/98 backdrop-blur-xl px-5 sm:px-6 py-5 transition-all duration-200 animate-in fade-in slide-in-from-top-2 shadow-2xl">
+            <div className="w-full rounded-3xl border border-[#F1F3F5] bg-white/98 backdrop-blur-xl px-5 sm:px-6 py-5 transition-all duration-200 animate-in fade-in slide-in-from-top-2 shadow-2xl">
               <div className="flex flex-col gap-3">
                 {/* Mobile Pill-styled Navigation Card */}
-                <div className="bg-white rounded-2xl p-2.5 border border-[#ECE7DC] shadow-sm flex flex-col divide-y divide-[#F2EFE8]">
+                <div className="bg-[#F1F3F5] rounded-2xl p-2.5 border border-[#F1F3F5] shadow-sm flex flex-col divide-y divide-white/60">
                   {data.links.map((link) => {
                     const isActive = isLinkActive(link.href);
                     const isContact = link.label === 'Contact Us';
@@ -208,18 +208,18 @@ export const Navbar = ({
                         className={`text-[13.5px] px-3 py-2.5 rounded-lg transition-colors flex items-center justify-between ${
                           isActive
                             ? isContact
-                              ? 'font-semibold text-white bg-[#18181B]'
-                              : 'font-semibold text-[#18181B] bg-[#FAF7EE]'
+                              ? 'font-semibold text-white bg-[#145A96]'
+                              : 'font-semibold text-[#145A96] bg-white'
                             : isContact
-                            ? 'font-semibold text-[#18181B] hover:bg-black/[0.04]'
-                            : 'font-medium text-[#71717A] hover:text-[#18181B] hover:bg-black/[0.02]'
+                            ? 'font-semibold text-[#222222] hover:bg-white/60'
+                            : 'font-medium text-[#222222]/70 hover:text-[#222222] hover:bg-white/40'
                         }`}
                       >
                         <span>{link.label}</span>
                         {isActive && (
                           <span
                             className={`w-1.5 h-1.5 rounded-full ${
-                              isContact ? 'bg-[#F28C1E]' : 'bg-[#18181B]'
+                              isContact ? 'bg-[#F28C28]' : 'bg-[#145A96]'
                             }`}
                           />
                         )}

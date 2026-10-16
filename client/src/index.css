@@ -1,14 +1,14 @@
 @import "tailwindcss";
 
 @theme {
-  --color-ground: #F8FAFD;
-  --color-ground-secondary: #EAF1FB;
-  --color-ink: #10203A;
-  --color-ink-secondary: #4A5B78;
-  --color-muted: #7B8AA3;
-  --color-accent-orange: #F28C1E;
-  --color-accent-blue: #1E5BB8;
-  --color-hairline: rgba(16, 32, 58, 0.14);
+  --color-ground: #F1F3F5;
+  --color-ground-secondary: #FFFFFF;
+  --color-ink: #222222;
+  --color-ink-secondary: #222222;
+  --color-muted: #222222;
+  --color-accent-orange: #F28C28;
+  --color-accent-blue: #145A96;
+  --color-hairline: rgba(34, 34, 34, 0.12);
 
   --font-display: 'Syne', sans-serif;
   --font-sans: 'Sora', sans-serif;
@@ -16,34 +16,51 @@
 }
 
 :root {
-  --ground: #F8FAFD;
-  --secondary-ground: #EAF1FB;
-  --ink: #10203A;
-  --secondary-ink: #4A5B78;
-  --muted: #7B8AA3;
-  --orange: #F28C1E;
-  --blue: #1E5BB8;
-  --hairline: rgba(16, 32, 58, 0.14);
+  --ground: #F1F3F5;
+  --secondary-ground: #FFFFFF;
+  --ink: #222222;
+  --secondary-ink: #222222;
+  --muted: #222222;
+  --orange: #F28C28;
+  --blue: #145A96;
+  --hairline: rgba(34, 34, 34, 0.12);
+  --primary-blue: #145A96;
+  --accent-orange: #F28C28;
+  --white: #FFFFFF;
+  --light-grey: #F1F3F5;
+  --dark-text: #222222;
 }
 
 * {
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   background-color: var(--ground);
   color: var(--ink);
   font-family: 'Sora', sans-serif;
-  overflow-x: clip; /* clips horizontal overflow without breaking position: sticky */
+  overflow-x: clip;
+  /* clips horizontal overflow without breaking position: sticky */
   -webkit-font-smoothing: antialiased;
 }
 
-/* Headings use Syne with tight letter spacing */
-h1, h2, h3, h4, h5, h6, .font-display {
+/* Headings use Syne with tight letter spacing & Primary Blue color */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: 'Syne', sans-serif;
   letter-spacing: -0.025em;
+  color: #145A96;
+}
+
+.font-display {
+  font-family: 'Syne', sans-serif;
 }
 
 /* Labels uppercase at wide tracking */
@@ -53,27 +70,27 @@ h1, h2, h3, h4, h5, h6, .font-display {
 
 /* Outlined stroke numeral */
 .stroke-numeral {
-  -webkit-text-stroke: 1.5px #10203A;
+  -webkit-text-stroke: 1.5px #222222;
   color: transparent;
   font-family: 'Syne', sans-serif;
 }
 
 /* Hairline border utility */
 .border-hairline {
-  border-color: rgba(16, 32, 58, 0.14);
+  border-color: rgba(34, 34, 34, 0.12);
 }
 
 .border-hairline-t {
-  border-top-color: rgba(16, 32, 58, 0.14);
+  border-top-color: rgba(34, 34, 34, 0.12);
 }
 
 .border-hairline-b {
-  border-bottom-color: rgba(16, 32, 58, 0.14);
+  border-bottom-color: rgba(34, 34, 34, 0.12);
 }
 
 /* Deck card drop shadow - ONLY allowed shadow in the spec */
 .card-deck-shadow {
-  box-shadow: 0 16px 36px -8px rgba(16, 32, 58, 0.12), 0 4px 12px -2px rgba(16, 32, 58, 0.06);
+  box-shadow: 0 16px 36px -8px rgba(34, 34, 34, 0.08), 0 4px 12px -2px rgba(34, 34, 34, 0.04);
 }
 
 /* Motion reveal */
@@ -98,7 +115,29 @@ h1, h2, h3, h4, h5, h6, .font-display {
 .scrollbar-none,
 .no-scrollbar,
 #upcoming-workshop-scroll-body {
-  -ms-overflow-style: none !important; /* IE and Edge */
-  scrollbar-width: none !important; /* Firefox */
+  -ms-overflow-style: none !important;
+  /* IE and Edge */
+  scrollbar-width: none !important;
+  /* Firefox */
 }
 
+/* Infinite Marquee Track */
+@keyframes marquee-infinite {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee-infinite {
+  display: flex;
+  width: max-content;
+  animation: marquee-infinite 32s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-infinite:hover {
+  animation-play-state: paused;
+}

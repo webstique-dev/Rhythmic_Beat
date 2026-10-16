@@ -177,7 +177,7 @@ export const CardDeck = ({
         aria-roledescription="carousel"
         aria-label="Dance Style Cards Deck"
         onKeyDown={handleKeyDown}
-        className="relative w-[280px] sm:w-[330px] md:w-[360px] h-[460px] sm:h-[490px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1E5BB8] rounded-2xl"
+        className="relative w-[280px] sm:w-[330px] md:w-[360px] h-[460px] sm:h-[490px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#145A96] rounded-2xl"
         style={{ touchAction: 'pan-y' }}
       >
         {[...visibleCards].reverse().map(({ card, rank, originalIndex }) => {
@@ -189,11 +189,11 @@ export const CardDeck = ({
               onPointerMove={isTop ? handlePointerMove : undefined}
               onPointerUp={isTop ? handlePointerUp : undefined}
               onPointerCancel={isTop ? handlePointerCancel : undefined}
-              className="absolute inset-0 w-full h-full bg-white rounded-2xl border border-[rgba(16,32,58,0.14)] card-deck-shadow overflow-hidden will-change-transform flex flex-col"
+              className="absolute inset-0 w-full h-full bg-white rounded-2xl border border-[rgba(34,34,34,0.12)] card-deck-shadow overflow-hidden will-change-transform flex flex-col"
               style={getStackStyle(rank)}
             >
               {/* Card Image */}
-              <div className="relative w-full h-[54%] overflow-hidden bg-[#EAF1FB]">
+              <div className="relative w-full h-[54%] overflow-hidden bg-[#F1F3F5]">
                 <img
                   src={card.image}
                   alt={card.name}
@@ -205,7 +205,7 @@ export const CardDeck = ({
                 />
                 {/* Category Pill Tag */}
                 <div className="absolute top-3.5 left-3.5">
-                  <span className="px-2.5 py-1 rounded bg-[#F8FAFD]/90 backdrop-blur-sm border border-[rgba(16,32,58,0.12)] text-[9.5px] font-bold text-[#10203A] uppercase tracking-[0.12em]">
+                  <span className="px-2.5 py-1 rounded bg-[#FFFFFF]/90 backdrop-blur-sm border border-[rgba(34,34,34,0.12)] text-[9.5px] font-bold text-[#222222] uppercase tracking-[0.12em]">
                     {card.tag}
                   </span>
                 </div>
@@ -215,24 +215,24 @@ export const CardDeck = ({
               <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between bg-white pointer-events-none">
                 <div>
                   <div className="flex items-center justify-between">
-                    <h3 className="font-display font-bold text-xl sm:text-2xl text-[#10203A]">
+                    <h3 className="font-display font-bold text-xl sm:text-2xl text-[#145A96]">
                       {card.name}
                     </h3>
-                    <span className="text-[10px] font-semibold text-[#F28C1E] uppercase tracking-[0.14em]">
+                    <span className="text-[10px] font-semibold text-[#F28C28] uppercase tracking-[0.14em]">
                       {card.details.intensity}
                     </span>
                   </div>
-                  <p className="mt-2 text-xs sm:text-[13px] text-[#4A5B78] leading-relaxed line-clamp-2">
+                  <p className="mt-2 text-xs sm:text-[13px] text-[#222222]/75 leading-relaxed line-clamp-2">
                     {card.summary}
                   </p>
                 </div>
 
                 {/* Card Footer Detail */}
-                <div className="pt-3 border-t border-[rgba(16,32,58,0.08)] flex items-center justify-between text-[10.5px]">
-                  <span className="font-semibold text-[#10203A] tracking-[0.05em]">
+                <div className="pt-3 border-t border-[rgba(34,34,34,0.1)] flex items-center justify-between text-[10.5px]">
+                  <span className="font-semibold text-[#222222] tracking-[0.05em]">
                     {card.details.focus}
                   </span>
-                  <span className="text-[#7B8AA3] text-[9.5px] uppercase tracking-[0.1em]">
+                  <span className="text-[#222222]/60 text-[9.5px] uppercase tracking-[0.1em]">
                     {card.details.mentor}
                   </span>
                 </div>
@@ -244,8 +244,8 @@ export const CardDeck = ({
 
       {/* Control Hint & Progress Dots */}
       <div className="mt-6 flex flex-col items-center gap-3">
-        <p className="text-[10.5px] font-medium text-[#7B8AA3] uppercase tracking-[0.15em] flex items-center gap-2">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#1E5BB8]" />
+        <p className="text-[10.5px] font-medium text-[#222222]/60 uppercase tracking-[0.15em] flex items-center gap-2">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#145A96]" />
           {hintText}
         </p>
 
@@ -257,10 +257,10 @@ export const CardDeck = ({
               type="button"
               onClick={() => setCurrentIndex(idx)}
               aria-label={`Go to ${c.name} card`}
-              className={`h-2 transition-all duration-200 rounded-full focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#1E5BB8] ${
+              className={`h-2 transition-all duration-200 rounded-full focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#145A96] ${
                 idx === currentIndex
-                  ? 'w-6 bg-[#10203A]'
-                  : 'w-2 bg-[rgba(16,32,58,0.2)] hover:bg-[rgba(16,32,58,0.4)]'
+                  ? 'w-6 bg-[#145A96]'
+                  : 'w-2 bg-[rgba(34,34,34,0.2)] hover:bg-[rgba(34,34,34,0.4)]'
               }`}
             />
           ))}

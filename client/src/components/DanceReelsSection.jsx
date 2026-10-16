@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect, useMemo } from 'react';
 import CircularCarousel from './CircularCarousel';
+import { DisciplineWatermark } from './DisciplineWatermark';
 
 import videoPesama from '../assets/Dancing with him is always a pleasure!! The way he compliments , keep me comfortable ❤️❤️ Pesama.mp4';
 import videoSemiclassical from '../assets/Glimpse of @yuvi_smart master’s Semiclassical workshop at Rhythmic beat dance court Valasaravakk (online-video-cutter.com).mp4';
@@ -119,25 +120,35 @@ export const DanceReelsSection = () => {
     <section
       ref={sectionRef}
       id="reels"
-      className="relative w-full py-14 sm:py-20 border-b border-[rgba(16,32,58,0.14)] bg-[#F8FAFD] overflow-hidden scroll-mt-20"
+      className="relative w-full py-14 sm:py-20 border-b border-[rgba(34,34,34,0.12)] bg-[#F1F3F5] overflow-hidden scroll-mt-20"
       aria-label="Dance Reels Showcase"
     >
+      {/* Background Discipline Element 4: Zumba */}
+      <DisciplineWatermark
+        discipline="zumba"
+        position="top-right"
+        color="orange"
+        opacity={0.06}
+        size="clamp(240px, 28vw, 420px)"
+        rotation={8}
+        className="top-4 sm:top-8 right-3 sm:right-10 z-0"
+      />
       <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 mb-6 sm:mb-10">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 sm:gap-6">
           <div>
             <div className="flex items-center gap-2 mb-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#1E5BB8]" />
-              <span className="text-[10px] sm:text-[11px] font-semibold text-[#10203A] uppercase tracking-[0.15em]">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#145A96]" />
+              <span className="text-[10px] sm:text-[11px] font-semibold text-[#222222] uppercase tracking-[0.15em]">
                 05 / REELS IN MOTION
               </span>
             </div>
-            <h2 className="font-display font-bold text-2xl sm:text-3xl md:text-5xl text-[#10203A] tracking-[-0.025em] leading-tight">
+            <h2 className="font-display font-bold text-2xl sm:text-3xl md:text-5xl text-[#145A96] tracking-[-0.025em] leading-tight">
               Live Studio Cyphers & Routines.
             </h2>
           </div>
 
           <div className="flex items-center gap-4">
-            <p className="font-sans text-xs sm:text-sm text-[#7B8AA3] max-w-xs leading-relaxed">
+            <p className="font-sans text-xs sm:text-sm text-[#222222]/60 max-w-xs leading-relaxed">
               Drag or swipe to spin the 3D ring • Click any video to toggle sound.
             </p>
           </div>

@@ -6,11 +6,13 @@ import { GalleryShowcaseSection } from './components/GalleryShowcaseSection';
 import { DanceReelsSection } from './components/DanceReelsSection';
 import { StageArenaSection } from './components/StageArenaSection';
 import { TestimonialsSection } from './components/TestimonialsSection';
+import { StatementFold } from './components/StatementFold';
 import { ScheduleSection } from './components/ScheduleSection';
 import { CloseSection } from './components/CloseSection';
 import { ContactPage } from './components/ContactPage';
 import { AboutUsPage } from './components/AboutUsPage';
 import { CoursesPage } from './components/CoursesPage';
+import { CourseDetailsPage } from './components/CourseDetailsPage';
 import { WorkshopsPage } from './components/WorkshopsPage';
 import { WorkshopDetailsPage } from './components/WorkshopDetailsPage';
 import { OurFacilitiesPage } from './components/OurFacilitiesPage';
@@ -18,6 +20,7 @@ import { FranchisePage } from './components/FranchisePage';
 import { GalleryPage } from './components/GalleryPage';
 import { UpcomingWorkshopModal } from './components/UpcomingWorkshopModal';
 import { WorkshopFloatingButton } from './components/WorkshopFloatingButton';
+import { DisciplineBanner } from './components/DisciplineBanner';
 import { getNextUpcomingWorkshop } from './data/workshops';
 
 export default function App() {
@@ -130,6 +133,27 @@ export default function App() {
       }
     }
 
+    // Dynamic Course Details Page Route: /courses/:id
+    if (currentPath.startsWith('/courses/')) {
+      const cleanPath = currentPath.replace('/courses/', '');
+      const courseId = cleanPath.split('?')[0].split('#')[0].split('/')[0];
+      const searchParams = new URLSearchParams(
+        cleanPath.includes('?')
+          ? cleanPath.split('?')[1]
+          : (typeof window !== 'undefined' ? window.location.search : '')
+      );
+      const initialTab = searchParams.get('tab');
+      if (courseId) {
+        return (
+          <CourseDetailsPage
+            courseId={courseId}
+            initialTab={initialTab}
+            onNavigate={navigate}
+          />
+        );
+      }
+    }
+
     switch (currentPath) {
       case '/about-us':
       case '/about':
@@ -181,7 +205,10 @@ export default function App() {
             {/* 6. Voices of the Court */}
             <TestimonialsSection />
 
-            {/* 7. Weekly Schedule */}
+            {/* 7. Philosophy & Creed (Bungee Movement) */}
+            <StatementFold />
+
+            {/* 8. Weekly Schedule */}
             {/* <ScheduleSection /> */}
           </>
         );
@@ -189,7 +216,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen w-full bg-[#F8FAFD] text-[#10203A] flex flex-col overflow-x-clip selection:bg-[#EAF1FB] selection:text-[#10203A]">
+    <div className="min-h-screen w-full bg-[#F1F3F5] text-[#222222] flex flex-col overflow-x-clip selection:bg-[#145A96]/20 selection:text-[#222222]">
       {/* Fixed Navigation Bar */}
       <Navbar currentPath={currentPath} onNavigate={navigate} />
 
@@ -197,6 +224,9 @@ export default function App() {
       <main className="flex-1 w-full overflow-x-clip">
         {renderCurrentView()}
       </main>
+
+      {/* Academy Disciplines & Movement Arts Banner */}
+      <DisciplineBanner onSelectDiscipline={() => navigate('/courses')} />
 
       {/* Close & Footer */}
       <CloseSection />

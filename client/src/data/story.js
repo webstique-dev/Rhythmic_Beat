@@ -14,19 +14,19 @@ export const storyData = {
       year: "2004",
       title: "FOUNDED IN TRICHY",
       description: "Artistic Director Yuvraaj Jayakumar establishes Rhythmic Beat, pioneering grassroots dance education.",
-      accent: "#F28C1E",
+      accent: "#F28C28",
     },
     {
       year: "2017",
       title: "CHENNAI STUDIO OPENED",
       description: "September 2017: Flagship studio opens in Valasaravakkam with professional sprung wooden courts.",
-      accent: "#1E5BB8",
+      accent: "#145A96",
     },
     {
       year: "TODAY",
       title: "INSPIRING THROUGH DANCE",
       description: "Over 7,000 dancers trained and 1,000+ live productions across Chennai & Pondicherry.",
-      accent: "#F28C1E",
+      accent: "#F28C28",
     },
   ],
 };

@@ -1,4 +1,5 @@
 import ScrollExpand from './ScrollExpand';
+import { DisciplineWatermark } from './DisciplineWatermark';
 import desktopVideo from '../assets/Glimpse of @yuvi_smart master’s Semiclassical workshop at Rhythmic beat dance court Valasaravakk (online-video-cutter.com).mp4';
 import pesamaVideo from '../assets/Dancing with him is always a pleasure!! The way he compliments , keep me comfortable ❤️❤️ Pesama.mp4';
 import semiclassicalPoster from '../assets/poster-semiclassical.webp';
@@ -8,23 +9,33 @@ export const StageArenaSection = () => {
   return (
     <section
       id="arena"
-      className="relative w-full border-b border-[rgba(16,32,58,0.14)] bg-[#F8FAFD]"
+      className="relative w-full border-b border-[rgba(34,34,34,0.12)] bg-[#F1F3F5] overflow-hidden"
       aria-label="Studio Immersion & Stage Experience"
     >
+      {/* Background Discipline Element 5: Aerial Yoga */}
+      <DisciplineWatermark
+        discipline="aerialyoga"
+        position="top-right"
+        color="blue"
+        opacity={0.065}
+        size="clamp(220px, 26vw, 400px)"
+        rotation={2}
+        className="top-2 sm:top-4 right-6 sm:right-20 z-0"
+      />
       {/* Intro Header strip above the scroll expander */}
       <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 pt-12 sm:pt-16 pb-5 sm:pb-8 flex flex-col md:flex-row md:items-end justify-between gap-3 sm:gap-6">
         <div>
           <div className="flex items-center gap-2 mb-2 sm:mb-2.5">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#1E5BB8]" />
-            <span className="text-[10px] sm:text-[11px] font-semibold text-[#10203A] uppercase tracking-[0.15em]">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#145A96]" />
+            <span className="text-[10px] sm:text-[11px] font-semibold text-[#222222] uppercase tracking-[0.15em]">
               03 / THE STAGE ARENA
             </span>
           </div>
-          <h2 className="font-display font-bold text-2xl sm:text-3xl md:text-5xl text-[#10203A] tracking-[-0.025em] leading-tight">
+          <h2 className="font-display font-bold text-2xl sm:text-3xl md:text-5xl text-[#145A96] tracking-[-0.025em] leading-tight">
             From Rehearsal Floor to Spotlight.
           </h2>
         </div>
-        <p className="font-sans text-xs sm:text-sm text-[#4A5B78] max-w-sm leading-relaxed">
+        <p className="font-sans text-xs sm:text-sm text-[#222222]/75 max-w-sm leading-relaxed">
           Scroll down into the frame to unlock the full stage experience.
         </p>
       </div>

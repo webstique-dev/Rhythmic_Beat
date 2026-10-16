@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
+import { DisciplineWatermark } from './DisciplineWatermark';
 
 import imgFamilyDance from '../assets/poster-family-dance.webp';
 import imgCertificate from '../assets/imgi_66_image.webp';
@@ -79,25 +80,35 @@ export const TestimonialsSection = () => {
   return (
     <section
       id="testimonials"
-      className="relative w-full py-14 sm:py-20 md:py-24 border-b border-[rgba(16,32,58,0.14)] bg-[#F8FAFD] overflow-hidden"
+      className="relative w-full py-14 sm:py-20 md:py-24 border-b border-[rgba(34,34,34,0.12)] bg-[#F1F3F5] overflow-hidden"
       aria-label="Student and Parent Testimonials"
     >
+      {/* Background Discipline Element 6: Yoga */}
+      <DisciplineWatermark
+        discipline="yoga"
+        position="bottom-right"
+        color="orange"
+        opacity={0.06}
+        size="clamp(240px, 28vw, 420px)"
+        rotation={3}
+        className="z-0 bottom-4 sm:bottom-10 right-4 sm:right-12"
+      />
       <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-6 mb-8 sm:mb-12">
           <div>
             <div className="flex items-center gap-2 mb-2 sm:mb-2.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#F28C1E]" />
-              <span className="text-[10px] sm:text-[11px] font-semibold text-[#10203A] uppercase tracking-[0.15em]">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#F28C28]" />
+              <span className="text-[10px] sm:text-[11px] font-semibold text-[#222222] uppercase tracking-[0.15em]">
                 06 / VOICES OF THE COURT
               </span>
             </div>
-            <h2 className="font-display font-bold text-2xl sm:text-3xl md:text-5xl text-[#10203A] tracking-[-0.025em] leading-tight">
+            <h2 className="font-display font-bold text-2xl sm:text-3xl md:text-5xl text-[#145A96] tracking-[-0.025em] leading-tight">
               What Our Dancers & Parents Say.
             </h2>
           </div>
 
-          <p className="font-sans text-xs sm:text-sm text-[#7B8AA3] max-w-sm leading-relaxed">
+          <p className="font-sans text-xs sm:text-sm text-[#222222]/60 max-w-sm leading-relaxed">
             Authentic experiences from students, parents, and workshop artists across our Valasaravakkam, Ambattur, Kolapakkam & Pondicherry studios.
           </p>
         </div>
@@ -105,7 +116,7 @@ export const TestimonialsSection = () => {
         {/* Featured Testimonial Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-stretch mb-8 sm:mb-10">
           {/* Left Column: Featured Client / Student Photo */}
-          <div className="lg:col-span-5 relative rounded-[22px] sm:rounded-[28px] overflow-hidden bg-[#10203A]/5 border border-[rgba(16,32,58,0.08)] shadow-[0_16px_40px_-12px_rgba(16,32,58,0.1)] h-[360px] sm:h-[440px] lg:h-[480px]">
+          <div className="lg:col-span-5 relative rounded-[22px] sm:rounded-[28px] overflow-hidden bg-[#222222]/5 border border-[rgba(34,34,34,0.08)] shadow-[0_16px_40px_-12px_rgba(34,34,34,0.1)] h-[360px] sm:h-[440px] lg:h-[480px]">
             <img
               key={`img-${current.id}`}
               src={current.image}
@@ -116,7 +127,7 @@ export const TestimonialsSection = () => {
             />
 
             {/* Overlaid Pull-Quote Badge matching reference layout */}
-            <div className="absolute bottom-4 left-4 right-4 sm:right-6 bg-[#10203A]/90 backdrop-blur-md text-white p-4 sm:p-5 rounded-xl sm:rounded-2xl border border-white/10 shadow-xl">
+            <div className="absolute bottom-4 left-4 right-4 sm:right-6 bg-[#222222]/90 backdrop-blur-md text-white p-4 sm:p-5 rounded-xl sm:rounded-2xl border border-white/10 shadow-xl">
               <p className="font-display font-semibold text-xs sm:text-sm text-white leading-snug">
                 “{current.highlight}”
               </p>
@@ -124,7 +135,7 @@ export const TestimonialsSection = () => {
           </div>
 
           {/* Right Column: Featured Review Card */}
-          <div className="lg:col-span-7 rounded-[22px] sm:rounded-[28px] bg-white p-6 sm:p-10 md:p-12 border border-[rgba(16,32,58,0.08)] shadow-[0_16px_40px_-12px_rgba(16,32,58,0.06)] flex flex-col justify-between min-h-[360px] sm:min-h-[440px] lg:min-h-[480px]">
+          <div className="lg:col-span-7 rounded-[22px] sm:rounded-[28px] bg-white p-6 sm:p-10 md:p-12 border border-[rgba(34,34,34,0.08)] shadow-[0_16px_40px_-12px_rgba(34,34,34,0.06)] flex flex-col justify-between min-h-[360px] sm:min-h-[440px] lg:min-h-[480px]">
             <div
               key={`text-${current.id}`}
               className={`space-y-6 transition-all duration-300 ${
@@ -132,25 +143,25 @@ export const TestimonialsSection = () => {
               }`}
             >
               {/* Review Text in Quotations */}
-              <blockquote className="font-sans text-base sm:text-lg md:text-xl text-[#10203A] font-normal leading-relaxed">
+              <blockquote className="font-sans text-base sm:text-lg md:text-xl text-[#222222] font-normal leading-relaxed">
                 “{current.review}”
               </blockquote>
 
               {/* Client Name & Designation */}
               <div className="pt-2">
-                <h3 className="font-display font-bold text-base sm:text-lg text-[#10203A] tracking-tight">
+                <h3 className="font-display font-bold text-base sm:text-lg text-[#145A96] tracking-tight">
                   {current.name}
                 </h3>
-                <p className="font-sans text-xs sm:text-sm text-[#7B8AA3] mt-0.5 font-medium">
+                <p className="font-sans text-xs sm:text-sm text-[#222222]/60 mt-0.5 font-medium">
                   {current.role}
                 </p>
               </div>
             </div>
 
             {/* Bottom Controls Bar with Index and Arrows */}
-            <div className="flex items-center justify-between pt-6 border-t border-[rgba(16,32,58,0.08)] mt-6">
-              <div className="text-xs font-semibold text-[#7B8AA3] uppercase tracking-[0.14em]">
-                <span className="text-[#10203A] font-bold">0{currentIndex + 1}</span> / 0{TESTIMONIALS.length}
+            <div className="flex items-center justify-between pt-6 border-t border-[rgba(34,34,34,0.08)] mt-6">
+              <div className="text-xs font-semibold text-[#222222]/60 uppercase tracking-[0.14em]">
+                <span className="text-[#222222] font-bold">0{currentIndex + 1}</span> / 0{TESTIMONIALS.length}
               </div>
 
               <div className="flex items-center gap-2 sm:gap-3">
@@ -158,7 +169,7 @@ export const TestimonialsSection = () => {
                   type="button"
                   onClick={handlePrev}
                   aria-label="Previous testimonial"
-                  className="w-11 h-11 rounded-xl bg-[#F0F4FA] hover:bg-[#10203A] hover:text-white text-[#10203A] flex items-center justify-center transition-all duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1E5BB8] active:scale-95"
+                  className="w-11 h-11 rounded-xl bg-[#F1F3F5] hover:bg-[#145A96] hover:text-white text-[#222222] flex items-center justify-center transition-all duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#145A96] active:scale-95"
                 >
                   <ArrowLeft className="w-4 h-4" />
                 </button>
@@ -166,7 +177,7 @@ export const TestimonialsSection = () => {
                   type="button"
                   onClick={handleNext}
                   aria-label="Next testimonial"
-                  className="w-11 h-11 rounded-xl bg-[#F0F4FA] hover:bg-[#10203A] hover:text-white text-[#10203A] flex items-center justify-center transition-all duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1E5BB8] active:scale-95"
+                  className="w-11 h-11 rounded-xl bg-[#F1F3F5] hover:bg-[#145A96] hover:text-white text-[#222222] flex items-center justify-center transition-all duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#145A96] active:scale-95"
                 >
                   <ArrowRight className="w-4 h-4" />
                 </button>
@@ -188,7 +199,7 @@ export const TestimonialsSection = () => {
                 aria-pressed={isActive}
                 className={`relative w-14 h-14 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl overflow-hidden cursor-pointer transition-all duration-200 ${
                   isActive
-                    ? 'ring-2 ring-[#10203A] shadow-md scale-105 opacity-100'
+                    ? 'ring-2 ring-[#145A96] shadow-md scale-105 opacity-100'
                     : 'opacity-40 hover:opacity-80 scale-100'
                 }`}
               >

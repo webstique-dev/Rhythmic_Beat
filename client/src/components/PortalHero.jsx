@@ -6,6 +6,7 @@ import mobilePoster from '../assets/poster-family-dance.webp';
 import rightHeroImg from '../assets/Right-side-hero.jpg';
 import leftHeroImg from '../assets/Our-Story-2.jpg';
 import { heroData } from '../data/hero';
+import { DisciplineWatermark } from './DisciplineWatermark';
 
 export const PortalHero = ({ data = heroData }) => {
   const containerRef = useRef(null);
@@ -198,7 +199,7 @@ export const PortalHero = ({ data = heroData }) => {
   // 2. Full-bleed video settles from 1.15 overscale down to 1.00
   const imageScale = 1.15 - p * 0.15;
 
-  // 3. Duotone wash blending blue (#1E5BB8) and orange (#F28C1E) raises from 0 to 0.32
+  // 3. Duotone wash blending blue (#145A96) and orange (#F28C28) raises from 0 to 0.32
   const duotoneOpacity = p * 0.32;
 
   // 4. Two accent dots travel from center to opposite corners of the field
@@ -258,12 +259,12 @@ export const PortalHero = ({ data = heroData }) => {
           />
         </div>
 
-        {/* Layer 2: Duotone Wash (Blue #1E5BB8 and Orange #F28C1E at soft-light) */}
+        {/* Layer 2: Duotone Wash (Blue #145A96 and Orange #F28C28 at soft-light) */}
         <div
           className="absolute inset-0 w-full h-full pointer-events-none mix-blend-soft-light"
           style={{
             background:
-              'linear-gradient(135deg, rgba(30, 91, 184, 0.95) 0%, rgba(242, 140, 30, 0.85) 100%)',
+              'linear-gradient(135deg, rgba(20, 90, 150, 0.95) 0%, rgba(242, 140, 40, 0.85) 100%)',
             opacity: duotoneOpacity,
             transition: 'opacity 0.05s linear',
           }}
@@ -274,14 +275,14 @@ export const PortalHero = ({ data = heroData }) => {
           className="absolute inset-0 w-full h-full pointer-events-none z-1"
           style={{
             background:
-              'radial-gradient(ellipse at 50% 50%, rgba(6, 10, 18, 0.1) 20%, rgba(6, 10, 18, 0.5) 100%, rgba(6, 10, 18, 0.95) 100%)',
+              'radial-gradient(ellipse at 50% 50%, rgba(34, 34, 34, 0.1) 20%, rgba(34, 34, 34, 0.5) 100%, rgba(34, 34, 34, 0.95) 100%)',
           }}
         />
 
         {/* Layer 4: Two Solid Ground Panels (meeting in center at start, parting outward) */}
         {/* Left Panel */}
         <div
-          className="absolute top-0 bottom-0 left-0 w-[52%] bg-[#060A12] z-10 will-change-transform border-r border-white/[0.08] overflow-hidden"
+          className="absolute top-0 bottom-0 left-0 w-[52%] bg-[#222222] z-10 will-change-transform border-r border-white/[0.08] overflow-hidden"
           style={{
             transform: `translateX(${leftPanelX}%)`,
             transition: 'transform 0.05s linear',
@@ -300,22 +301,22 @@ export const PortalHero = ({ data = heroData }) => {
               className="absolute inset-0 pointer-events-none"
               style={{
                 backgroundImage:
-                  'radial-gradient(ellipse at 40% 50%, transparent 30%, rgba(6, 10, 18, 0.25) 65%, rgba(6, 10, 18, 0.75) 100%), radial-gradient(circle at 50% 65%, rgba(30, 91, 184, 0.22) 0%, transparent 60%)',
+                  'radial-gradient(ellipse at 40% 50%, transparent 30%, rgba(34, 34, 34, 0.25) 65%, rgba(34, 34, 34, 0.75) 100%), radial-gradient(circle at 50% 65%, rgba(20, 90, 150, 0.22) 0%, transparent 60%)',
               }}
               aria-hidden="true"
             />
             {/* Center seam gentle fog fade */}
             <div
-              className="absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-[#060A12]/85 via-[#060A12]/40 to-transparent pointer-events-none"
+              className="absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-[#222222]/85 via-[#222222]/40 to-transparent pointer-events-none"
               aria-hidden="true"
             />
             {/* Top & bottom gentle black fog fades */}
             <div
-              className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#060A12]/75 via-[#060A12]/40 to-transparent pointer-events-none"
+              className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#222222]/75 via-[#222222]/40 to-transparent pointer-events-none"
               aria-hidden="true"
             />
             <div
-              className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#060A12]/75 via-[#060A12]/40 to-transparent pointer-events-none"
+              className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#222222]/75 via-[#222222]/40 to-transparent pointer-events-none"
               aria-hidden="true"
             />
           </div>
@@ -323,7 +324,7 @@ export const PortalHero = ({ data = heroData }) => {
 
         {/* Right Panel */}
         <div
-          className="absolute top-0 bottom-0 right-0 w-[52%] bg-[#060A12] z-10 will-change-transform border-l border-white/[0.08] overflow-hidden"
+          className="absolute top-0 bottom-0 right-0 w-[52%] bg-[#222222] z-10 will-change-transform border-l border-white/[0.08] overflow-hidden"
           style={{
             transform: `translateX(${rightPanelX}%)`,
             transition: 'transform 0.05s linear',
@@ -342,22 +343,22 @@ export const PortalHero = ({ data = heroData }) => {
               className="absolute inset-0 pointer-events-none"
               style={{
                 backgroundImage:
-                  'radial-gradient(ellipse at 60% 50%, transparent 30%, rgba(6, 10, 18, 0.25) 65%, rgba(6, 10, 18, 0.75) 100%), radial-gradient(circle at 50% 65%, rgba(242, 140, 30, 0.22) 0%, transparent 60%)',
+                  'radial-gradient(ellipse at 60% 50%, transparent 30%, rgba(34, 34, 34, 0.25) 65%, rgba(34, 34, 34, 0.75) 100%), radial-gradient(circle at 50% 65%, rgba(242, 140, 40, 0.22) 0%, transparent 60%)',
               }}
               aria-hidden="true"
             />
             {/* Center seam gentle fog fade */}
             <div
-              className="absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-[#060A12]/85 via-[#060A12]/40 to-transparent pointer-events-none"
+              className="absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-[#222222]/85 via-[#222222]/40 to-transparent pointer-events-none"
               aria-hidden="true"
             />
             {/* Top & bottom gentle black fog fades */}
             <div
-              className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#060A12]/75 via-[#060A12]/40 to-transparent pointer-events-none"
+              className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#222222]/75 via-[#222222]/40 to-transparent pointer-events-none"
               aria-hidden="true"
             />
             <div
-              className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#060A12]/75 via-[#060A12]/40 to-transparent pointer-events-none"
+              className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#222222]/75 via-[#222222]/40 to-transparent pointer-events-none"
               aria-hidden="true"
             />
           </div>
@@ -366,7 +367,7 @@ export const PortalHero = ({ data = heroData }) => {
         {/* Layer 5: Two Traveling Accent Dots */}
         {/* Orange Accent Dot (travels top-left) */}
         <div
-          className="absolute top-1/2 left-1/2 w-2.5 h-2.5 rounded-full bg-[#F28C1E] z-20 pointer-events-none shadow-[0_0_14px_rgba(242,140,30,0.9)] will-change-transform -translate-x-1/2 -translate-y-1/2"
+          className="absolute top-1/2 left-1/2 w-2.5 h-2.5 rounded-full bg-[#F28C28] z-20 pointer-events-none shadow-[0_0_14px_rgba(242,140,40,0.9)] will-change-transform -translate-x-1/2 -translate-y-1/2"
           style={{
             transform: `translate(calc(-50% + ${dotOrangeX}vw), calc(-50% + ${dotOrangeY}vh))`,
             transition: 'transform 0.05s linear',
@@ -375,11 +376,22 @@ export const PortalHero = ({ data = heroData }) => {
 
         {/* Blue Accent Dot (travels bottom-right) */}
         <div
-          className="absolute top-1/2 left-1/2 w-2.5 h-2.5 rounded-full bg-[#1E5BB8] z-20 pointer-events-none shadow-[0_0_14px_rgba(30,91,184,0.9)] will-change-transform -translate-x-1/2 -translate-y-1/2"
+          className="absolute top-1/2 left-1/2 w-2.5 h-2.5 rounded-full bg-[#145A96] z-20 pointer-events-none shadow-[0_0_14px_rgba(20,90,150,0.9)] will-change-transform -translate-x-1/2 -translate-y-1/2"
           style={{
             transform: `translate(calc(-50% + ${dotBlueX}vw), calc(-50% + ${dotBlueY}vh))`,
             transition: 'transform 0.05s linear',
           }}
+        />
+
+        {/* Background Discipline Element 1: Western Dance */}
+        <DisciplineWatermark
+          discipline="westerndance"
+          position="bottom-left"
+          color="white"
+          opacity={0.085}
+          size="clamp(220px, 30vw, 440px)"
+          rotation={-8}
+          className="z-10 mb-6 sm:mb-10 left-3 sm:left-8 lg:left-14"
         />
 
         {/* Layer 6: Signature Title with Kinematics */}
@@ -433,7 +445,7 @@ export const PortalHero = ({ data = heroData }) => {
         {/* Top-Left: Tagline */}
         <div className="absolute top-[74px] left-6 sm:left-10 z-30 pointer-events-none">
           <span className="text-[10.5px] font-semibold text-[#CBD5E1] uppercase tracking-[0.15em] flex items-center gap-2 drop-shadow-sm">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#F28C1E] shadow-[0_0_8px_rgba(242,140,30,0.9)]" />
+            <span className="w-1.5 h-1.5 rounded-full bg-[#F28C28] shadow-[0_0_8px_rgba(242,140,40,0.9)]" />
             {data.tagline}
           </span>
         </div>
@@ -459,7 +471,7 @@ export const PortalHero = ({ data = heroData }) => {
           </span>
           <div className="w-4 h-7 rounded-full border border-white/30 flex items-start justify-center p-1 bg-black/20 backdrop-blur-sm">
             <div
-              className="w-1 h-1.5 rounded-full bg-[#1E5BB8] shadow-[0_0_6px_rgba(30,91,184,0.9)] will-change-transform"
+              className="w-1 h-1.5 rounded-full bg-[#145A96] shadow-[0_0_6px_rgba(20,90,150,0.9)] will-change-transform"
               style={{
                 transform: `translateY(${p * 12}px)`,
                 transition: 'transform 0.05s linear',
