@@ -11,6 +11,8 @@ import holisticStrengtheningImg from '../assets/brochure/holistic-strengthening-
 import holisticZumbaImg from '../assets/brochure/holistic-zumba-final.jpg';
 import holisticPowerYogaImg from '../assets/brochure/holistic-power-yoga-final.jpg';
 import holisticChoreoImg from '../assets/brochure/holistic-choreo-final.jpg';
+import bungeeWorkoutImg from '../assets/disciplines/course-bungee-workout.jpg';
+import kalaripayattuImg from '../assets/disciplines/course-kalaripayattu.jpg';
 
 export const TRACK_OPTIONS = [
   {
@@ -31,6 +33,110 @@ export const TRACK_OPTIONS = [
 ];
 
 export const COURSES_DATA = [
+  {
+    id: 'bharatanatyam',
+    title: 'Bharata Natyam',
+    category: 'classical',
+    featured: true,
+    tagline: 'Classical Heritage & Expressions',
+    description: 'Traditional South Indian classical dance training encompassing fundamental adavus (steps), hastha mudras (hand gestures), rhythm (talam), and expressive abhinaya across progressive tiers.',
+    image: bharathamImg,
+    width: 600,
+    height: 740,
+    schedule: [
+      { days: 'Saturday', time: '4:30 PM – 5:30 PM' },
+      { days: 'Sunday', time: '9:30 AM – 11:00 AM' },
+    ],
+    levels: ['Level 1 (Foundations)', 'Level 2 (Adavus)', 'Level 3 (Jathis & Sahityam)', 'Level 4 (Arangetram Track)'],
+    highlights: ['Adavu Foundations', 'Talam & Rhythm', 'Mudras & Expression', 'Graded Levels'],
+    track: 'Weekly 2 Days (Normal Track)',
+  },
+  {
+    id: 'westerndance',
+    title: 'Western Dance',
+    category: 'dance',
+    featured: true,
+    tagline: 'Hip-Hop, Freestyle & Urban Grooves',
+    description: 'Dynamic choreography sessions and high-energy routines blending urban choreography, hip-hop isolations, freestyle foundations, musicality, and stage performance across age tiers.',
+    image: westernSeniorsImg,
+    width: 600,
+    height: 600,
+    schedule: [
+      { days: 'Tuesday & Thursday', time: '5:30 PM – 6:30 PM' },
+      { days: 'Saturday & Sunday', time: '7:30 PM – 8:30 PM' },
+    ],
+    highlights: ['Urban Grooves', 'Hip-Hop Isolations', 'Sync Choreography', 'Stage Presence'],
+    track: 'Weekly 2 / 4 Days',
+  },
+  {
+    id: 'zumba',
+    title: 'Zumba Fitness',
+    category: 'fitness',
+    featured: true,
+    tagline: 'High-Energy Cardio & Latin Rhythms',
+    description: 'An exhilarating dance fitness party set to high-tempo rhythms, blending easy-to-follow moves with interval training for maximum cardiovascular health, stamina, and calorie burn.',
+    image: holisticZumbaImg,
+    width: 600,
+    height: 650,
+    schedule: [
+      { days: 'Morning Batch', time: '6:15 AM – 7:15 AM' },
+      { days: 'Evening Batch', time: '6:30 PM – 7:30 PM' },
+    ],
+    notes: 'All days except Friday',
+    highlights: ['Cardio Stamina', 'Calorie Burn', 'Rhythmic Grooves', 'Total Body Tone'],
+  },
+  {
+    id: 'aerialyoga',
+    title: 'Aerial Yoga',
+    category: 'aerial',
+    featured: true,
+    tagline: 'Anti-Gravity Silk Suspension & Core Flow',
+    description: 'Suspended in soft aerial hammocks, develop core stability, spinal decompression, upper body strength, and inverted flow with graceful balance.',
+    image: aerialYogaImg,
+    width: 600,
+    height: 720,
+    schedule: [
+      { days: 'Saturday & Sunday', time: '10:00 AM – 11:00 AM' },
+      { days: 'Monday & Wednesday', time: '6:30 PM – 7:30 PM' },
+    ],
+    highlights: ['Spinal Decompression', 'Silk Suspension', 'Inversion Flow', 'Core Stability'],
+    track: 'Weekly 2 Days (Normal Track)',
+  },
+  {
+    id: 'bungeeworkout',
+    title: 'Bungee Workout',
+    category: 'aerial',
+    featured: true,
+    tagline: 'Defy Gravity with Dynamic Aerial Bounds',
+    description: 'A high-intensity, low-impact cardio and core conditioning workout suspended in aerial bungee cords. Fly, leap, and bound through high-energy routines with zero joint impact.',
+    image: bungeeWorkoutImg,
+    width: 600,
+    height: 800,
+    schedule: [
+      { days: 'Saturday & Sunday', time: '11:30 AM – 12:30 PM' },
+      { days: 'Wednesday & Friday', time: '7:00 PM – 8:00 PM' },
+    ],
+    highlights: ['Zero Joint Impact', 'Aerial Leap Training', 'High-Octane Cardio', 'Core Suspension'],
+    track: 'Weekly 2 Days (Specialized Flight Track)',
+  },
+  {
+    id: 'kalaripayattu',
+    title: 'Kalaripayattu',
+    category: 'fitness',
+    featured: true,
+    tagline: 'Ancient Indian Martial Movement & Postures',
+    description: 'The ancient mother of martial arts from Kerala, combining animal postures (Vadivu), fluid body control, extreme flexibility (Meythari), explosive leg swings (Kalkal), and mindful breath harmony.',
+    image: kalaripayattuImg,
+    width: 600,
+    height: 800,
+    schedule: [
+      { days: 'Saturday & Sunday', time: '6:30 AM – 7:30 AM' },
+      { days: 'Tuesday & Thursday', time: '6:30 AM – 7:30 AM' },
+    ],
+    levels: ['Meythari (Body Control)', 'Kolthari (Wooden Weapons)', 'Angathari (Metal Weapons)', 'Verumkai (Unarmed Combat)'],
+    highlights: ['Animal Postures (Vadivu)', 'Meythari Flexibility', 'Leg Swings (Kalkal)', 'Prana & Inner Focus'],
+    track: 'Weekly 2 Days (Traditional Track)',
+  },
   {
     id: 'aerial-yoga',
     title: 'Aerial Yoga',
@@ -357,5 +463,25 @@ export const ALL_DISCIPLINES_ITEMS = [
     width: 600,
     height: 620,
     link: '/courses/animal-flow',
+  },
+  {
+    id: 'bungeeworkout',
+    title: 'Bungee Workout',
+    category: 'aerial',
+    isFitness: true,
+    image: bungeeWorkoutImg,
+    width: 600,
+    height: 800,
+    link: '/courses/bungeeworkout',
+  },
+  {
+    id: 'kalaripayattu',
+    title: 'Kalaripayattu',
+    category: 'fitness',
+    isFitness: true,
+    image: kalaripayattuImg,
+    width: 600,
+    height: 800,
+    link: '/courses/kalaripayattu',
   },
 ];

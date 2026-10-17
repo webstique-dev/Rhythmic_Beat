@@ -19,8 +19,20 @@ import {
 } from 'lucide-react';
 import { COURSES_DATA } from '../data/courses';
 
+const ALIAS_MAP = {
+  aerialyoga: 'aerial-yoga',
+  'aerial-yoga': 'aerialyoga',
+  bharatham: 'bharatanatyam',
+  bharatanatyam: 'bharatham',
+  'bungee-workout': 'bungeeworkout',
+  'western-dance': 'westerndance',
+};
+
 export const CourseDetailsPage = ({ courseId, initialTab, onNavigate }) => {
-  const course = COURSES_DATA.find((c) => c.id === courseId) || COURSES_DATA[0];
+  const course =
+    COURSES_DATA.find((c) => c.id === courseId) ||
+    COURSES_DATA.find((c) => c.id === ALIAS_MAP[courseId]) ||
+    COURSES_DATA[0];
   const hasSubcategories = Boolean(course.subcategories && course.subcategories.length > 0);
 
   const [activeSubTab, setActiveSubTab] = useState(
@@ -233,7 +245,7 @@ export const CourseDetailsPage = ({ courseId, initialTab, onNavigate }) => {
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                  {course.schedule.map((slot, idx) => (
+                  {(course.schedule || []).map((slot, idx) => (
                     <div
                       key={idx}
                       className="p-3.5 rounded-2xl bg-[#F1F3F5] border border-[rgba(34,34,34,0.06)] flex flex-col justify-between"

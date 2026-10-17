@@ -92,7 +92,7 @@
   margin: 0;
   padding: 0 1rem;
   text-align: center;
-  font-family: 'Syne', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: var(--se-title-size);
   font-weight: 800;
   letter-spacing: -0.025em;
@@ -112,7 +112,7 @@
   right: 0;
   bottom: clamp(1rem, 3.5vh, 2rem);
   text-align: center;
-  font-family: 'Sora', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: clamp(0.6875rem, 2vw, 0.8125rem);
   font-weight: 600;
   letter-spacing: 0.14em;

@@ -14,7 +14,7 @@ export const CoursesPage = ({ onNavigate }) => {
 
   return (
     <div className="min-h-screen w-full overflow-x-hidden min-w-0 bg-[#F1F3F5] text-[#222222] selection:bg-[#145A96]/20 selection:text-[#222222]">
-      {/* 1. Hero Section */}
+      {/* 1. Hero Section (Spacious Editorial Header) */}
       <section
         id="courses-hero"
         className="relative w-full pt-24 xs:pt-28 sm:pt-36 pb-10 sm:pb-16 lg:pb-20 border-b border-[rgba(34,34,34,0.08)] bg-gradient-to-b from-white via-white to-[#F1F3F5] overflow-hidden"
@@ -40,7 +40,7 @@ export const CoursesPage = ({ onNavigate }) => {
                 </h1>
               </div>
 
-              {/* Description Body Copy */}
+              {/* Description Body Copy (No Timings) */}
               <p className="max-w-xl text-xs xs:text-sm sm:text-base text-[#222222]/80 leading-relaxed font-normal">
                 Explore our comprehensive 2026 academy curriculum across Western Dance, Classical Bharatham, Aerial Yoga, Movement Conditioning, and holistic fitness disciplines. Choose your track and enroll today.
               </p>
@@ -103,11 +103,13 @@ export const CoursesPage = ({ onNavigate }) => {
         </div>
       </section>
 
-      {/* 2. Full Course Directory with React Bits Masonry (Filters Hidden, Polished Title UI) */}
+
+
+      {/* 3. Full Course Directory with React Bits Masonry (No Timings) */}
       <section
         id="course-directory"
         className="py-10 sm:py-16 max-w-[1400px] mx-auto px-3.5 sm:px-8 lg:px-12 xl:px-16"
-        aria-label="Course Batches Directory"
+        aria-label="All Studio Courses Directory"
       >
         {/* Polished Full-Width Title UI */}
         <div className="mb-6 sm:mb-10 border-b border-[rgba(34,34,34,0.08)] pb-5 sm:pb-6">
@@ -121,7 +123,7 @@ export const CoursesPage = ({ onNavigate }) => {
             All Studio Disciplines &amp; Courses
           </h2>
           <p className="text-xs sm:text-sm md:text-base text-[#222222]/70 mt-2 max-w-2xl leading-relaxed">
-            Explore all studio disciplines across Chennai and Pondicherry. Tap any card or the top-right arrow button to view curriculum, age criteria, and batch schedules.
+            Explore all studio disciplines across Chennai and Pondicherry. Tap any card or the top-right arrow button to view curriculum, training focus, and full details.
           </p>
         </div>
 

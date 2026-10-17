@@ -9,7 +9,7 @@ export const StageArenaSection = () => {
   return (
     <section
       id="arena"
-      className="relative w-full border-b border-[rgba(34,34,34,0.12)] bg-[#F1F3F5] overflow-hidden"
+      className="relative w-full border-b border-[rgba(34,34,34,0.12)] bg-[#F1F3F5] overflow-x-clip"
       aria-label="Studio Immersion & Stage Experience"
     >
       {/* Background Discipline Element 5: Aerial Yoga */}

@@ -9,7 +9,7 @@ export const CloseSection = ({ data = closeSectionData }) => {
       className="relative w-full overflow-hidden border-t border-[rgba(34,34,34,0.12)] bg-[#F1F3F5]"
       aria-label="Contact and Academy Details"
     >
-      {/* Background Discipline Element 8: Kalaripayattu */}
+      {/* Background Discipline Element 8: Kalaripayattu (Top-Right) */}
       <DisciplineWatermark
         discipline="kalaripayattu"
         position="top-right"
@@ -18,6 +18,17 @@ export const CloseSection = ({ data = closeSectionData }) => {
         size="clamp(240px, 30vw, 440px)"
         rotation={5}
         className="top-8 sm:top-14 right-3 sm:right-12 z-0"
+      />
+
+      {/* Background Discipline Element: Bharatanatyam (Bottom-Left) */}
+      <DisciplineWatermark
+        discipline="bharatanatyam"
+        position="bottom-left"
+        color="orange"
+        opacity={0.065}
+        size="clamp(240px, 30vw, 440px)"
+        rotation={-6}
+        className="bottom-8 sm:bottom-16 left-2 sm:left-8 z-0"
       />
       <div className="max-w-[1400px] mx-auto px-3 xs:px-4 sm:px-8 lg:px-12 xl:px-16 pt-16 sm:pt-32 pb-12">
         {/* Top Split: Headline & Action Buttons */}

@@ -80,7 +80,7 @@ export const TestimonialsSection = () => {
   return (
     <section
       id="testimonials"
-      className="relative w-full py-14 sm:py-20 md:py-24 border-b border-[rgba(34,34,34,0.12)] bg-[#F1F3F5] overflow-hidden"
+      className="relative w-full pt-10 sm:pt-14 md:pt-16 pb-14 sm:pb-20 md:pb-24 border-b border-[rgba(34,34,34,0.12)] bg-[#F1F3F5] overflow-hidden"
       aria-label="Student and Parent Testimonials"
     >
       {/* Background Discipline Element 6: Yoga */}

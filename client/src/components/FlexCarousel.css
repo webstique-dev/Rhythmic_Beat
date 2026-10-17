@@ -49,7 +49,7 @@
   flex-direction: column;
   align-items: center;
   max-width: 100%;
-  font-family: 'Syne', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: clamp(14px, 3.5vw, 17px);
   font-weight: 600;
   letter-spacing: -0.015em;
@@ -60,7 +60,7 @@
 }
 
 .flex-carousel__subtitle {
-  font-family: 'Sora', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: clamp(10.5px, 2.6vw, 12px);
   font-weight: 500;
   color: rgba(34, 34, 34, 0.7);
@@ -73,7 +73,7 @@
   display: inline-flex;
   align-items: center;
   gap: 3px;
-  font-family: 'Sora', monospace;
+  font-family: 'Montserrat', sans-serif;
   font-size: 11px;
   line-height: 1;
   font-variant-numeric: tabular-nums;

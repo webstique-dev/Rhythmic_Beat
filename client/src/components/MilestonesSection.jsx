@@ -113,7 +113,7 @@ export const MilestonesSection = () => {
                 {/* Large Distinctive Editorial Serif Numeral */}
                 <div className="flex items-center justify-center leading-none select-none">
                   <span
-                    className="font-serif font-normal text-4xl xs:text-5xl sm:text-6xl md:text-5xl lg:text-[72px] xl:text-[78px] text-[#145A96] tracking-[-0.02em] tabular-nums"
+                    className="font-display font-black text-4xl xs:text-5xl sm:text-6xl md:text-5xl lg:text-[72px] xl:text-[78px] text-[#145A96] tracking-[-0.02em] tabular-nums"
                     style={{ fontFeatureSettings: '"tnum"' }}
                   >
                     {displayValue}

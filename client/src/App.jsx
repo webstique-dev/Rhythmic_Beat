@@ -31,17 +31,18 @@ export default function App() {
     return '/';
   });
 
+  const [isNearbyWorkshopOpen, setIsNearbyWorkshopOpen] = useState(false);
   const [isWorkshopModalOpen, setIsWorkshopModalOpen] = useState(false);
   const [selectedWorkshopId, setSelectedWorkshopId] = useState(null);
   const [bookingWorkshop, setBookingWorkshop] = useState(null);
 
-  // 3-second automatic popup for next upcoming workshop (once per session)
+  // 3-second automatic popup for nearby workshop card (once per session)
   useEffect(() => {
     try {
       const dismissed = sessionStorage.getItem('rbdc_workshop_popup_dismissed');
       if (!dismissed) {
         const timer = setTimeout(() => {
-          setIsWorkshopModalOpen(true);
+          setIsNearbyWorkshopOpen(true);
         }, 3000);
         return () => clearTimeout(timer);
       }
@@ -133,9 +134,11 @@ export default function App() {
       }
     }
 
-    // Dynamic Course Details Page Route: /courses/:id
-    if (currentPath.startsWith('/courses/')) {
-      const cleanPath = currentPath.replace('/courses/', '');
+    // Dynamic Course / Discipline Details Page Route: /courses/:id or /disciplines/:id
+    if (currentPath.startsWith('/courses/') || currentPath.startsWith('/disciplines/')) {
+      const cleanPath = currentPath.startsWith('/courses/')
+        ? currentPath.replace('/courses/', '')
+        : currentPath.replace('/disciplines/', '');
       const courseId = cleanPath.split('?')[0].split('#')[0].split('/')[0];
       const searchParams = new URLSearchParams(
         cleanPath.includes('?')
@@ -206,7 +209,7 @@ export default function App() {
             <TestimonialsSection />
 
             {/* 7. Philosophy & Creed (Bungee Movement) */}
-            <StatementFold />
+            {/* <StatementFold /> */}
 
             {/* 8. Weekly Schedule */}
             {/* <ScheduleSection /> */}
@@ -231,13 +234,18 @@ export default function App() {
       {/* Close & Footer */}
       <CloseSection />
 
-      {/* Fixed Animated Floating Circle Button for Upcoming Workshop */}
-      <WorkshopFloatingButton
-        onSelectWorkshop={(workshopId) => {
-          setSelectedWorkshopId(workshopId);
-          setIsWorkshopModalOpen(true);
-        }}
-      />
+      {/* Fixed Animated Floating Circle Button for Upcoming Workshop (hidden on dedicated workshop details page to keep booking UI clean & unobstructed) */}
+      {!currentPath.startsWith('/workshops/') && (
+        <WorkshopFloatingButton
+          isOpen={isNearbyWorkshopOpen}
+          onToggle={() => setIsNearbyWorkshopOpen((prev) => !prev)}
+          onClose={() => setIsNearbyWorkshopOpen(false)}
+          onNavigate={navigate}
+          onSelectWorkshop={(workshopId) => {
+            navigate(`/workshops/${workshopId}`);
+          }}
+        />
+      )}
 
       {/* Upcoming Workshop Modal Dialog */}
       <UpcomingWorkshopModal
